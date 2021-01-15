@@ -1,0 +1,71 @@
+@import "../variables";
+
+.gear-row {
+    border: $borderGroove;
+    background-color: $highlight;
+
+    .gear-name {
+        font-size: larger;
+        font-weight: bold;
+        font-variant: small-caps;
+        text-transform: capitalize;
+    }
+
+    .gear-summary {
+        .gear-title {
+            font-style: italic;
+            font-weight: bold;
+            font-variant: small-caps;
+            text-align: center;
+            color: $transparentDark;
+            margin-top: -2px;
+            margin-bottom: -2px;
+        }
+
+        .gear-type {
+            font-size: x-small;
+            font-weight: bold;
+            text-align: center;
+            color: $transparentDark;
+        }
+    }
+
+    .weapon-wl {
+        font-size: larger;
+    }
+}
+
+.armor-row {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
+    grid-gap: 0.5rem;
+}
+
+.weapon-row {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
+    grid-gap: 0.5rem;
+
+    .weapon-affixes {
+        font-size: smaller;
+    }
+}
+
+.feat-row {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
+    grid-gap: 0.25rem;
+
+    .feat-tier {
+        font-style: italic;
+        color: $transparentDark;
+        border-right: $borderGroove;
+        padding-right: 5px;
+    }
+}
+
+.perkflaw-row {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) 20px;
+    grid-gap: 0.2rem;
+}

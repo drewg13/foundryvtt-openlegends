@@ -1,0 +1,23 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details">
+            <div class="flexrow">
+                <h1 class="item-name">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+                </h1>
+    
+                <div class="item-subtitle">
+                    <h4 class="item-type">{{item.type}}</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div></div>
+        <div class="description-editor">
+            {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

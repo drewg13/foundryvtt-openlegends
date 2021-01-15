@@ -1,0 +1,83 @@
+@import "../variables";
+
+.health {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.25rem;
+  
+    padding: 0.25em;
+    background: $healthColor;
+    border: $thickBorderGroove
+    // border: 9px groove rgba(121, 108, 197, 0.78);
+    // border-radius: 28px 28px 0px 0px;
+}
+  
+.health-title {
+    grid-column: 1/4;
+    grid-row: 1/2;
+  
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: -8;
+}
+  
+.health-type {
+    font-size: large;
+    text-align: center;
+}
+
+.health input {
+    text-align: center;
+}
+  
+.guard {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+  
+.toughness {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+  
+.resolve {
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+}
+  
+.defense-grid {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.25rem;
+  
+    padding: 0.25em;
+    background: $defenseColor;
+    border: $thickBorderGroove;
+    // border: 9px groove rgba(121, 108, 197, 0.78);
+    // border-radius: 28px 28px 0px 0px;
+}
+
+.defense-grid .attribute-grid {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 20px 20px 20px minmax(0px, 20px);
+    grid-gap: 0.25rem;
+
+    align-items: center;
+    text-align: center;
+}
+  
+.defense-title {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+  
+.defense-value { 
+    text-align: center;
+    font-size: 300%;
+}

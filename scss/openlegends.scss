@@ -8,11 +8,34 @@
 @import 'global/window';
 @import 'global/grid';
 @import 'global/flex';
+@import 'components/dialogs/roll';
 
 /* Styles limited to openlegends sheets */
 .openlegends {
-  @import 'components/forms';
-  @import 'components/resource';
+  @import 'components/actor/actions';
+  @import 'components/actor/attributes';
+  @import 'components/actor/character';
+  @import 'components/actor/defense';
+  @import 'components/actor/details';
+  @import 'components/actor/gear';
+  @import 'components/actor/main';
+  @import 'components/items/main';
   @import 'components/tabs';
-  @import 'components/items';
+
+  /* Header Summary Details */
+  font-family: "Modesto", "Palatino Linotype", serif;
+
+  .forceful {
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font-weight: bold;
+  }
+
+  .aligned {
+    align-items: center;
+  }
+
+  .h-divider {
+    border-bottom: $borderGroove;
+  }
 }

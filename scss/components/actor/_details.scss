@@ -1,0 +1,63 @@
+@import "../variables";
+
+.avatar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  
+    width: 100px;
+    max-width: 100px;
+}
+  
+.details {
+    grid-column: 1 / 4;
+    grid-row: 1 / 1;
+    // background: #3bbced;
+    border: $thickBorderGroove;
+
+    display: grid;
+    grid-template-columns: 100px minmax(110px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr);
+    grid-template-rows: max-content max-content max-content;
+    grid-gap: 0.25rem;
+
+    div {
+        background-color: $highlight;
+        border: $borderGroove;
+    }
+
+    input {
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        border-bottom: 1px solid black;
+        border-radius: 0px;
+    }
+
+    .details-name {
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+    }
+      
+    .details-player {
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+    }
+      
+    .details-description {
+        grid-column: 4 / 7;
+        grid-row: 1 / 2;
+    }
+      
+    .details-level {
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+      
+    .details-xp {
+        grid-column: 5 / 6;
+        grid-row: 2 / 3;
+    }
+      
+    .details-wealth {
+        grid-column: 6 / 7;
+        grid-row: 2 / 3;
+    }
+}

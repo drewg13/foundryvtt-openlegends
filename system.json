@@ -10,7 +10,39 @@
   "esmodules": ["module/openlegends.js"],
   "styles": ["css/openlegends.css"],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "banes",
+      "label": "Banes",
+      "system": "openlegends",
+      "path": "./packs/banes.db",
+      "entity": "Item"
+    },{
+      "name": "boons",
+      "label": "Boons",
+      "system": "openlegends",
+      "path": "./packs/boons.db",
+      "entity": "Item"
+    },{
+      "name": "feats",
+      "label": "Feats",
+      "system": "openlegends",
+      "path": "./packs/feats.db",
+      "entity": "Item"
+    },{
+      "name": "flaws",
+      "label": "Flaws",
+      "system": "openlegends",
+      "path": "./packs/flaws.db",
+      "entity": "Item"
+    },{
+      "name": "perks",
+      "label": "Perks",
+      "system": "openlegends",
+      "path": "./packs/perks.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",

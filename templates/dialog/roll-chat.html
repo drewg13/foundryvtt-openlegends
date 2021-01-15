@@ -1,0 +1,25 @@
+<div class="roll-chat">
+    <header class="card-header flexrow">
+        <h3 class="roll-name">{{name}}</h3>
+        <h3 class="roll-type">{{type}}</h3>
+    </header>
+
+    <div class="card-content">
+        <div>{{notes}}</div>
+        {{#if target}}
+        <div class="card-vs">
+            {{attr.name}} VS {{#ifeq type 'boon'}}PL: {{/ifeq}}{{target}}
+        </div>
+        {{/if}}
+    </div>
+
+    <footer class="card-footer">
+        <span class="card-tag">Attribute: <span class="tag-number">{{attr.score}}</span></span>
+        {{#if attr.dice}}
+            <span class="card-tag">Dice: <span class="tag-number">{{attr.dice.num}}{{attr.dice.die}}</span></span>
+        {{/if}}
+        {{#if adv}}
+            <span class="card-tag card-{{adv.type}}">{{adv.type}}: <span class="tag-number">{{adv.value}}</span></span>
+        {{/if}}
+    </footer>
+</div>

@@ -2,60 +2,158 @@
   "Actor": {
     "types": ["character"],
     "templates": {
+      "details": {
+        "description": "",
+        "player": "",
+        "level": 0,
+        "xp": 0,
+        "wl": 2,
+        "lp": 1,
+        "speed": 30
+      },
       "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
+        "trackers": {
+          "attr": {
+            "spent": 0,
+            "points": 40
+          },
+          "feats": {
+            "spent": 0,
+            "points": 6
+          }
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        }
+        "defense": {
+          "hp": {
+            "value": 10,
+            "min": 0,
+            "max": 10,
+            "lethal": 0
+          },
+          "guard": {
+            "armor": 0,
+            "other": 0
+          },
+          "toughness": {
+            "other": 0
+          },
+          "resolve": {
+            "other": 0
+          }
+        },
+        "attributes": {
+          "physical": {
+            "agility": { "score": 0 },
+            "fortitude": { "score": 0 },
+            "might": { "score": 0 }
+          },
+          "mental": {
+            "learning": { "score": 0 },
+            "logic": { "score": 0 },
+            "perception": { "score": 0 },
+            "will": { "score": 0 }
+          },
+          "social": {
+            "deception": { "score": 0 },
+            "persuasion": { "score": 0 },
+            "presence": { "score": 0 }
+          },
+          "extraordinary": {
+            "alteration": { "score": 0 },
+            "creation": { "score": 0 },
+            "energy": { "score": 0 },
+            "entropy": { "score": 0 },
+            "influence": { "score": 0 },
+            "movement": { "score": 0 },
+            "prescience": { "score": 0 },
+            "protection": { "score": 0 }
+          }
+        },
+        "initiative_mod": 0
       }
     },
     "character": {
-      "templates": ["base"],
-      "biography": "",
-      "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
-      }
+      "templates": ["base", "details"],
+      "biography": ""
     }
   },
   "Item": {
-    "types": ["item"],
+    "types": ["boon", "bane", "weapon", "armor", "feat", "perk", "flaw", "attack"],
     "templates": {
-      "base": {
-        "description": ""
+      "flavor": {
+        "details": {
+          "description": "",
+          "effect": "",
+          "notes": ""
+        }
+      },
+      "core": {
+        "attributes": {
+          "agility": false, "fortitude": false, "might": false,
+          "learning": false, "logic": false, "perception": false, "will": false,
+          "deception": false, "persuasion": false, "presence": false,
+          "alteration": false, "creation": false, "energy": false, "entropy": false,
+          "influence": false, "movement": false, "prescience": false, "protection": false
+        }
+      },
+      "actionable": {
+        "action": {
+          "name": "",
+          "attribute": "",
+          "cast_time": "",
+          "target": "",
+          "index": 0
+        }
+      },
+      "persists": {
+        "persists": {
+          "duration": ""
+        }
+      },
+      "gear": {
+        "gear": {
+          "index": 0,
+          "wl": 0
+        }
       }
     },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
+    "boon": {
+      "templates": ["flavor", "core", "actionable", "persists"]
+    },
+    "bane": {
+      "templates": ["flavor", "core", "actionable", "persists"],
+      "attacks": [],
+      "pl": ""
+    },
+    "weapon": {
+      "templates": ["flavor", "core", "actionable", "gear"],
+      "attacks": [],
+      "categories": "",
+      "properties": "",
+      "banes": ""
+    },
+    "armor": {
+      "templates": ["flavor", "actionable", "gear"],
+      "type": "",
+      "req_fort": 0,
+      "defense": 0,
+      "speed_penalty": 0
+    },
+    "feat" :{
+      "templates": ["flavor"],
+      "cost": 0,
+      "tier": "",
+      "prerequisites": "",
+      "index": 0
+    },
+    "perk": {
+      "templates": ["flavor"]
+    },
+    "flaw": {
+      "templates": ["flavor"]
+    },
+    "attack": {
+      "templates": ["flavor", "core", "actionable"],
+      "attacks": []
     }
   }
 }

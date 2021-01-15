@@ -1,0 +1,47 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details flexrow">
+            <h1 class="item-name">
+                <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{item.type}}</h4>
+                <span class="scale-tester" hidden></span>
+                <input class="item-status scale" name="data.action.cast_time"
+                        type="text" value="{{data.action.cast_time}}" placeholder="Action Type"/>
+            </div>
+
+            <ul class="summary flexrow">
+                <li class="flexrow">Duration:
+                    <input type="text" name="data.persists.duration" value="{{data.persists.duration}}" placeholder="?"/></li>
+                <li class="shrink">PL:
+                    <input class="scale" type="text" name="data.pl" value="{{data.pl}}" placeholder="?"/></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div>
+            <span class="action-header">Attacks</span>
+            <ul class="action-list">
+                {{#each data.attacks as |attack|}}
+                    <li><span class="forceful">{{attack.attribute}}</span> vs <span class="forceful">{{attack.target}}</span></li>
+                {{/each}}
+            </ul>
+            <div class="action-edit" hidden>
+                <ul class="attack-list">
+                    {{#each data.attacks as |attack|}}
+                        {{> "systems/openlegends/templates/item/parts/attack-target.html" attack=attack attributes=../data.attributes}}
+                    {{/each}}
+                </ul>
+                <button class="add-attack">Add</button>
+            </div>
+            <button class="update-action">Edit</button>
+        </div>
+        <div class="description-editor">
+            {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

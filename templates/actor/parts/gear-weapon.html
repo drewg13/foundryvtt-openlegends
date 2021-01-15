@@ -1,0 +1,23 @@
+<div class="aligned gear-row weapon-row">
+    <div class="gear-name clickable item-edit" data-item="{{weapon._id}}">{{weapon.name}}</div>
+    <div class="gear-summary">
+        <div class="gear-title">{{weapon.type}}</div>
+        <div class="gear-type">{{weapon.data.categories}}</div>
+    </div>
+    <div class="weapon-affixes">
+        <div class="weapon-properties">
+            <span class="forceful">Properties: </span>
+            {{weapon.data.properties}}
+        </div>
+        <div class="weapon-banes">
+            <span class="forceful">Banes: </span>
+            {{weapon.data.banes}}
+        </div>
+    </div>
+    <div class="gear-wl">
+        <span class="forceful">WL: </span>{{weapon.data.gear.wl}}</div>
+    <div class="gear-buttons">
+        <a class="gear-control gear-move-up" title="Move" data-item="{{weapon._id}}"><i class="fas fa-arrow-up"></i></a>
+        <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
+    </div>
+</div>

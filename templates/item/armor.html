@@ -1,0 +1,36 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details">
+            <div class="flexrow">
+                <h1 class="item-name">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+                </h1>
+    
+                <div class="item-subtitle">
+                    <h4 class="item-type">{{item.type}}</h4>
+                    <span class="scale-tester" hidden></span>
+                    <input class="item-status scale" name="data.type"
+                            type="text" value="{{data.type}}" placeholder="Type"/>
+                </div>
+            </div>
+            <ul class="summary flexrow">
+                <li class="flexrow">Defense:
+                    <input type="text" name="data.defense" value="{{data.defense}}" placeholder="?"/></li>
+                <li class="flexrow">Req Fort:
+                    <input type="text" name="data.req_fort" value="{{data.req_fort}}" placeholder="?"/></li>
+                <li class="flexrow">Speed Pen:
+                    <input type="text" name="data.speed_penalty" value="{{data.speed_penalty}}" placeholder="?"/></li>
+                <li class="shrink">WL:
+                    <input class="wl" type="text" name="data.gear.wl" value="{{data.gear.wl}}" placeholder="?"/></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div></div>
+        <div class="description-editor">
+            {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

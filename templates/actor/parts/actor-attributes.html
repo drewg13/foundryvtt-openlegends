@@ -1,0 +1,15 @@
+<div class="attributes">
+    {{#each data.attributes as |attr_group group_name|}}
+        <div class="attribute-header">{{group_name}}</div>
+        <div></div>
+        <div class="centered">Score</div>
+        <div class="centered">Dice</div>
+        {{#each attr_group as |attr attr_name|}}
+            <div class="attribute-name rollable macro" draggable="true"
+                    data-macro="attr" data-attr="{{attr_name}}">{{attr_name}}</div>
+            <input class="centered"name="data.attributes.{{group_name}}.{{attr_name}}.score"
+                    type="number" value="{{attr.score}}" placeholder="0" />
+            <div class="attribute-value">{{attr.dice.str}}</div>
+        {{/each}}
+    {{/each}}
+</div>

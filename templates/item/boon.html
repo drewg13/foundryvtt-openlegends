@@ -1,0 +1,49 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details flexrow">
+            <h1 class="item-name">
+                <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{item.type}}</h4>
+                <span class="scale-tester" hidden></span>
+                <input class="item-status scale" name="data.action.cast_time"
+                        type="text" value="{{data.action.cast_time}}" placeholder="Action Type"/>
+            </div>
+
+            <ul class="summary flexrow">
+                <li class="flexrow">Duration:
+                    <input type="text" name="data.persists.duration" value="{{data.persists.duration}}" placeholder="?"/></li>
+                <li class="shrink">PL:
+                    <input class="scale" type="text" name="data.action.target" value="{{data.action.target}}" placeholder="?"/></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div>
+            <span class="action-header">Attributes</span>
+            <ul class="action-list">
+                {{#each data.attributes as |val attr|}}
+                    {{#if val}}
+                        <li class="forceful">{{attr}}</li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            <ul class="action-edit" hidden>
+            {{#each data.attributes as |val attr|}}
+            <li>
+                <input class="attr-checkbox" data-attr="{{attr}}" type="checkbox" {{#if val}}checked{{/if}}/>
+                <span>{{attr}}</span>
+            </li>
+            {{/each}}
+            </ul>
+            <button class="update-action">Edit</button>
+        </div>
+        <div class="description-editor">
+            {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

@@ -13,5 +13,11 @@ export class olItem extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
+
+    if (itemData.type === 'boon') this._prepareBoonData(itemData);
+  }
+
+  _prepareBoonData(itemData) {
+    const data = itemData.data;
   }
 }

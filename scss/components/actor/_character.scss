@@ -1,0 +1,61 @@
+@import "../variables";
+
+.character {
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+  
+    display: inline-grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.25rem;
+}
+  
+.character .gear {
+    grid-column: 1/3;
+    grid-row: 1/3;
+  
+    border: $thickBorderGroove;
+    background-color: $gearColor;
+    overflow-y: scroll;
+}
+  
+.character .gear .title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.character .feats {
+    grid-column: 1/2;
+    grid-row: 3/5;
+  
+    border: $thickBorderGroove;
+    background-color: $featsColor;
+    overflow-y: scroll;
+}
+  
+.character .feats .title {
+    grid-column: span 4;
+    font-size: large;
+    font-weight: bold;
+}
+  
+.character .perks {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    
+    border: $thickBorderGroove;
+    background: $perksColor;
+}
+  
+.character .flaws {
+    grid-column: 2/3;
+    grid-row: 4/5;
+  
+    border: $thickBorderGroove;
+    background: $flawsColor;
+}
+  
+.character .perks .title, .character .flaws .title {
+    font-size: large;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+<div class="aligned gear-row armor-row">
+    <div class="gear-name clickable item-edit" data-item="{{armor._id}}">{{armor.name}}</div>
+    <div class="gear-summary">
+        <div class="gear-title">{{armor.type}}</div>
+        <div class="gear-type">{{armor.data.type}}</div>
+    </div>
+    <div class="armor-properties">
+        <span class="forceful">Defense: </span>{{armor.data.defense}}</div>
+    <div class="armor-properties">
+        <span class="forceful">Req Fort: </span>{{armor.data.req_fort}}</div>
+    <div class="armor-properties">
+        <span class="forceful">Speed Pen: </span>{{armor.data.speed_penalty}}</div>
+    <div class="gear-wl">
+        <span class="forceful">WL: </span>{{armor.data.gear.wl}}</div>
+    <div class="gear-buttons">
+        <a class="gear-control gear-move-up" title="Move" data-item="{{armor._id}}"><i class="fas fa-arrow-up"></i></a>
+        <a class="gear-control item-delete" title="Delete" data-item="{{armor._id}}"><i class="fas fa-trash"></i></a>
+    </div>
+</div>

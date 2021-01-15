@@ -1,0 +1,207 @@
+@import "../variables";
+$headerHeight: 100px;
+$detailsHeight: 40px;
+
+.item-sheet {
+    input {
+        background: rgba(0, 0, 0, 0);
+        border: none;
+    
+        &:hover,
+        &:focus {
+          border: 1px solid #111;
+          box-shadow: 0 0 8px red;
+        }
+    }
+
+    .header {
+        flex: 0 0 $headerHeight;
+        border-bottom: $borderGroove;
+        min-width: 450px;
+        text-transform: capitalize;
+        font-variant: small-caps;
+
+        .header-details {
+            border-left: $borderGroove;
+        }
+
+        .item-img {
+            flex: 0 0 $headerHeight;
+            max-width: $headerHeight;
+            height: $headerHeight;
+            object-fit: contain;
+            border: none;
+            padding-right: 5px;
+        }
+
+        .item-name {
+            flex: 1;
+            border-bottom: none;
+            height: 60px;
+            margin: 0;
+            padding: 5px;
+    
+            input {
+                display: block;
+                height: 50px;
+                font-size: 32px;
+                margin: 0;
+            }
+        }
+
+        .item-subtitle {
+            flex: 0 1 auto;
+            height: 60px;
+            margin: 0;
+            padding: 5px;
+            text-align: right;
+            font-style: italic;
+            color: $transparentDark;
+
+            .item-type {
+                font-size: 24px;
+                font-weight: bolder;
+                line-height: 26px;
+                margin: 0;
+            }
+
+            .item-status, .scale-tester {
+                font-size: 16px;
+                line-height: 24px;
+                min-width: 75px;
+            }
+        }
+    }
+
+    .sheet-tabs {
+        flex: 0;
+    }
+
+    .sheet-body {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        grid-gap: 0.5rem;
+
+        .action-header {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .action-edit {
+            list-style-type: none;
+            text-transform: capitalize;
+            font-variant: small-caps;
+            padding: 0;
+            margin: 0;
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                vertical-align: middle;
+                padding-right: 10px;
+                input {
+                    vertical-align: middle;
+                    span {
+                        vertical-align: middle;
+                    }
+                }
+
+
+            }
+        }
+
+        button {
+            line-height: initial;
+        }
+
+        .description-editor {
+            border-left: $borderGroove;
+            padding-left: 3px;
+        }
+    }
+
+    .summary {
+        flex: 0 0 100%;
+        height: $detailsHeight;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: $borderGroove;
+        border-bottom: none;
+
+        li {
+            height: calc(100% - 6px);
+            float: left;
+            padding-left: 2px;
+            border-right: $borderGroove;
+            line-height: 34px;
+            color: black;
+            align-items: center;
+
+            input {
+                margin: 5px;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+
+            .wl {
+                width: 25px;
+            }
+        }
+    }
+
+    .weapon-summary {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: $borderGroove;
+        border-bottom: none;
+
+        li {
+            line-height: 34px;
+            color: black;
+            align-items: center;
+            padding-left: 2px;
+
+            div {
+                margin-top: -5px;
+                margin-bottom: -15px;
+            }
+
+            input {
+                margin-top: -15px;
+            }
+
+            &:last-child {
+                border-top: $borderGroove;
+                border-right: none;
+            }
+        }
+    }
+
+    .shrink {
+        flex: 0 1 auto;
+    }
+
+    .editor {
+        height: 100%;
+        .tox-toolbar-overlord,
+        .tox-toolbar__primary {
+            background: none;
+        }
+    }
+
+    .action-attack {
+        .attack-attribute, .attack-target {
+            text-transform: capitalize;
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+    }
+}

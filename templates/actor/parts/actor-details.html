@@ -1,0 +1,51 @@
+<div class="details">
+    <img class="avatar" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="details-name text-input">
+        <label>Name:</label>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="" />
+    </div>
+    <div class="details-player text-input">
+        <label>Player:</label>
+        <input name="data.player" type="text" value="{{data.player}}" placeholder="" />
+    </div>
+    <div class="details-description text-input">
+        <label>Description:</label>
+        <input name="data.description" type="text" value="{{data.description}}" placeholder="" />
+    </div>
+    <div class="details-level text-input">
+        <label>Level:</label>
+        <label>{{data.level}}</label>
+    </div>
+    <div class="details-xp text-input">
+        <label>XP:</label>
+        <input name="data.xp" type="number" value="{{data.xp}}" placeholder="0" />
+    </div>
+    <div class="details-wealth text-input">
+        <label>WL:</label>
+        <input name="ata.wl" type="number" value="{{data.wl}}" placeholder="2" />
+    </div>
+    <div class="details-roll-initiative text-input">
+        <label class="forceful">
+            <a class="init-rollable" title="Roll">
+                <i class="fas fa-dice-d20"></i>
+            </a>InitMod:
+        </label>
+        <input name="data.initiative_mod" type="number" value="{{data.initiative_mod}}" placeholder="0" />
+    </div>
+    <div class="details-attr-points text-input">
+        <label>Attr:</label>
+        <label>{{data.trackers.attr.spent}}/{{data.trackers.attr.points}}</label>
+    </div>
+    <div class="details-feat-points text-input">
+        <label>Feats:</label>
+        <label>{{data.trackers.feats.spent}}/{{data.trackers.feats.points}}</label>
+    </div>
+    <div class="details-legend-points text-input">
+        <label>LP:</label>
+        <input name="data.lp" type="number" value="{{data.lp}}" placeholder="1" />
+    </div>
+    <div class="details-speed text-input">
+        <label>Speed:</label>
+        <input name="data.speed" type="number" value="{{data.speed}}" placeholder="30" />
+    </div>
+</div>

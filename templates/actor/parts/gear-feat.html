@@ -1,0 +1,13 @@
+<div class="aligned gear-row feat-row">
+    <div class="gear-name clickable item-edit" data-item="{{feat._id}}">{{feat.name}}</div>
+    <div class="feat-tier">
+        {{feat.data.tier}}
+    </div>
+    <div class="feat-quick-desc">
+        {{feat.data.details.notes}}
+    </div>
+    <div class="gear-buttons">
+        <a class="gear-control feat-move-up" title="Move" data-item="{{feat._id}}"><i class="fas fa-arrow-up"></i></a>
+        <a class="gear-control item-delete" title="Delete" data-item="{{feat._id}}"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
