@@ -43,6 +43,12 @@
       "entity": "Item"
     }
   ],
+  "dependencies": [
+    {
+      "name": "game-icons-net",
+      "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -53,9 +59,8 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends",
+  "manifest": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/master/system.json",
+  "download": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/archive/master/foundryvtt-openlegends-master.zip",
   "license": "LICENSE.txt"
 }

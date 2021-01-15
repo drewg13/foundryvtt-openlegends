@@ -2,6 +2,11 @@
 
 An implementation of the Open Legends RPG system for Foundry Virtual Tabletop (http://foundryvtt.com).
 
+## Installation
+
+To install, copy the following URL and paste it into the Install System dialog in Foundry VTT:
+https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/master/system.json
+
 ## Features
 
 * Automated, item-oriented character sheet
@@ -18,6 +23,6 @@ An implementation of the Open Legends RPG system for Foundry Virtual Tabletop (h
 
 ## Attribution
 
-Open Legends RPG: https://openlegendrpg.com/
-Foundry VTT: https://foundryvtt.com/
-Game-Icons.net: https://game-icons.net/
+* Open Legends RPG: https://openlegendrpg.com/
+* Foundry VTT: https://foundryvtt.com/
+* Game-Icons.net: https://game-icons.net/
