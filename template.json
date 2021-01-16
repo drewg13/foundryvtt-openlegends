@@ -101,6 +101,7 @@
           "attribute": "",
           "cast_time": "",
           "target": "",
+          "default_adv": 0,
           "index": 0
         }
       },
@@ -132,7 +133,7 @@
       "banes": ""
     },
     "armor": {
-      "templates": ["flavor", "actionable", "gear"],
+      "templates": ["flavor", "gear"],
       "type": "",
       "req_fort": 0,
       "defense": 0,

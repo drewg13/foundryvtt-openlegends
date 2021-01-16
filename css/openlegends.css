@@ -201,8 +201,8 @@
   -ms-flex-align: center;
   align-items: center;
   display: inline-grid;
-  grid-template-columns: -webkit-min-content minmax(-webkit-max-content, 1fr) -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content 3fr -webkit-min-content -webkit-min-content -webkit-min-content;
-  grid-template-columns: min-content minmax(max-content, 1fr) max-content max-content max-content max-content 3fr min-content min-content min-content;
+  grid-template-columns: -webkit-min-content minmax(-webkit-max-content, 1fr) -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content 3fr -webkit-min-content -webkit-min-content -webkit-min-content;
+  grid-template-columns: min-content minmax(max-content, 1fr) max-content max-content max-content max-content max-content 3fr min-content min-content min-content;
   grid-template-rows: 20px 20px repeat(auto-fill, 28px);
   grid-gap: 0.1rem;
   grid-column-gap: 0.5rem;
@@ -216,7 +216,7 @@
 }
 
 .openlegends .actions .action-title {
-  grid-column: span 10;
+  grid-column: span 11;
   font-size: large;
   font-weight: bold;
 }
@@ -229,6 +229,10 @@
 .openlegends .actions .action-type, .openlegends .actions .action-attribute {
   text-transform: capitalize;
   font-variant: small-caps;
+}
+
+.openlegends .actions .action-adv {
+  width: 25px;
 }
 
 .openlegends .attributes {

@@ -47,13 +47,22 @@ export class olActor extends Actor {
     const pres = data.attributes.social.presence.score;
     const hp = data.defense.hp;
     hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
-    hp.max = 2 * (fort + will + pres) + 10;
+    hp.hint = 2 * (fort + will + pres) + 10;
+    hp.max = Math.max(hp.max, hp.hint);
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
 
     // Set guard to 10 + Agility + Might + Armor + Other
     const agi = data.attributes.physical.agility.score;
     const might = data.attributes.physical.might.score;
     const guard = data.defense.guard;
+    var armor = 0
+    actorData.items.forEach(item => {
+      if (item.type == 'armor') {
+        if (fort >= item.data.req_fort)
+          armor += item.data.defense;
+      }
+    });
+    guard.armor = armor;
     guard.guard = Math.max(0, 10 + agi + might + guard.armor + guard.other);
 
     // Set toughness to 10 + Fortitude + Will + Other
@@ -80,7 +89,7 @@ export class olActor extends Actor {
       "data.trackers": trackers,
       "data.attributes": attributes,
       "data.defense.hp": hp,
-      "data.defense.guard.guard": guard.guard,
+      "data.defense.guard": guard,
       "data.defense.toughness.toughness": tough.toughness,
       "data.defense.resolve.resolve": resolve.resolve
     };

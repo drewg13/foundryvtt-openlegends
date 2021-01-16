@@ -108,6 +108,7 @@ export class olActorSheet extends ActorSheet {
       if( field == 'name') item.data.name = value;
       else if( field == 'action_attr') item.data.data.action.attribute = value;
       else if( field == 'action_name') item.data.data.action.name = value;
+      else if (field == 'action_adv') item.data.data.action.default_adv = value;
       else if( field == 'notes') item.data.data.details.notes = value;
       else if( field == 'attack') {
         // Set both attack attribute and find its target

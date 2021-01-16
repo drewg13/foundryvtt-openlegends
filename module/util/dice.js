@@ -4,7 +4,7 @@ export async function rollAttr(actor, attr_name) {
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr);
+        let olroll = await OLRoll(attr_name, attr, 0);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegends/templates/dialog/roll-chat.html";
@@ -30,7 +30,7 @@ export async function rollItem(actor, item) {
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr);
+        let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegends/templates/dialog/roll-chat.html";
@@ -53,7 +53,7 @@ export async function rollItem(actor, item) {
 }
 
 
-export async function OLRoll(attr_name, attr) {
+export async function OLRoll(attr_name, attr, default_adv=0) {
     const to_return = {
         "roll": null,
         "attr": {
@@ -68,7 +68,7 @@ export async function OLRoll(attr_name, attr) {
     }
 
     // Create the Dialog window
-    const adv = await _OLRollDialog(attr_name, attr);
+    const adv = await _OLRollDialog(attr_name, attr, default_adv);
     if (adv == null)
         return to_return;
 
@@ -94,7 +94,6 @@ export async function OLRoll(attr_name, attr) {
             to_return.adv = null;
             to_return.roll = new Roll('1d20X + ' + dice.num + dice.die + 'X');
         } else {
-            const diemul = Math.abs(adv) + 1;
             to_return.adv.value = Math.abs(adv);
             var advstr = ""
             if (adv < 0) {
@@ -104,16 +103,16 @@ export async function OLRoll(attr_name, attr) {
                 to_return.adv.type = "Advantage";
                 advstr = 'kh' + dice.num;
             }
-            to_return.roll = new Roll('1d20X + ' + (diemul * dice.num) + dice.die + advstr + 'X');
+            to_return.roll = new Roll('1d20X + ' + (to_return.adv.value + dice.num) + dice.die + advstr + 'X');
         }
     }
 
     return to_return;
 }
 
-async function _OLRollDialog(attr_name, attr) {
+async function _OLRollDialog(attr_name, attr, default_adv=0) {
     const template = "systems/openlegends/templates/dialog/roll-dialog.html";
-    const data = { 'attr': attr_name, 'score': attr.score, 'formula': '1d20' }
+    const data = { 'attr': attr_name, 'score': attr.score, 'formula': '1d20', 'default_adv': default_adv }
     if (attr.score > 0)
         data.formula += ' + ' + attr.dice.num + attr.dice.die;
 
@@ -126,16 +125,16 @@ async function _OLRollDialog(attr_name, attr) {
             content: html,
             buttons: {
                 dis: {
-                    label: "Dis[1]",
-                    callback: () => resolve(-1)
+                    label: "Dis+1",
+                    callback: html => resolve(parseInt(html[0].querySelector("input[name='advlevel']").value) - 1)
                 },
                 roll: {
-                    label: "Roll[^]",
-                    callback: html => resolve(html[0].querySelector("input[name='advlevel']").value)
+                    label: "Roll",
+                    callback: html => resolve(parseInt(html[0].querySelector("input[name='advlevel']").value))
                 },
                 adv: {
-                    label: "Adv[1]",
-                    callback: () => resolve(1)
+                    label: "Adv+1",
+                    callback: html => resolve(parseInt(html[0].querySelector("input[name='advlevel']").value) + 1)
                 }
             },
             default: "roll",

@@ -6,7 +6,7 @@
     <input name="data.defense.hp.value" type="number" value="{{data.defense.hp.value}}" placeholder="0" />
     <div class="ht">
         <input name="data.defense.hp.max" type="number" value="{{data.defense.hp.max}}" placeholder="0">
-        <span class="tooltip">2 * (Fortitude + Will + Presence) + 10 </span>
+        <span class="tooltip">2*(Fortitude+Will+Presence)+10 = {{data.defense.hp.hint}} </span>
     </div>
     <input name="data.defense.hp.lethal" type="number" value="{{data.defense.hp.lethal}}" placeholder="0" />
 </div>
@@ -21,7 +21,7 @@
         <div>Might</div>
         <div>{{data.attributes.physical.might.score}}</div>
         <div>Armor</div>
-        <input name="data.defense.guard.armor" type="number" value="{{data.defense.guard.armor}}" placeholder="0" />
+        <div>{{data.defense.guard.armor}}</div>
         <div>Other</div>
         <input name="data.defense.guard.other" type="number" value="{{data.defense.guard.other}}" placeholder="0" />
     </div>
