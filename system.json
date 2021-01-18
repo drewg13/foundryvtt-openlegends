@@ -18,6 +18,12 @@
       "path": "./packs/banes.db",
       "entity": "Item"
     },{
+      "name": "basic",
+      "label": "Basic",
+      "system": "openlegends",
+      "path": "./packs/basic.db",
+      "entity": "Item"
+    },{
       "name": "boons",
       "label": "Boons",
       "system": "openlegends",
@@ -34,6 +40,12 @@
       "label": "Flaws",
       "system": "openlegends",
       "path": "./packs/flaws.db",
+      "entity": "Item"
+    },{
+      "name": "gm-feats",
+      "label": "GM-Feats",
+      "system": "openlegends",
+      "path": "./packs/gm-feats.db",
       "entity": "Item"
     },{
       "name": "perks",

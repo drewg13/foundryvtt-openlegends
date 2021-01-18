@@ -17,6 +17,7 @@ export class olActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    else if (actorData.type === 'npc') this._prepareNPCData(actorData);
   }
 
   /**
@@ -26,7 +27,7 @@ export class olActor extends Actor {
     const data = actorData.data;
 
     // Calculate level
-    data.level = Math.floor(data.xp/3);
+    data.level = Math.floor(data.xp/3) + 1;
 
     let trackers = data.trackers;
     let attributes = data.attributes;
@@ -54,7 +55,6 @@ export class olActor extends Actor {
     // Set guard to 10 + Agility + Might + Armor + Other
     const agi = data.attributes.physical.agility.score;
     const might = data.attributes.physical.might.score;
-    const guard = data.defense.guard;
     var armor = 0
     actorData.items.forEach(item => {
       if (item.type == 'armor') {
@@ -62,6 +62,7 @@ export class olActor extends Actor {
           armor += item.data.defense;
       }
     });
+    const guard = data.defense.guard;
     guard.armor = armor;
     guard.guard = Math.max(0, 10 + agi + might + guard.armor + guard.other);
 
@@ -70,8 +71,8 @@ export class olActor extends Actor {
     tough.toughness = Math.max(0, 10 + fort + will + tough.other);
 
     // Set resolve to 10 + Presence + Will + Other
-    const presence = data.attributes.social.presence.score;
     const resolve = data.defense.resolve;
+    const presence = data.attributes.social.presence.score;
     resolve.resolve = Math.max(0, 10 + presence + will + resolve.other);
 
     // Calculate feat costs
@@ -85,13 +86,49 @@ export class olActor extends Actor {
 
     // Update the Actor
     const updates = {
-      "data.level": data.level,
+      "data.xp": data.xp,
       "data.trackers": trackers,
       "data.attributes": attributes,
       "data.defense.hp": hp,
       "data.defense.guard": guard,
       "data.defense.toughness.toughness": tough.toughness,
       "data.defense.resolve.resolve": resolve.resolve
+    };
+    this.update(updates);
+  }
+
+  _prepareNPCData(actorData) {
+    const data = actorData.data;
+    console.log(data);
+    data.xp = (data.level-1) * 3;
+
+    let trackers = data.trackers;
+    let attributes = data.attributes;
+    trackers.attr.spent = 0;
+    trackers.attr.points = 40 + data.xp*3;
+    // Loop through attribute scores, and add their dice to our sheet output.
+    for (let [attr_group_name, attr_group] of Object.entries(attributes)) {
+      for (let [attr_name, attr] of Object.entries(attr_group)) {
+        attr.dice = this.getDieForAttrScore(attr.score);
+        trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
+        console.log(attr_name, attr.score, trackers.attr.spent);
+      }
+    }
+
+    // Calculate feat costs
+    var total_feat_cost = 0;
+    actorData.items.forEach(item => {
+      if (item.type == 'feat')
+        total_feat_cost += item.data.cost;
+    });
+    trackers.feats.spent = total_feat_cost;
+    trackers.feats.points = 6 + data.xp;
+
+    // Update the Actor
+    const updates = {
+      "data.xp": data.xp,
+      "data.trackers": trackers,
+      "data.attributes": attributes
     };
     this.update(updates);
   }

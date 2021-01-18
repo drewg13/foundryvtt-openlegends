@@ -574,6 +574,106 @@
   z-index: 1000;
 }
 
+.openlegends .npc .npc-header-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 100px;
+  grid-gap: 0.25rem;
+}
+
+.openlegends .npc .npc-details {
+  min-width: 430px;
+}
+
+.openlegends .npc .npc-row {
+  border: 2px groove #eeede0;
+  height: 25px;
+}
+
+.openlegends .npc .npc-hp {
+  background-color: rgba(255, 128, 128, 0.6);
+}
+
+.openlegends .npc .npc-defense {
+  background-color: rgba(182, 159, 111, 0.6);
+}
+
+.openlegends .npc .npc-body {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0.5rem;
+  border: 4px groove #eeede0;
+  margin-top: 0.25em;
+}
+
+.openlegends .npc .npc-body .npc-attributes .npc-attributes-display {
+  width: 100px;
+}
+
+.openlegends .npc .npc-body .npc-attributes .npc-attributes-display div {
+  min-width: 100px;
+  text-align: right;
+}
+
+.openlegends .npc .npc-body .npc-attributes .npc-attributes-edit {
+  width: 105px;
+}
+
+.openlegends .npc .npc-body .npc-attributes .npc-attributes-edit div {
+  min-width: 100px;
+  text-align: right;
+}
+
+.openlegends .npc .npc-body .npc-attributes button {
+  margin-top: 0.25em;
+}
+
+.openlegends .npc .npc-body .npc-actions {
+  border: 2px groove #eeede0;
+  background-color: rgba(174, 234, 238, 0.35);
+}
+
+.openlegends .npc .npc-body .npc-feats {
+  border: 2px groove #eeede0;
+  background-color: rgba(133, 133, 133, 0.25);
+}
+
+.openlegends .npc .npc-body .npc-feats .title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.openlegends .npc input.single_digit {
+  width: 10px;
+}
+
+.openlegends .npc input.double_digit {
+  width: 30px;
+}
+
+.openlegends .npc .flex-shrink {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.openlegends .npc input {
+  background: rgba(0, 0, 0, 0);
+  height: 20px;
+  border: none;
+}
+
+.openlegends .npc input:hover, .openlegends .npc input:focus {
+  border: 1px solid #111;
+  -webkit-box-shadow: 0 0 8px red;
+  box-shadow: 0 0 8px red;
+}
+
+.openlegends .npc button {
+  line-height: initial;
+}
+
 .openlegends .item-sheet input {
   background: rgba(0, 0, 0, 0);
   border: none;

@@ -11,11 +11,18 @@ export class olActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["openlegends", "sheet", "actor"],
-      template: "systems/openlegends/templates/actor/actor-sheet.html",
+      // template: "systems/openlegends/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
+  }
+
+  /** @override */
+  get template() {
+    if (this.actor.data.type == 'character')
+      return "systems/openlegends/templates/actor/actor-sheet.html";
+    else return "systems/openlegends/templates/actor/npc-sheet.html";
   }
 
   /* -------------------------------------------- */
@@ -120,6 +127,31 @@ export class olActorSheet extends ActorSheet {
       }
 
       item.update(item.data);
+    });
+
+    // Update curr hp of npcs if max hp changes
+    html.find('.npc_hp_edit').change(ev => {
+      const hp_val = $(ev.currentTarget).val()
+      const hp = this.actor.data.data.defense.hp;
+      hp.max = hp_val;
+      hp.value = hp_val;
+      this.actor.update(this.actor.data);
+    });
+
+    html.find(".update-npc-attributes").click(ev => {
+      const btn = $(ev.currentTarget);
+      if (btn.html() == "Edit")
+        btn.html("Save");
+      else {
+        var data = {}
+        html.find(".npc-attr-setter").each((i, obj) => {
+          data[`data.attributes.${obj.dataset.group}.${obj.dataset.attr}.score`] = parseInt(obj.value);
+        });
+        this.actor.update(data);
+        btn.html("Edit");
+      }
+      html.find(".npc-attributes-display").toggle();
+      html.find(".npc-attributes-edit").toggle();
     });
 
     // Rollable abilities.

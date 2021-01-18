@@ -50,6 +50,10 @@ Hooks.once('init', async function() {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
 
+  Handlebars.registerHelper('gtz', function (value) {
+    return value > 0;
+  });
+
   // Preload template partials.
   preloadHandlebarsTemplates();
 });
