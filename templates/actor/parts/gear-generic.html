@@ -1,0 +1,33 @@
+<div class="aligned gear-row generic-row">
+    <div class="gear-name clickable item-edit" data-item="{{item._id}}">{{item.name}}</div>
+    <div class="gear-summary">
+        <div class="gear-title">{{item.type}}</div>
+        <div class="gear-type">{{item.data.categories}}</div>
+    </div>
+    <div class="generic-affixes">
+        <div class="generic-properties">
+            <span class="forceful">Quantity: </span>
+            {{item.data.quantity}}
+        </div>
+        <div class="generic-properties">
+            <span class="forceful">Properties: </span>
+            {{item.data.properties}}
+        </div>
+    </div>
+    <div class="generic-affixes">
+        <div class="generic-banes">
+            <span class="forceful">Banes: </span>
+            {{item.data.banes}}
+        </div>
+        <div class="generic-boons">
+            <span class="forceful">Boons: </span>
+            {{item.data.boons}}
+        </div>
+    </div>
+    <div class="gear-wl">
+        <span class="forceful">WL: </span>{{item.data.gear.wl}}</div>
+    <div class="gear-buttons">
+        <a class="gear-control gear-move-up" title="Move" data-item="{{item._id}}"><i class="fas fa-arrow-up"></i></a>
+        <a class="gear-control item-delete" title="Delete" data-item="{{item._id}}"><i class="fas fa-trash"></i></a>
+    </div>
+</div>

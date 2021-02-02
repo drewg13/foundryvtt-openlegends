@@ -35,6 +35,18 @@
     }
 }
 
+.armor-name {
+    font-size: larger;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    color: rgb(117, 117, 117);
+
+    &.equipped {
+        color: black;
+    }
+}
+
 .armor-row {
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
@@ -47,6 +59,16 @@
     grid-gap: 0.5rem;
 
     .weapon-affixes {
+        font-size: smaller;
+    }
+}
+
+.generic-row {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
+    grid-gap: 0.5rem;
+
+    .generic-affixes {
         font-size: smaller;
     }
 }

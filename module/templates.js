@@ -14,6 +14,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/openlegends/templates/actor/parts/action-boon.html",
       "systems/openlegends/templates/actor/parts/gear-weapon.html",
       "systems/openlegends/templates/actor/parts/gear-armor.html",
+      "systems/openlegends/templates/actor/parts/gear-generic.html",
       "systems/openlegends/templates/actor/parts/gear-feat.html",
       "systems/openlegends/templates/actor/parts/gear-perkflaw.html",
   

@@ -28,8 +28,11 @@
     </header>
 
     <section class="sheet-body">
-        <div></div>
         <div class="description-editor">
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Equipped:</span>
+                <input type="checkbox" name="data.equipped" {{#if data.equipped}}checked{{/if}}/>
+            </div>
             {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
         </div>
     </section>

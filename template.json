@@ -84,7 +84,7 @@
     }
   },
   "Item": {
-    "types": ["boon", "bane", "weapon", "armor", "feat", "perk", "flaw", "attack"],
+    "types": ["boon", "bane", "weapon", "armor", "generic", "feat", "perk", "flaw", "attack"],
     "templates": {
       "flavor": {
         "details": {
@@ -109,7 +109,8 @@
           "cast_time": "",
           "target": "",
           "default_adv": 0,
-          "index": 0
+          "index": 0,
+          "show_as_action": true
         }
       },
       "persists": {
@@ -144,7 +145,17 @@
       "type": "",
       "req_fort": 0,
       "defense": 0,
-      "speed_penalty": 0
+      "speed_penalty": 0,
+      "equipped": true
+    },
+    "generic": {
+      "templates": ["flavor", "core", "actionable", "gear"],
+      "attacks": [],
+      "categories": "",
+      "properties": "",
+      "banes": "",
+      "boons": "",
+      "quantity": 1
     },
     "feat" :{
       "templates": ["flavor"],

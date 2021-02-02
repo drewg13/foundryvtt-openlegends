@@ -1,5 +1,5 @@
 <div class="aligned gear-row armor-row">
-    <div class="gear-name clickable item-edit" data-item="{{armor._id}}">{{armor.name}}</div>
+    <div class="armor-name clickable item-edit {{#if armor.data.equipped}}equipped{{/if}}" data-item="{{armor._id}}">{{armor.name}}</div>
     <div class="gear-summary">
         <div class="gear-title">{{armor.type}}</div>
         <div class="gear-type">{{armor.data.type}}</div>

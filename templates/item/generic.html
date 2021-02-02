@@ -47,8 +47,16 @@
         </div>
         <div class="description-editor">
             <div class="flexrow aligned">
+                <span class="forceful shrink">Quantity:&nbsp</span>
+                <input type="number" name="data.quantity" value="{{data.quantity}}"/>
+            </div>
+            <div class="flexrow aligned">
                 <span class="forceful shrink">Banes:&nbsp</span>
-                <input type="text" name="data.banes" value="{{data.banes}}" placeholder="?"/>
+                <input type="text" name="data.banes" value="{{data.banes}}" placeholder="-"/>
+            </div>
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Boons:&nbsp</span>
+                <input type="text" name="data.boons" value="{{data.boons}}" placeholder="-"/>
             </div>
             {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
         </div>

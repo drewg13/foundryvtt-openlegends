@@ -17,7 +17,6 @@ export class olItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/openlegends/templates/item";
-    // Return a single sheet for all item types.
     return `${path}/${this.item.data.type}.html`;
   }
 

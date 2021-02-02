@@ -58,7 +58,7 @@ export class olActor extends Actor {
     var armor = 0
     actorData.items.forEach(item => {
       if (item.type == 'armor') {
-        if (fort >= item.data.req_fort)
+        if (item.data.equipped && fort >= item.data.req_fort)
           armor += item.data.defense;
       }
     });

@@ -494,6 +494,18 @@
   font-size: larger;
 }
 
+.openlegends .armor-name {
+  font-size: larger;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  color: #757575;
+}
+
+.openlegends .armor-name.equipped {
+  color: black;
+}
+
 .openlegends .armor-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) -webkit-max-content 20px;
@@ -509,6 +521,17 @@
 }
 
 .openlegends .weapon-row .weapon-affixes {
+  font-size: smaller;
+}
+
+.openlegends .generic-row {
+  display: grid;
+  grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) -webkit-max-content 20px;
+  grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
+  grid-gap: 0.5rem;
+}
+
+.openlegends .generic-row .generic-affixes {
   font-size: smaller;
 }
 
