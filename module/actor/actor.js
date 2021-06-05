@@ -58,8 +58,8 @@ export class olActor extends Actor {
     var armor = 0
     actorData.items.forEach(item => {
       if (item.type == 'armor') {
-        if (item.data.equipped && fort >= item.data.req_fort)
-          armor += item.data.defense;
+        if (item.data.data.equipped && fort >= item.data.data.req_fort)
+          armor += item.data.data.defense;
       }
     });
     const guard = data.defense.guard;
@@ -79,22 +79,17 @@ export class olActor extends Actor {
     var total_feat_cost = 0;
     actorData.items.forEach(item => {
       if (item.type == 'feat')
-        total_feat_cost += item.data.cost;
+        total_feat_cost += item.data.data.cost;
     });
     trackers.feats.spent = total_feat_cost;
     trackers.feats.points = 6 + data.xp;
 
-    // Update the Actor
-    const updates = {
-      "data.xp": data.xp,
-      "data.trackers": trackers,
-      "data.attributes": attributes,
-      "data.defense.hp": hp,
-      "data.defense.guard": guard,
-      "data.defense.toughness.toughness": tough.toughness,
-      "data.defense.resolve.resolve": resolve.resolve
-    };
-    this.update(updates);
+    data.trackers = trackers;
+    data.attributes = attributes;
+    data.defense.hp = hp;
+    data.defense.guard = guard;
+    data.defense.toughness = tough;
+    data.defense.resolve = resolve;
   }
 
   _prepareNPCData(actorData) {
@@ -119,18 +114,14 @@ export class olActor extends Actor {
     var total_feat_cost = 0;
     actorData.items.forEach(item => {
       if (item.type == 'feat')
-        total_feat_cost += item.data.cost;
+        total_feat_cost += item.data.data.cost;
     });
     trackers.feats.spent = total_feat_cost;
     trackers.feats.points = 6 + data.xp;
 
     // Update the Actor
-    const updates = {
-      "data.xp": data.xp,
-      "data.trackers": trackers,
-      "data.attributes": attributes
-    };
-    this.update(updates);
+    data.trackers = trackers;
+    data.attributes = attributes;
   }
 
   getDieForAttrScore(score) {

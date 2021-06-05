@@ -11,12 +11,12 @@
                     <h4 class="item-type">{{item.type}}</h4>
                     <span class="scale-tester" hidden></span>
                     <input class="item-status scale" name="data.tier"
-                            type="text" value="{{data.tier}}" placeholder="Tier"/>
+                            type="text" value="{{data.data.tier}}" placeholder="Tier"/>
                 </div>
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">Feat Points:
-                    <input type="number" name="data.cost" value="{{data.cost}}" placeholder="?"/></li>
+                    <input type="number" name="data.cost" value="{{data.data.cost}}" placeholder="?"/></li>
             </ul>
         </div>
     </header>
@@ -26,14 +26,14 @@
         <div class="description-editor">
             <div class="flexrow aligned">
                 <span class="forceful shrink">PreReqs:&nbsp</span>
-                <input type="text" name="data.prerequisites" value="{{data.prerequisites}}" placeholder="?"/>
+                <input type="text" name="data.prerequisites" value="{{data.data.prerequisites}}" placeholder="?"/>
             </div>
             <div class="flexrow aligned">
                 <span class="forceful shrink">Short Desc:&nbsp</span>
-                <input type="text" name="data.details.notes" value="{{data.details.notes}}" placeholder=""/>
+                <input type="text" name="data.details.notes" value="{{data.data.details.notes}}" placeholder=""/>
             </div>
             <div class="h-divider"></div>
-            {{editor content=data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.details.description target="data.details.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

@@ -29,14 +29,19 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
-    
-    data.actions = [];
-    data.gear    = [];
-    data.feats   = [];
-    data.perks   = [];
-    data.flaws   = [];
-    data.items.forEach(item => {
+    const actorData = super.getData();
+    const sheetData = actorData.data;
+    const data = sheetData.data;
+    // console.log(actorData);
+
+    if (data.actions == undefined) {
+      data.actions = [];
+      data.gear    = [];
+      data.feats   = [];
+      data.perks   = [];
+      data.flaws   = [];
+    }
+    actorData.items.forEach(item => {
       if (item.data.action)
         data.actions.push(item);
       if (item.data.gear)
@@ -52,12 +57,12 @@ export class olActorSheet extends ActorSheet {
     data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
     data.feats.sort((a, b) => a.data.index - b.data.index);
 
-    return data;
+    return actorData;
   }
 
   /** @override */
   async _onDropItemCreate(itemData) {
-    const data = this.getData();
+    const data = this.getData().data.data;
     if (itemData.data.action) {
       itemData.data.action.index = data.actions.length;
       itemData.data.action.name = itemData.name;
@@ -89,7 +94,7 @@ export class olActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const tag = ev.currentTarget;
-      const item = this.actor.getOwnedItem(tag.dataset.item);
+      const item = this.actor.items.get(tag.dataset.item);
       item.sheet.render(true);
     });
 
@@ -101,41 +106,43 @@ export class olActorSheet extends ActorSheet {
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const tag = ev.currentTarget;
-      const item = this.actor.getOwnedItem(tag.dataset.item);
+      const item = this.actor.items.get(tag.dataset.item);
       item.delete();
     });
 
     // Update action 'items' directly
     html.find('.action-edit').change(ev => {
       const tag = ev.currentTarget;
-      const item = this.actor.getOwnedItem(tag.dataset.item);
+      const item = this.actor.items.get(tag.dataset.item);
       const field = tag.dataset.field;
       const value = tag.value;
 
-      if( field == 'name') item.data.name = value;
-      else if( field == 'action_attr') item.data.data.action.attribute = value;
-      else if( field == 'action_name') item.data.data.action.name = value;
-      else if (field == 'action_adv') item.data.data.action.default_adv = value;
-      else if( field == 'notes') item.data.data.details.notes = value;
+      console.log(item.data);
+      var data = item.data.toJSON();
+      if( field == 'name') data.name = value;
+      else if( field == 'action_attr') data.data.action.attribute = value;
+      else if( field == 'action_name') data.data.action.name = value;
+      else if (field == 'action_adv') data.data.action.default_adv = value;
+      else if( field == 'notes') data.data.details.notes = value;
       else if( field == 'attack') {
         // Set both attack attribute and find its target
-        item.data.data.action.attribute = value;
-        item.data.data.attacks.forEach(attack => {
+        data.data.action.attribute = value;
+        data.data.attacks.forEach(attack => {
           if (attack.attribute == value)
-            item.data.data.action.target = attack.target;
+            data.data.action.target = attack.target;
         });
       }
-
-      item.update(item.data);
+      item.update(data);
     });
 
     // Update curr hp of npcs if max hp changes
     html.find('.npc_hp_edit').change(ev => {
       const hp_val = $(ev.currentTarget).val()
-      const hp = this.actor.data.data.defense.hp;
+      const data = this.actor.data.toJSON();
+      const hp = data.data.defense.hp;
       hp.max = hp_val;
       hp.value = hp_val;
-      this.actor.update(this.actor.data);
+      this.actor.update(data);
     });
 
     html.find(".update-npc-attributes").click(ev => {
@@ -175,7 +182,7 @@ export class olActorSheet extends ActorSheet {
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
-      rollItem(this.actor, this.actor.getOwnedItem(dataset.item).data);
+      rollItem(this.actor, this.actor.items.get(dataset.item).data);
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
   }

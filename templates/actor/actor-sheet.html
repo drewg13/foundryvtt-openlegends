@@ -7,7 +7,7 @@
     <div class="character">
       <div class="gear">
         <div class="title">Gear</div>
-        {{#each gear as |item|}}
+        {{#each data.data.gear as |item|}}
           {{#ifeq item.type 'weapon'}}
             {{> "systems/openlegends/templates/actor/parts/gear-weapon.html" weapon=item}}
           {{/ifeq}}
@@ -21,19 +21,19 @@
       </div>
       <div class="feats">
         <div class="title">Feats</div>
-        {{#each feats as |item|}}
+        {{#each data.data.feats as |item|}}
           {{> "systems/openlegends/templates/actor/parts/gear-feat.html" feat=item}}
         {{/each}}
       </div>
       <div class="perks">
         <div class="title">Perks</div>
-        {{#each perks as |item|}}
+        {{#each data.data.perks as |item|}}
           {{> "systems/openlegends/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
       <div class="flaws">
         <div class="title">Flaws</div>
-        {{#each flaws as |item|}}
+        {{#each data.data.flaws as |item|}}
           {{> "systems/openlegends/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
