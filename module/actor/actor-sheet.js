@@ -117,7 +117,6 @@ export class olActorSheet extends ActorSheet {
       const field = tag.dataset.field;
       const value = tag.value;
 
-      console.log(item.data);
       var data = item.data.toJSON();
       if( field == 'name') data.name = value;
       else if( field == 'action_attr') data.data.action.attribute = value;
