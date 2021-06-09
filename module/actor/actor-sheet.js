@@ -10,8 +10,8 @@ export class olActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["openlegends", "sheet", "actor"],
-      // template: "systems/openlegends/templates/actor/actor-sheet.html",
+      classes: ["openlegend", "sheet", "actor"],
+      // template: "systems/openlegend/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -21,8 +21,8 @@ export class olActorSheet extends ActorSheet {
   /** @override */
   get template() {
     if (this.actor.data.type == 'character')
-      return "systems/openlegends/templates/actor/actor-sheet.html";
-    else return "systems/openlegends/templates/actor/npc-sheet.html";
+      return "systems/openlegend/templates/actor/actor-sheet.html";
+    else return "systems/openlegend/templates/actor/npc-sheet.html";
   }
 
   /* -------------------------------------------- */

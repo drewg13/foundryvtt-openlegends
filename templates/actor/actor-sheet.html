@@ -1,40 +1,40 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   <div class="main-grid">
-    {{> "systems/openlegends/templates/actor/parts/actor-details.html"}}
-    {{> "systems/openlegends/templates/actor/parts/actor-attributes.html"}}
-    {{> "systems/openlegends/templates/actor/parts/actor-defense.html"}}
-    {{> "systems/openlegends/templates/actor/parts/actor-actions.html"}}
+    {{> "systems/openlegend/templates/actor/parts/actor-details.html"}}
+    {{> "systems/openlegend/templates/actor/parts/actor-attributes.html"}}
+    {{> "systems/openlegend/templates/actor/parts/actor-defense.html"}}
+    {{> "systems/openlegend/templates/actor/parts/actor-actions.html"}}
     <div class="character">
       <div class="gear">
         <div class="title">Gear</div>
         {{#each data.data.gear as |item|}}
           {{#ifeq item.type 'weapon'}}
-            {{> "systems/openlegends/templates/actor/parts/gear-weapon.html" weapon=item}}
+            {{> "systems/openlegend/templates/actor/parts/gear-weapon.html" weapon=item}}
           {{/ifeq}}
           {{#ifeq item.type 'armor'}}
-            {{> "systems/openlegends/templates/actor/parts/gear-armor.html" armor=item}}
+            {{> "systems/openlegend/templates/actor/parts/gear-armor.html" armor=item}}
           {{/ifeq}}
           {{#ifeq item.type 'generic'}}
-            {{> "systems/openlegends/templates/actor/parts/gear-generic.html" item=item}}
+            {{> "systems/openlegend/templates/actor/parts/gear-generic.html" item=item}}
           {{/ifeq}}
         {{/each}}
       </div>
       <div class="feats">
         <div class="title">Feats</div>
         {{#each data.data.feats as |item|}}
-          {{> "systems/openlegends/templates/actor/parts/gear-feat.html" feat=item}}
+          {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
         {{/each}}
       </div>
       <div class="perks">
         <div class="title">Perks</div>
         {{#each data.data.perks as |item|}}
-          {{> "systems/openlegends/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
+          {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
       <div class="flaws">
         <div class="title">Flaws</div>
         {{#each data.data.flaws as |item|}}
-          {{> "systems/openlegends/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
+          {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
     </div>

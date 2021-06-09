@@ -1,7 +1,7 @@
 {
-  "name": "openlegends",
-  "version": "1.1.0",
-  "description": "CSS compiler for the Open Legends RPG system",
+  "name": "openlegend",
+  "version": "2.0.0",
+  "description": "CSS compiler for the Open Legend RPG system",
   "scripts": {
     "build": "gulp",
     "compile": "gulp css",

@@ -7,7 +7,7 @@ export class olItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["openlegends", "sheet", "item"],
+      classes: ["openlegend", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -16,7 +16,7 @@ export class olItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/openlegends/templates/item";
+    const path = "systems/openlegend/templates/item";
     return `${path}/${this.item.data.type}.html`;
   }
 
@@ -45,7 +45,7 @@ export class olItemSheet extends ItemSheet {
   activateListeners(html) {
     super.activateListeners(html);
     html.find(".add-attack").click(async () => {
-      const template = "systems/openlegends/templates/item/parts/attack-target.html";
+      const template = "systems/openlegend/templates/item/parts/attack-target.html";
       const data = { 'attack': {}, 'attributes': this.object.data.data.attributes };
       const new_attack = await renderTemplate(template, data);
       html.find(".attack-list").append(new_attack);

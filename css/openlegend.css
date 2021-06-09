@@ -187,13 +187,13 @@
   background-color: rgba(255, 104, 104, 0.281);
 }
 
-/* Styles limited to openlegends sheets */
-.openlegends {
+/* Styles limited to openlegend sheets */
+.openlegend {
   /* Header Summary Details */
   font-family: "Modesto", "Palatino Linotype", serif;
 }
 
-.openlegends .actions {
+.openlegend .actions {
   grid-column: 2 / 4;
   grid-row: 6 / 9;
   background: #74e4f8;
@@ -211,31 +211,31 @@
   border: 4px groove #eeede0;
 }
 
-.openlegends .actions .div {
+.openlegend .actions .div {
   padding-bottom: 0.25em;
 }
 
-.openlegends .actions .action-title {
+.openlegend .actions .action-title {
   grid-column: span 11;
   font-size: large;
   font-weight: bold;
 }
 
-.openlegends .actions .action-header {
+.openlegend .actions .action-header {
   grid-column: span 1;
   font-style: italic;
 }
 
-.openlegends .actions .action-type, .openlegends .actions .action-attribute {
+.openlegend .actions .action-type, .openlegend .actions .action-attribute {
   text-transform: capitalize;
   font-variant: small-caps;
 }
 
-.openlegends .actions .action-adv {
+.openlegend .actions .action-adv {
   width: 25px;
 }
 
-.openlegends .attributes {
+.openlegend .attributes {
   grid-column: 1 / 1;
   grid-row: 2 / 9;
   background-color: rgba(255, 174, 0, 0.35);
@@ -249,7 +249,7 @@
   grid-template-rows: repeat(26, 26px);
 }
 
-.openlegends .attribute-header {
+.openlegend .attribute-header {
   grid-column: span 3;
   background-color: rgba(0, 0, 0, 0.15);
   border-top: 2px groove #eeede0;
@@ -258,20 +258,20 @@
   font-size: large;
 }
 
-.openlegends .attribute-name {
+.openlegend .attribute-name {
   text-transform: capitalize;
   font-size: 110%;
   padding-right: 0.25em;
   text-align: right;
 }
 
-.openlegends .attribute-value {
+.openlegend .attribute-value {
   font-size: medium;
   font-weight: normal;
   text-align: center;
 }
 
-.openlegends .character {
+.openlegend .character {
   grid-column: 3 / 4;
   grid-row: 2 / 6;
   display: inline-grid;
@@ -280,7 +280,7 @@
   grid-gap: 0.25rem;
 }
 
-.openlegends .character .gear {
+.openlegend .character .gear {
   grid-column: 1/3;
   grid-row: 1/3;
   border: 4px groove #eeede0;
@@ -288,12 +288,12 @@
   overflow-y: scroll;
 }
 
-.openlegends .character .gear .title {
+.openlegend .character .gear .title {
   font-size: large;
   font-weight: bold;
 }
 
-.openlegends .character .feats {
+.openlegend .character .feats {
   grid-column: 1/2;
   grid-row: 3/5;
   border: 4px groove #eeede0;
@@ -301,32 +301,32 @@
   overflow-y: scroll;
 }
 
-.openlegends .character .feats .title {
+.openlegend .character .feats .title {
   grid-column: span 4;
   font-size: large;
   font-weight: bold;
 }
 
-.openlegends .character .perks {
+.openlegend .character .perks {
   grid-column: 2/3;
   grid-row: 3/4;
   border: 4px groove #eeede0;
   background: rgba(0, 255, 98, 0.35);
 }
 
-.openlegends .character .flaws {
+.openlegend .character .flaws {
   grid-column: 2/3;
   grid-row: 4/5;
   border: 4px groove #eeede0;
   background: rgba(255, 125, 108, 0.35);
 }
 
-.openlegends .character .perks .title, .openlegends .character .flaws .title {
+.openlegend .character .perks .title, .openlegend .character .flaws .title {
   font-size: large;
   font-weight: bold;
 }
 
-.openlegends .health {
+.openlegend .health {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: inline-grid;
@@ -337,7 +337,7 @@
   border: 4px groove #eeede0;
 }
 
-.openlegends .health-title {
+.openlegend .health-title {
   grid-column: 1/4;
   grid-row: 1/2;
   text-align: center;
@@ -346,31 +346,31 @@
   margin-bottom: -8;
 }
 
-.openlegends .health-type {
+.openlegend .health-type {
   font-size: large;
   text-align: center;
 }
 
-.openlegends .health input {
+.openlegend .health input {
   text-align: center;
 }
 
-.openlegends .guard {
+.openlegend .guard {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
 }
 
-.openlegends .toughness {
+.openlegend .toughness {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
 }
 
-.openlegends .resolve {
+.openlegend .resolve {
   grid-column: 2 / 3;
   grid-row: 5 / 6;
 }
 
-.openlegends .defense-grid {
+.openlegend .defense-grid {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.25rem;
@@ -379,7 +379,7 @@
   border: 4px groove #eeede0;
 }
 
-.openlegends .defense-grid .attribute-grid {
+.openlegend .defense-grid .attribute-grid {
   display: inline-grid;
   grid-template-columns: auto auto;
   grid-template-rows: 20px 20px 20px minmax(0px, 20px);
@@ -390,25 +390,25 @@
   text-align: center;
 }
 
-.openlegends .defense-title {
+.openlegend .defense-title {
   text-align: center;
   font-size: x-large;
   font-weight: bold;
 }
 
-.openlegends .defense-value {
+.openlegend .defense-value {
   text-align: center;
   font-size: 300%;
 }
 
-.openlegends .avatar {
+.openlegend .avatar {
   grid-column: 1 / 2;
   grid-row: 1 / 4;
   width: 100px;
   max-width: 100px;
 }
 
-.openlegends .details {
+.openlegend .details {
   grid-column: 1 / 4;
   grid-row: 1 / 1;
   border: 4px groove #eeede0;
@@ -419,61 +419,61 @@
   grid-gap: 0.25rem;
 }
 
-.openlegends .details div {
+.openlegend .details div {
   background-color: rgba(255, 255, 255, 0.35);
   border: 2px groove #eeede0;
 }
 
-.openlegends .details input {
+.openlegend .details input {
   background: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 1px solid black;
   border-radius: 0px;
 }
 
-.openlegends .details .details-name {
+.openlegend .details .details-name {
   grid-column: 2 / 4;
   grid-row: 1 / 2;
 }
 
-.openlegends .details .details-player {
+.openlegend .details .details-player {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
 }
 
-.openlegends .details .details-description {
+.openlegend .details .details-description {
   grid-column: 4 / 7;
   grid-row: 1 / 2;
 }
 
-.openlegends .details .details-level {
+.openlegend .details .details-level {
   grid-column: 4 / 5;
   grid-row: 2 / 3;
 }
 
-.openlegends .details .details-xp {
+.openlegend .details .details-xp {
   grid-column: 5 / 6;
   grid-row: 2 / 3;
 }
 
-.openlegends .details .details-wealth {
+.openlegend .details .details-wealth {
   grid-column: 6 / 7;
   grid-row: 2 / 3;
 }
 
-.openlegends .gear-row {
+.openlegend .gear-row {
   border: 2px groove #eeede0;
   background-color: rgba(255, 255, 255, 0.35);
 }
 
-.openlegends .gear-row .gear-name {
+.openlegend .gear-row .gear-name {
   font-size: larger;
   font-weight: bold;
   font-variant: small-caps;
   text-transform: capitalize;
 }
 
-.openlegends .gear-row .gear-summary .gear-title {
+.openlegend .gear-row .gear-summary .gear-title {
   font-style: italic;
   font-weight: bold;
   font-variant: small-caps;
@@ -483,18 +483,18 @@
   margin-bottom: -2px;
 }
 
-.openlegends .gear-row .gear-summary .gear-type {
+.openlegend .gear-row .gear-summary .gear-type {
   font-size: x-small;
   font-weight: bold;
   text-align: center;
   color: rgba(46, 46, 46, 0.781);
 }
 
-.openlegends .gear-row .weapon-wl {
+.openlegend .gear-row .weapon-wl {
   font-size: larger;
 }
 
-.openlegends .armor-name {
+.openlegend .armor-name {
   font-size: larger;
   font-weight: bold;
   font-variant: small-caps;
@@ -502,61 +502,61 @@
   color: #757575;
 }
 
-.openlegends .armor-name.equipped {
+.openlegend .armor-name.equipped {
   color: black;
 }
 
-.openlegends .armor-row {
+.openlegend .armor-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) -webkit-max-content 20px;
   grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
   grid-gap: 0.5rem;
 }
 
-.openlegends .weapon-row {
+.openlegend .weapon-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) -webkit-max-content 20px;
   grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
   grid-gap: 0.5rem;
 }
 
-.openlegends .weapon-row .weapon-affixes {
+.openlegend .weapon-row .weapon-affixes {
   font-size: smaller;
 }
 
-.openlegends .generic-row {
+.openlegend .generic-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) -webkit-max-content 20px;
   grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
   grid-gap: 0.5rem;
 }
 
-.openlegends .generic-row .generic-affixes {
+.openlegend .generic-row .generic-affixes {
   font-size: smaller;
 }
 
-.openlegends .feat-row {
+.openlegend .feat-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) 20px;
   grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
   grid-gap: 0.25rem;
 }
 
-.openlegends .feat-row .feat-tier {
+.openlegend .feat-row .feat-tier {
   font-style: italic;
   color: rgba(46, 46, 46, 0.781);
   border-right: 2px groove #eeede0;
   padding-right: 5px;
 }
 
-.openlegends .perkflaw-row {
+.openlegend .perkflaw-row {
   display: grid;
   grid-template-columns: minmax(-webkit-max-content, auto) 20px;
   grid-template-columns: minmax(max-content, auto) 20px;
   grid-gap: 0.2rem;
 }
 
-.openlegends .main-grid {
+.openlegend .main-grid {
   display: grid;
   grid-template-columns: 200px 220px minmax(150px, 2fr);
   grid-template-rows: -webkit-min-content 125px 125px 125px 125px 1fr;
@@ -564,15 +564,15 @@
   grid-gap: 0.5rem;
 }
 
-.openlegends .underlined {
+.openlegend .underlined {
   border-bottom: 1px solid #000000;
 }
 
-.openlegends .centered {
+.openlegend .centered {
   text-align: center;
 }
 
-.openlegends .text-input {
+.openlegend .text-input {
   font-weight: bold;
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
@@ -583,11 +583,11 @@
   align-items: center;
 }
 
-.openlegends .ht:hover .tooltip {
+.openlegend .ht:hover .tooltip {
   display: block;
 }
 
-.openlegends .tooltip {
+.openlegend .tooltip {
   display: none;
   background: #353535;
   color: white;
@@ -597,31 +597,31 @@
   z-index: 1000;
 }
 
-.openlegends .npc .npc-header-grid {
+.openlegend .npc .npc-header-grid {
   display: grid;
   grid-template-columns: 100px 1fr;
   grid-template-rows: 100px;
   grid-gap: 0.25rem;
 }
 
-.openlegends .npc .npc-details {
+.openlegend .npc .npc-details {
   min-width: 430px;
 }
 
-.openlegends .npc .npc-row {
+.openlegend .npc .npc-row {
   border: 2px groove #eeede0;
   height: 25px;
 }
 
-.openlegends .npc .npc-hp {
+.openlegend .npc .npc-hp {
   background-color: rgba(255, 128, 128, 0.6);
 }
 
-.openlegends .npc .npc-defense {
+.openlegend .npc .npc-defense {
   background-color: rgba(182, 159, 111, 0.6);
 }
 
-.openlegends .npc .npc-body {
+.openlegend .npc .npc-body {
   display: grid;
   grid-template-columns: 105px 1fr;
   grid-template-rows: 1fr;
@@ -630,85 +630,85 @@
   margin-top: 0.25em;
 }
 
-.openlegends .npc .npc-body .npc-attributes .npc-attributes-display {
+.openlegend .npc .npc-body .npc-attributes .npc-attributes-display {
   width: 100px;
 }
 
-.openlegends .npc .npc-body .npc-attributes .npc-attributes-display div {
+.openlegend .npc .npc-body .npc-attributes .npc-attributes-display div {
   min-width: 100px;
   text-align: right;
 }
 
-.openlegends .npc .npc-body .npc-attributes .npc-attributes-edit {
+.openlegend .npc .npc-body .npc-attributes .npc-attributes-edit {
   width: 105px;
 }
 
-.openlegends .npc .npc-body .npc-attributes .npc-attributes-edit div {
+.openlegend .npc .npc-body .npc-attributes .npc-attributes-edit div {
   min-width: 100px;
   text-align: right;
 }
 
-.openlegends .npc .npc-body .npc-attributes button {
+.openlegend .npc .npc-body .npc-attributes button {
   margin-top: 0.25em;
 }
 
-.openlegends .npc .npc-body .npc-actions {
+.openlegend .npc .npc-body .npc-actions {
   border: 2px groove #eeede0;
   background-color: rgba(174, 234, 238, 0.35);
 }
 
-.openlegends .npc .npc-body .npc-feats {
+.openlegend .npc .npc-body .npc-feats {
   border: 2px groove #eeede0;
   background-color: rgba(133, 133, 133, 0.25);
 }
 
-.openlegends .npc .npc-body .npc-feats .title {
+.openlegend .npc .npc-body .npc-feats .title {
   font-size: large;
   font-weight: bold;
 }
 
-.openlegends .npc input.single_digit {
+.openlegend .npc input.single_digit {
   width: 10px;
 }
 
-.openlegends .npc input.double_digit {
+.openlegend .npc input.double_digit {
   width: 30px;
 }
 
-.openlegends .npc .flex-shrink {
+.openlegend .npc .flex-shrink {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.openlegends .npc input {
+.openlegend .npc input {
   background: rgba(0, 0, 0, 0);
   height: 20px;
   border: none;
 }
 
-.openlegends .npc input:hover, .openlegends .npc input:focus {
+.openlegend .npc input:hover, .openlegend .npc input:focus {
   border: 1px solid #111;
   -webkit-box-shadow: 0 0 8px red;
   box-shadow: 0 0 8px red;
 }
 
-.openlegends .npc button {
+.openlegend .npc button {
   line-height: initial;
 }
 
-.openlegends .item-sheet input {
+.openlegend .item-sheet input {
   background: rgba(0, 0, 0, 0);
   border: none;
 }
 
-.openlegends .item-sheet input:hover, .openlegends .item-sheet input:focus {
+.openlegend .item-sheet input:hover, .openlegend .item-sheet input:focus {
   border: 1px solid #111;
   -webkit-box-shadow: 0 0 8px red;
   box-shadow: 0 0 8px red;
 }
 
-.openlegends .item-sheet .header {
+.openlegend .item-sheet .header {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
@@ -718,11 +718,11 @@
   font-variant: small-caps;
 }
 
-.openlegends .item-sheet .header .header-details {
+.openlegend .item-sheet .header .header-details {
   border-left: 2px groove #eeede0;
 }
 
-.openlegends .item-sheet .header .item-img {
+.openlegend .item-sheet .header .item-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
@@ -734,7 +734,7 @@
   padding-right: 5px;
 }
 
-.openlegends .item-sheet .header .item-name {
+.openlegend .item-sheet .header .item-name {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -744,14 +744,14 @@
   padding: 5px;
 }
 
-.openlegends .item-sheet .header .item-name input {
+.openlegend .item-sheet .header .item-name input {
   display: block;
   height: 50px;
   font-size: 32px;
   margin: 0;
 }
 
-.openlegends .item-sheet .header .item-subtitle {
+.openlegend .item-sheet .header .item-subtitle {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -763,38 +763,38 @@
   color: rgba(46, 46, 46, 0.781);
 }
 
-.openlegends .item-sheet .header .item-subtitle .item-type {
+.openlegend .item-sheet .header .item-subtitle .item-type {
   font-size: 24px;
   font-weight: bolder;
   line-height: 26px;
   margin: 0;
 }
 
-.openlegends .item-sheet .header .item-subtitle .item-status, .openlegends .item-sheet .header .item-subtitle .scale-tester {
+.openlegend .item-sheet .header .item-subtitle .item-status, .openlegend .item-sheet .header .item-subtitle .scale-tester {
   font-size: 16px;
   line-height: 24px;
   min-width: 75px;
 }
 
-.openlegends .item-sheet .sheet-tabs {
+.openlegend .item-sheet .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
 }
 
-.openlegends .item-sheet .sheet-body {
+.openlegend .item-sheet .sheet-body {
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   grid-gap: 0.5rem;
 }
 
-.openlegends .item-sheet .sheet-body .action-header {
+.openlegend .item-sheet .sheet-body .action-header {
   font-size: larger;
   font-weight: bold;
 }
 
-.openlegends .item-sheet .sheet-body .action-edit {
+.openlegend .item-sheet .sheet-body .action-edit {
   list-style-type: none;
   text-transform: capitalize;
   font-variant: small-caps;
@@ -802,35 +802,35 @@
   margin: 0;
 }
 
-.openlegends .item-sheet .sheet-body .action-edit ul {
+.openlegend .item-sheet .sheet-body .action-edit ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.openlegends .item-sheet .sheet-body .action-edit li {
+.openlegend .item-sheet .sheet-body .action-edit li {
   vertical-align: middle;
   padding-right: 10px;
 }
 
-.openlegends .item-sheet .sheet-body .action-edit li input {
+.openlegend .item-sheet .sheet-body .action-edit li input {
   vertical-align: middle;
 }
 
-.openlegends .item-sheet .sheet-body .action-edit li input span {
+.openlegend .item-sheet .sheet-body .action-edit li input span {
   vertical-align: middle;
 }
 
-.openlegends .item-sheet .sheet-body button {
+.openlegend .item-sheet .sheet-body button {
   line-height: initial;
 }
 
-.openlegends .item-sheet .sheet-body .description-editor {
+.openlegend .item-sheet .sheet-body .description-editor {
   border-left: 2px groove #eeede0;
   padding-left: 3px;
 }
 
-.openlegends .item-sheet .summary {
+.openlegend .item-sheet .summary {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
@@ -842,7 +842,7 @@
   border-bottom: none;
 }
 
-.openlegends .item-sheet .summary li {
+.openlegend .item-sheet .summary li {
   height: calc(100% - 6px);
   float: left;
   padding-left: 2px;
@@ -854,19 +854,19 @@
   align-items: center;
 }
 
-.openlegends .item-sheet .summary li input {
+.openlegend .item-sheet .summary li input {
   margin: 5px;
 }
 
-.openlegends .item-sheet .summary li:last-child {
+.openlegend .item-sheet .summary li:last-child {
   border-right: none;
 }
 
-.openlegends .item-sheet .summary li .wl {
+.openlegend .item-sheet .summary li .wl {
   width: 25px;
 }
 
-.openlegends .item-sheet .weapon-summary {
+.openlegend .item-sheet .weapon-summary {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -874,7 +874,7 @@
   border-bottom: none;
 }
 
-.openlegends .item-sheet .weapon-summary li {
+.openlegend .item-sheet .weapon-summary li {
   line-height: 34px;
   color: black;
   -webkit-box-align: center;
@@ -883,69 +883,69 @@
   padding-left: 2px;
 }
 
-.openlegends .item-sheet .weapon-summary li div {
+.openlegend .item-sheet .weapon-summary li div {
   margin-top: -5px;
   margin-bottom: -15px;
 }
 
-.openlegends .item-sheet .weapon-summary li input {
+.openlegend .item-sheet .weapon-summary li input {
   margin-top: -15px;
 }
 
-.openlegends .item-sheet .weapon-summary li:last-child {
+.openlegend .item-sheet .weapon-summary li:last-child {
   border-top: 2px groove #eeede0;
   border-right: none;
 }
 
-.openlegends .item-sheet .shrink {
+.openlegend .item-sheet .shrink {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
 }
 
-.openlegends .item-sheet .editor {
+.openlegend .item-sheet .editor {
   height: 100%;
 }
 
-.openlegends .item-sheet .editor .tox-toolbar-overlord,
-.openlegends .item-sheet .editor .tox-toolbar__primary {
+.openlegend .item-sheet .editor .tox-toolbar-overlord,
+.openlegend .item-sheet .editor .tox-toolbar__primary {
   background: none;
 }
 
-.openlegends .item-sheet .action-attack .attack-attribute, .openlegends .item-sheet .action-attack .attack-target {
+.openlegend .item-sheet .action-attack .attack-attribute, .openlegend .item-sheet .action-attack .attack-target {
   text-transform: capitalize;
   font-weight: bold;
   font-variant: small-caps;
 }
 
-.openlegends .tabs {
+.openlegend .tabs {
   height: 40px;
   border-top: 1px solid #AAA;
   border-bottom: 1px solid #AAA;
 }
 
-.openlegends .tabs .item {
+.openlegend .tabs .item {
   line-height: 40px;
   font-weight: bold;
 }
 
-.openlegends .tabs .item.active {
+.openlegend .tabs .item.active {
   text-decoration: underline;
   text-shadow: none;
 }
 
-.openlegends .forceful {
+.openlegend .forceful {
   text-transform: capitalize;
   font-variant: small-caps;
   font-weight: bold;
 }
 
-.openlegends .aligned {
+.openlegend .aligned {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-.openlegends .h-divider {
+.openlegend .h-divider {
   border-bottom: 2px groove #eeede0;
 }

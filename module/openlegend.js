@@ -8,7 +8,7 @@ import * as macros from "./util/macros.js";
 
 Hooks.once('init', async function() {
 
-  game.openlegends = {
+  game.openlegend = {
     olActor,
     olItem,
     macros: macros
@@ -27,9 +27,9 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("openlegends", olActorSheet, { makeDefault: true });
+  Actors.registerSheet("openlegend", olActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("openlegends", olItemSheet, { makeDefault: true });
+  Items.registerSheet("openlegend", olItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {

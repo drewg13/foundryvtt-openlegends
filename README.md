@@ -1,6 +1,6 @@
-# Open Legends RPG for Foundry VTT
+# Open Legend RPG for Foundry VTT
 
-An implementation of the Open Legends RPG system for Foundry Virtual Tabletop (http://foundryvtt.com).
+An implementation of the Open Legend RPG system for Foundry Virtual Tabletop (http://foundryvtt.com).
 
 ## Installation
 
@@ -23,6 +23,6 @@ https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_
 
 ## Attribution
 
-* Open Legends RPG: https://openlegendrpg.com/
+* Open Legend RPG: https://openlegendrpg.com/
 * Foundry VTT: https://foundryvtt.com/
 * Game-Icons.net: https://game-icons.net/

@@ -7,7 +7,7 @@ export async function rollAttr(actor, attr_name) {
         let olroll = await OLRoll(attr_name, attr, 0);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
-            const template = "systems/openlegends/templates/dialog/roll-chat.html";
+            const template = "systems/openlegend/templates/dialog/roll-chat.html";
             const data = {
                 "name": attr_name,
                 "type": 'Attribute',
@@ -33,7 +33,7 @@ export async function rollItem(actor, item) {
         let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
-            const template = "systems/openlegends/templates/dialog/roll-chat.html";
+            const template = "systems/openlegend/templates/dialog/roll-chat.html";
             const data = {
                 "name": item.data.action.name,
                 "type": item.type,
@@ -111,7 +111,7 @@ export async function OLRoll(attr_name, attr, default_adv=0) {
 }
 
 async function _OLRollDialog(attr_name, attr, default_adv=0) {
-    const template = "systems/openlegends/templates/dialog/roll-dialog.html";
+    const template = "systems/openlegend/templates/dialog/roll-dialog.html";
     const data = { 'attr': attr_name, 'score': attr.score, 'formula': '1d20', 'default_adv': default_adv }
     if (attr.score > 0)
         data.formula += ' + ' + attr.dice.num + attr.dice.die;

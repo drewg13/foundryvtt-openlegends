@@ -30,7 +30,7 @@ const attr_imgs = {
 /* -------------------------------------------- */
 export async function createOLMacro(data, slot) {
     if (data.macro == 'attr') {
-        const command = `game.openlegends.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
+        const command = `game.openlegend.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
         let macro = game.macros.entities.find(m => m.data.command === command);
         if (!macro) {
             macro = await Macro.create({
@@ -42,7 +42,7 @@ export async function createOLMacro(data, slot) {
         }
         game.user.assignHotbarMacro(macro, slot);
     } else if (data.macro == 'item') {
-        const command = `game.openlegends.macros.rollItemMacro("${data.actor}", "${data.item}")`;
+        const command = `game.openlegend.macros.rollItemMacro("${data.actor}", "${data.item}")`;
         let macro = game.macros.entities.find(m => m.command === command);
         if (!macro) {
             const actor = game.actors.get(data.actor);
