@@ -53,6 +53,18 @@
       "system": "openlegends",
       "path": "./packs/perks.db",
       "entity": "Item"
+    },{
+      "name": "rules",
+      "label": "Rules",
+      "system": "openlegends",
+      "path": "./packs/rules.db",
+      "entity": "JournalEntry"
+    },{
+      "name": "gm-screen",
+      "label": "GM-Screen",
+      "system": "openlegends",
+      "path": "./packs/gm-screen.db",
+      "entity": "JournalEntry"
     }
   ],
   "dependencies": [
