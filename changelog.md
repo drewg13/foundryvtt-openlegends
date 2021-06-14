@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1
+
+* Added customizability to Defense calculation
+  * HP, Guard, Toughness and Resolve can now be edited to allow you to use whichever attributes you want
+  * Added 'from feats' and 'from other' to HP calculation. Max HP is no longer editable
+* Fixed a bug with the NPC sheet that was causing the edit tab to open/close when pressing enter on input fields
+
 ## 2.0.0
 
 * Updated System to Foundry 8.6

@@ -41,20 +41,25 @@ export class olActor extends Actor {
       }
     }
 
-    // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10
+    // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10 (handle attr substitution)
     // Cap current lethal between 0 and max
-    const fort = data.attributes.physical.fortitude.score;
-    const will = data.attributes.mental.will.score;
-    const pres = data.attributes.social.presence.score;
     const hp = data.defense.hp;
+    const hp_form1 = this.getAttrForName(data.attributes, hp.formula[0].active).score;
+    const hp_form2 = this.getAttrForName(data.attributes, hp.formula[1].active).score;
+    const hp_form3 = this.getAttrForName(data.attributes, hp.formula[2].active).score;
+    const fort = data.attributes.physical.fortitude.score;
     hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
-    hp.hint = 2 * (fort + will + pres) + 10;
-    hp.max = Math.max(hp.max, hp.hint);
+    hp.hint = 2 * (hp_form1 + hp_form2 + hp_form3) + 10;
+    hp.hint_str = `2*(${hp.formula[0].active} + ${hp.formula[1].active} + ${hp.formula[2].active})+10 = ${hp.hint}`
+    hp.max = hp.hint + hp.other + hp.feat;
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
 
-    // Set guard to 10 + Agility + Might + Armor + Other
-    const agi = data.attributes.physical.agility.score;
-    const might = data.attributes.physical.might.score;
+    // Set guard to 10 + Agility + Might + Armor + Other (handle attr substitution)
+    const guard = data.defense.guard;
+    const guard_form1 = this.getAttrForName(data.attributes, guard.formula[0].active).score;
+    const guard_form2 = this.getAttrForName(data.attributes, guard.formula[1].active).score;
+    guard.formula[0].score = guard_form1;
+    guard.formula[1].score = guard_form2;
     var armor = 0
     actorData.items.forEach(item => {
       if (item.type == 'armor') {
@@ -62,18 +67,24 @@ export class olActor extends Actor {
           armor += item.data.data.defense;
       }
     });
-    const guard = data.defense.guard;
     guard.armor = armor;
-    guard.guard = Math.max(0, 10 + agi + might + guard.armor + guard.other);
+    guard.guard = Math.max(0, 10 + guard_form1 + guard_form2 + guard.armor + guard.other);
 
-    // Set toughness to 10 + Fortitude + Will + Other
+    // Set toughness to 10 + Fortitude + Will + Other (handle attr substitution)
     const tough = data.defense.toughness;
-    tough.toughness = Math.max(0, 10 + fort + will + tough.other);
+    const tough_form1 = this.getAttrForName(data.attributes, tough.formula[0].active).score;
+    const tough_form2 = this.getAttrForName(data.attributes, tough.formula[1].active).score;
+    tough.formula[0].score = tough_form1;
+    tough.formula[1].score = tough_form2;
+    tough.toughness = Math.max(0, 10 + tough_form1 + tough_form2 + tough.other);
 
-    // Set resolve to 10 + Presence + Will + Other
+    // Set resolve to 10 + Presence + Will + Other (handle attr substitution)
     const resolve = data.defense.resolve;
-    const presence = data.attributes.social.presence.score;
-    resolve.resolve = Math.max(0, 10 + presence + will + resolve.other);
+    const resolve_form1 = this.getAttrForName(data.attributes, resolve.formula[0].active).score;
+    const resolve_form2 = this.getAttrForName(data.attributes, resolve.formula[1].active).score;
+    resolve.formula[0].score = resolve_form1;
+    resolve.formula[1].score = resolve_form2;
+    resolve.resolve = Math.max(0, 10 + resolve_form1 + resolve_form2 + resolve.other);
 
     // Calculate feat costs
     var total_feat_cost = 0;
@@ -94,7 +105,6 @@ export class olActor extends Actor {
 
   _prepareNPCData(actorData) {
     const data = actorData.data;
-    console.log(data);
     data.xp = (data.level-1) * 3;
 
     let trackers = data.trackers;
@@ -147,6 +157,22 @@ export class olActor extends Actor {
       return {"str": "3d10", "num": 3, "die": "d10"};
     else
       return {"str": "4d8", "num": 4, "die": "d8"};
+  }
+
+  getAttrForName(attributes, name) {
+    var attr = attributes.physical[name]
+    if( attr ) return attr;
+
+    attr = attributes.mental[name]
+    if( attr ) return attr;
+
+    attr = attributes.social[name]
+    if( attr ) return attr;
+
+    attr = attributes.extraordinary[name]
+    if( attr ) return attr;
+
+    return null;
   }
 
 }

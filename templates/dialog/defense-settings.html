@@ -1,0 +1,18 @@
+<form class="openlegend">
+    <div class="form-group">
+        <div class="forceful large">Default Attr</div>
+        <div class="forceful large">Modified Attr</div>
+    </div>
+    {{#each formula as |field|}}
+    <div class="form-group">
+        <label>{{field.default}}</label>
+        <select class="capitalize">        
+        {{#each ../attrs as |attr_group group_name|}}
+            {{#each attr_group as |attr attr_name|}}
+                <option class="capitalize" value="{{attr_name}}" {{#ifeq attr_name field.active}} selected{{/ifeq}}>{{attr_name}}</option>
+            {{/each}}
+        {{/each}}
+        </select>
+    </div>
+    {{/each}}
+</form>

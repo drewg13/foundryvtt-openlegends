@@ -27,20 +27,37 @@
             "value": 10,
             "min": 0,
             "max": 10,
-            "lethal": 0
+            "lethal": 0,
+            "formula": [
+              {"default": "fortitude", "active": "fortitude"},
+              {"default": "will", "active": "will"},
+              {"default": "presence", "active": "presence"}
+            ]
           },
           "guard": {
             "guard": 10,
             "armor": 0,
-            "other": 0
+            "other": 0,
+            "formula": [
+              {"default": "agility", "active": "agility"},
+              {"default": "might", "active": "might"}
+            ]
           },
           "toughness": {
             "toughness": 10,
-            "other": 0
+            "other": 0,
+            "formula": [
+              {"default": "fortitude", "active": "fortitude"},
+              {"default": "will", "active": "will"}
+            ]
           },
           "resolve": {
             "resolve": 10,
-            "other": 0
+            "other": 0,
+            "formula": [
+              {"default": "presence", "active": "presence"},
+              {"default": "will", "active": "will"}
+            ]
           }
         },
         "attributes": {

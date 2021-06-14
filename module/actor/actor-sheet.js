@@ -165,6 +165,9 @@ export class olActorSheet extends ActorSheet {
     html.find('.init-rollable').click(ev => {
       this.actor.rollInitiative({createCombatants: true});
     });
+
+    // Configurable settings.
+    html.find('.settings').click(this._onConfigure.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -185,4 +188,49 @@ export class olActorSheet extends ActorSheet {
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
   }
+
+  /**
+   * Handle clickable settings.
+   * @param {Event} event The originating click event
+   * @private
+   */
+  async _onConfigure(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const data = this.actor.data.toJSON();
+    const defense = data.data.defense[dataset.defense];    
+
+    var result = await this._SettingsDialog(dataset.name, defense);
+    if( result ) {
+      result.forEach((item, index) => {
+        defense.formula[index].active = item.value;
+      });
+
+      this.actor.update(data);
+    }
+  }
+
+  async _SettingsDialog(name, defense) {
+    const template = "systems/openlegend/templates/dialog/defense-settings.html";
+    const attrs = this.actor.data.toJSON().data.attributes;
+    const data = { 'name': name, 'formula': defense.formula, 'attrs': attrs }
+
+    const html = await renderTemplate(template, data);
+    // Create the Dialog window
+    return new Promise(resolve => {
+        new Dialog({
+            title: data.name,
+            content: html,
+            buttons: {
+                update: {
+                    label: "Update",
+                    callback: html => resolve(html[0].querySelectorAll("select"))
+                }
+            },
+            default: "update",
+            close: html => resolve(null)
+        }).render(true);
+    });
+}
 }

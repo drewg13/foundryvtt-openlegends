@@ -32,11 +32,23 @@
     font-weight: bold;
   }
 
+  .large {
+    font-size: large;
+  }
+
   .aligned {
     align-items: center;
   }
 
   .h-divider {
     border-bottom: $borderGroove;
+  }
+
+  input {
+    height: auto;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
   }
 }
