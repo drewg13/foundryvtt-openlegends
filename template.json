@@ -126,6 +126,7 @@
           "cast_time": "",
           "target": "",
           "default_adv": 0,
+          "explosion_mod": 0,
           "index": 0,
           "show_as_action": true
         }

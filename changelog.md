@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.2
+
+* Updated to Foundry 0.8.8
+* Added ability to specify an 'Explosion Modifier' on items (primarily for Destructive Trance)
+  * For Attacks, Weapons, and Banes -- when you modify the attack list, you can also specify a "Explode on max minus" value
+  * This allows you to explode on values less than max (e.g., a value of 2, would mean that a d20 explodes on 18+, and a d6 expldoes on 4+)
+  * 1's Never explode (to prevent infinite recursion)
+
 ## 2.0.1
 
 * Added customizability to Defense calculation

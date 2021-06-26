@@ -36,6 +36,10 @@
                         {{> "systems/openlegend/templates/item/parts/attack-target.html" attack=attack attributes=../data.data.attributes}}
                     {{/each}}
                 </ul>
+                <div class="explosion-mod">
+                    <label class="forceful">Explode on max minus:</label>
+                    <input type="number" name="data.action.explosion_mod" value="{{data.data.action.explosion_mod}}"/>
+                </div>
                 <button class="add-attack">Add</button>
             </div>
             <button class="update-action">Edit</button>

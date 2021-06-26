@@ -204,4 +204,10 @@ $detailsHeight: 40px;
             font-variant: small-caps;
         }
     }
+
+    .explosion-mod {
+        display: grid;
+        grid-template-columns: max-content 0.25rem;
+        grid-gap: 0.5rem;
+    }
 }

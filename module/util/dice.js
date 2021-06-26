@@ -30,7 +30,7 @@ export async function rollItem(actor, item) {
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv);
+        let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv, item.data.action.explosion_mod);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend/templates/dialog/roll-chat.html";
@@ -53,7 +53,7 @@ export async function rollItem(actor, item) {
 }
 
 
-export async function OLRoll(attr_name, attr, default_adv=0) {
+export async function OLRoll(attr_name, attr, default_adv=0, explosion_modifier=0) {
     const to_return = {
         "roll": null,
         "attr": {
@@ -72,27 +72,30 @@ export async function OLRoll(attr_name, attr, default_adv=0) {
     if (adv == null)
         return to_return;
 
-    const dice = attr.dice
+    const dice = attr.dice;
+    const d20_explos = explosion_modifier > 0 ? `X>=${Math.max(2, 20-explosion_modifier)}` : 'X'
     // If score is zero
     if (attr.score <= 0) {
         to_return.attr.dice = null;
         if (adv > 0) {
             to_return.adv.type = "Advantage";
             to_return.adv.value = 1;
-            to_return.roll = new Roll('2d20kh1X');
+            to_return.roll = new Roll(`2d20kh1${d20_explos}`);
         } else if (adv < 0) {
             to_return.adv.type = "Disadvantage";
             to_return.adv.value = 1;
-            to_return.roll = new Roll('2d20kl1X');
+            to_return.roll = new Roll(`2d20kl1${d20_explos}`);
         } else {
             to_return.adv = null;
-            to_return.roll = new Roll('1d20X');
+            to_return.roll = new Roll(`1d20${d20_explos}`);
         }
     } else {
+        const die_num = parseInt(dice.die.substring(1));
+        const attr_explos = explosion_modifier > 0 ? `X>=${Math.max(2, die_num-explosion_modifier)}` : 'X';
         // Normal roll
         if (adv == 0) {
             to_return.adv = null;
-            to_return.roll = new Roll('1d20X + ' + dice.num + dice.die + 'X');
+            to_return.roll = new Roll(`1d20${d20_explos} + ${dice.num + dice.die}${attr_explos}`);
         } else {
             to_return.adv.value = Math.abs(adv);
             var advstr = ""
@@ -103,7 +106,7 @@ export async function OLRoll(attr_name, attr, default_adv=0) {
                 to_return.adv.type = "Advantage";
                 advstr = 'kh' + dice.num;
             }
-            to_return.roll = new Roll('1d20X + ' + (to_return.adv.value + dice.num) + dice.die + advstr + 'X');
+            to_return.roll = new Roll(`1d20${d20_explos} + ${(to_return.adv.value + dice.num) + dice.die + advstr}${attr_explos}`);
         }
     }
 

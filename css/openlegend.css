@@ -951,6 +951,13 @@
   font-variant: small-caps;
 }
 
+.openlegend .item-sheet .explosion-mod {
+  display: grid;
+  grid-template-columns: -webkit-max-content 0.25rem;
+  grid-template-columns: max-content 0.25rem;
+  grid-gap: 0.5rem;
+}
+
 .openlegend .tabs {
   height: 40px;
   border-top: 1px solid #AAA;
