@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.3
+
+* Added ability to Ctrl+Click rollables to quick-roll (skip dialog)
+  * Doesn't work with rolls that have been put on the macro bar
+* Added attribute settings button
+  * You can now apply bonuses/malices to attributes for things like Extraordinary Focus
+* Fixed bugs with initiative rolling
+  * Not using agility, ignoring the quick-advantage slot
+  * Due to Foundry 0.8 changes
+
 ## 2.0.2
 
 * Updated to Foundry 0.8.8
@@ -7,6 +17,8 @@
   * For Attacks, Weapons, and Banes -- when you modify the attack list, you can also specify a "Explode on max minus" value
   * This allows you to explode on values less than max (e.g., a value of 2, would mean that a d20 explodes on 18+, and a d6 expldoes on 4+)
   * 1's Never explode (to prevent infinite recursion)
+* Added an alternative D20 explosion rule (accessible in System Settings)
+  * If enabled, D20s explode based on the attribute used to roll it (d4-d10)
 
 ## 2.0.1
 

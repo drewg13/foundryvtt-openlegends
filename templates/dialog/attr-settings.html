@@ -1,0 +1,19 @@
+<form class="openlegend">
+    <div class="form-group">
+        <div class="forceful large">Attr</div>
+        <div class="forceful large">Modifier</div>
+    </div>
+    {{#each attributes as |attr_group group_name|}}
+    <div class="form-group">
+        <label class="forceful">{{group_name}}</label>
+    </div>
+
+    {{#each attr_group as |attr attr_name|}}
+        <div class="form-group">
+            <label class="">{{attr_name}}</label>
+            <input class="centered" name="attributes.{{group_name}}.{{attr_name}}.bonus"
+                type="number" data-group='{{group_name}}' data-attr='{{attr_name}}' value="{{attr.bonus}}" placeholder="0" />
+        </div>
+    {{/each}}
+{{/each}}
+</form>

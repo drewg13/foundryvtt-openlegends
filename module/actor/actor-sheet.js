@@ -168,6 +168,7 @@ export class olActorSheet extends ActorSheet {
 
     // Configurable settings.
     html.find('.settings').click(this._onConfigure.bind(this));
+    html.find('.attr-settings').click(this._onAttrConfigure.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -179,14 +180,15 @@ export class olActorSheet extends ActorSheet {
    */
   async _onRoll(event) {
     event.preventDefault();
+    const ctrl_held = event.ctrlKey
     const element = event.currentTarget;
     const dataset = element.dataset;
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
-      rollItem(this.actor, this.actor.items.get(dataset.item).data);
+      rollItem(this.actor, this.actor.items.get(dataset.item).data, ctrl_held);
     else if (dataset.attr)
-      rollAttr(this.actor, dataset.attr);
+      rollAttr(this.actor, dataset.attr, ctrl_held);
   }
 
   /**
@@ -232,5 +234,45 @@ export class olActorSheet extends ActorSheet {
             close: html => resolve(null)
         }).render(true);
     });
-}
+  }
+
+  async _onAttrConfigure(event) {
+    event.preventDefault();
+    const data = this.actor.data.toJSON();
+    const attrs = data.data.attributes
+
+    var result = await this._AttrSettingsDialog();
+    if( result ) {
+      result.forEach((item, index) => {
+        const dataset = item.dataset
+        if (item.value != '')
+          attrs[dataset.group][dataset.attr]['bonus'] = parseInt(item.value);
+      });
+
+      this.actor.update(data);
+    }
+  }
+
+  async _AttrSettingsDialog() {
+    const template = "systems/openlegend/templates/dialog/attr-settings.html";
+    const attrs = this.actor.data.toJSON().data.attributes;
+    const data = { 'attributes': attrs }
+
+    const html = await renderTemplate(template, data);
+    // Create the Dialog window
+    return new Promise(resolve => {
+        new Dialog({
+            title: data.name,
+            content: html,
+            buttons: {
+                update: {
+                    label: "Update",
+                    callback: html => resolve(html[0].querySelectorAll("input"))
+                }
+            },
+            default: "update",
+            close: html => resolve(null)
+        }).render(true);
+    });
+  }
 }

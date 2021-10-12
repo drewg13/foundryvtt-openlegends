@@ -1,5 +1,18 @@
 @import "../variables";
 
+.attr-group {
+  position: relative;
+}
+
+.attr-settings {
+  position: absolute;
+  overflow: hidden;
+  margin-top: 0.5em;
+  margin-left: 0.3em;
+
+  color: rgba(1, 1, 1, 0.2);
+}
+
 .attributes {
   grid-column: 1 / 1;
   grid-row: 2 / 9;
@@ -36,4 +49,12 @@
   font-size: medium;
   font-weight: normal;
   text-align: center;
+}
+
+.upgraded {
+  color: green;
+}
+
+.downgraded {
+  color: red;
 }

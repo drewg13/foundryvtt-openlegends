@@ -36,7 +36,10 @@ export class olActor extends Actor {
     // Loop through attribute scores, and add their dice to our sheet output.
     for (let [attr_group_name, attr_group] of Object.entries(attributes)) {
       for (let [attr_name, attr] of Object.entries(attr_group)) {
-        attr.dice = this.getDieForAttrScore(attr.score);
+        attr.modified_score = attr.score + (attr.bonus ? attr.bonus : 0) 
+        attr.bonus_class = (attr.bonus ? (attr.bonus > 0 ? 'upgraded' : 'downgraded') : '');
+        attr.bonus_str = (attr.bonus && attr.bonus != 0 ? (attr.bonus > 0 ? '+'+attr.bonus : attr.bonus) : '');
+        attr.dice = this.getDieForAttrScore(attr.modified_score);
         trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
       }
     }
@@ -44,10 +47,10 @@ export class olActor extends Actor {
     // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10 (handle attr substitution)
     // Cap current lethal between 0 and max
     const hp = data.defense.hp;
-    const hp_form1 = this.getAttrForName(data.attributes, hp.formula[0].active).score;
-    const hp_form2 = this.getAttrForName(data.attributes, hp.formula[1].active).score;
-    const hp_form3 = this.getAttrForName(data.attributes, hp.formula[2].active).score;
-    const fort = data.attributes.physical.fortitude.score;
+    const hp_form1 = this.getAttrForName(data.attributes, hp.formula[0].active).modified_score;
+    const hp_form2 = this.getAttrForName(data.attributes, hp.formula[1].active).modified_score;
+    const hp_form3 = this.getAttrForName(data.attributes, hp.formula[2].active).modified_score;
+    const fort = data.attributes.physical.fortitude.modified_score;
     hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.hint = 2 * (hp_form1 + hp_form2 + hp_form3) + 10;
     hp.hint_str = `2*(${hp.formula[0].active} + ${hp.formula[1].active} + ${hp.formula[2].active})+10 = ${hp.hint}`
@@ -56,8 +59,8 @@ export class olActor extends Actor {
 
     // Set guard to 10 + Agility + Might + Armor + Other (handle attr substitution)
     const guard = data.defense.guard;
-    const guard_form1 = this.getAttrForName(data.attributes, guard.formula[0].active).score;
-    const guard_form2 = this.getAttrForName(data.attributes, guard.formula[1].active).score;
+    const guard_form1 = this.getAttrForName(data.attributes, guard.formula[0].active).modified_score;
+    const guard_form2 = this.getAttrForName(data.attributes, guard.formula[1].active).modified_score;
     guard.formula[0].score = guard_form1;
     guard.formula[1].score = guard_form2;
     var armor = 0
@@ -72,16 +75,16 @@ export class olActor extends Actor {
 
     // Set toughness to 10 + Fortitude + Will + Other (handle attr substitution)
     const tough = data.defense.toughness;
-    const tough_form1 = this.getAttrForName(data.attributes, tough.formula[0].active).score;
-    const tough_form2 = this.getAttrForName(data.attributes, tough.formula[1].active).score;
+    const tough_form1 = this.getAttrForName(data.attributes, tough.formula[0].active).modified_score;
+    const tough_form2 = this.getAttrForName(data.attributes, tough.formula[1].active).modified_score;
     tough.formula[0].score = tough_form1;
     tough.formula[1].score = tough_form2;
     tough.toughness = Math.max(0, 10 + tough_form1 + tough_form2 + tough.other);
 
     // Set resolve to 10 + Presence + Will + Other (handle attr substitution)
     const resolve = data.defense.resolve;
-    const resolve_form1 = this.getAttrForName(data.attributes, resolve.formula[0].active).score;
-    const resolve_form2 = this.getAttrForName(data.attributes, resolve.formula[1].active).score;
+    const resolve_form1 = this.getAttrForName(data.attributes, resolve.formula[0].active).modified_score;
+    const resolve_form2 = this.getAttrForName(data.attributes, resolve.formula[1].active).modified_score;
     resolve.formula[0].score = resolve_form1;
     resolve.formula[1].score = resolve_form2;
     resolve.resolve = Math.max(0, 10 + resolve_form1 + resolve_form2 + resolve.other);
@@ -114,6 +117,9 @@ export class olActor extends Actor {
     // Loop through attribute scores, and add their dice to our sheet output.
     for (let [attr_group_name, attr_group] of Object.entries(attributes)) {
       for (let [attr_name, attr] of Object.entries(attr_group)) {
+        attr.modified_score = attr.score
+        attr.bonus_class = '';
+        attr.bonus_str = '';
         attr.dice = this.getDieForAttrScore(attr.score);
         trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
         console.log(attr_name, attr.score, trackers.attr.spent);

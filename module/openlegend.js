@@ -14,12 +14,29 @@ Hooks.once('init', async function() {
     macros: macros
   };
 
+  // Register settings
+  game.settings.register("openlegend", "alt_d20_explosion", {
+    name: "Alternate D20 Explosions",
+    hint: "D20's explode as scaling attribute dice rahter than d20s",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    choices: {
+      true: "On",
+      false: "Off"
+    },
+    default: false,
+    onChange: value => {
+      console.log(value)
+    }
+  });
+
   /**
    * Set an initiative formula for the system
    * @type {String}
    */
   CONFIG.Combat.initiative = {formula: "1d20X"};
-  Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
+  Combatant.prototype._getInitiativeFormula = _getInitiativeFormula;
 
   // Define custom Entity classes
   CONFIG.Actor.entityClass = olActor;
@@ -64,8 +81,8 @@ Hooks.once("ready", function() {
   Hooks.on("hotbarDrop", (bar, data, slot) => macros.createOLMacro(data, slot));
 });
 
-export const _getInitiativeFormula = function(combatant) {
-  const actor = combatant.actor;
+export const _getInitiativeFormula = function() {
+  const actor = this.actor;
   if ( !actor ) return "1d20";
   const agi = actor.data.data.attributes.physical.agility.dice;
   
@@ -84,8 +101,7 @@ export const _getInitiativeFormula = function(combatant) {
   }
   // Generate KH/KL for adv/dis
   const keep_str = init_mod < 0 ? `kl${agi.num}X` : `kh${agi.num}X`;
-  const multiplier = Math.abs(init_mod)+1;
-  const dice_to_roll = multiplier * agi.num;
+  const dice_to_roll = Math.abs(init_mod) + agi.num;
   const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}`;
   return formula;
 };

@@ -235,6 +235,18 @@
   width: 25px;
 }
 
+.openlegend .attr-group {
+  position: relative;
+}
+
+.openlegend .attr-settings {
+  position: absolute;
+  overflow: hidden;
+  margin-top: 0.5em;
+  margin-left: 0.3em;
+  color: rgba(1, 1, 1, 0.2);
+}
+
 .openlegend .attributes {
   grid-column: 1 / 1;
   grid-row: 2 / 9;
@@ -269,6 +281,14 @@
   font-size: medium;
   font-weight: normal;
   text-align: center;
+}
+
+.openlegend .upgraded {
+  color: green;
+}
+
+.openlegend .downgraded {
+  color: red;
 }
 
 .openlegend .character {
