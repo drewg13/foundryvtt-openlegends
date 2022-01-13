@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+* Fixed compatibility with Foundry v0.9
+
 ## 2.0.3
 
 * Added ability to Ctrl+Click rollables to quick-roll (skip dialog)

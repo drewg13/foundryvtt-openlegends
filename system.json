@@ -2,76 +2,20 @@
   "name": "openlegend",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
-  "version": "2.0.3",
-  "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "0.8.9",
-  "templateVersion": 2,
   "author": "Beenrak",
-  "esmodules": ["module/openlegend.js"],
-  "styles": ["css/openlegend.css"],
+  "authors": [],
+  "url": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends",
+  "license": "LICENSE.txt",
+  "flags": {},
+  "version": "2.0.4",
+  "minimumCoreVersion": "0.9.0",
+  "compatibleCoreVersion": "9.242",
   "scripts": [],
-  "packs": [
-    {
-      "name": "banes",
-      "label": "Banes",
-      "system": "openlegend",
-      "path": "./packs/banes.db",
-      "entity": "Item"
-    },{
-      "name": "basic",
-      "label": "Basic",
-      "system": "openlegend",
-      "path": "./packs/basic.db",
-      "entity": "Item"
-    },{
-      "name": "boons",
-      "label": "Boons",
-      "system": "openlegend",
-      "path": "./packs/boons.db",
-      "entity": "Item"
-    },{
-      "name": "feats",
-      "label": "Feats",
-      "system": "openlegend",
-      "path": "./packs/feats.db",
-      "entity": "Item"
-    },{
-      "name": "flaws",
-      "label": "Flaws",
-      "system": "openlegend",
-      "path": "./packs/flaws.db",
-      "entity": "Item"
-    },{
-      "name": "gm-feats",
-      "label": "GM-Feats",
-      "system": "openlegend",
-      "path": "./packs/gm-feats.db",
-      "entity": "Item"
-    },{
-      "name": "perks",
-      "label": "Perks",
-      "system": "openlegend",
-      "path": "./packs/perks.db",
-      "entity": "Item"
-    },{
-      "name": "rules",
-      "label": "Rules",
-      "system": "openlegend",
-      "path": "./packs/rules.db",
-      "entity": "JournalEntry"
-    },{
-      "name": "gm-screen",
-      "label": "GM-Screen",
-      "system": "openlegend",
-      "path": "./packs/gm-screen.db",
-      "entity": "JournalEntry"
-    }
+  "esmodules": [
+    "module/openlegend.js"
   ],
-  "dependencies": [
-    {
-      "name": "game-icons-net",
-      "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json"
-    }
+  "styles": [
+    "css/openlegend.css"
   ],
   "languages": [
     {
@@ -80,11 +24,102 @@
       "path": "lang/en.json"
     }
   ],
+  "packs": [
+    {
+      "name": "banes",
+      "label": "Banes",
+      "system": "openlegend",
+      "path": "./packs/banes.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "basic",
+      "label": "Basic",
+      "system": "openlegend",
+      "path": "./packs/basic.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "boons",
+      "label": "Boons",
+      "system": "openlegend",
+      "path": "./packs/boons.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "feats",
+      "label": "Feats",
+      "system": "openlegend",
+      "path": "./packs/feats.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "flaws",
+      "label": "Flaws",
+      "system": "openlegend",
+      "path": "./packs/flaws.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "gm-feats",
+      "label": "GM-Feats",
+      "system": "openlegend",
+      "path": "./packs/gm-feats.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "perks",
+      "label": "Perks",
+      "system": "openlegend",
+      "path": "./packs/perks.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "rules",
+      "label": "Rules",
+      "system": "openlegend",
+      "path": "./packs/rules.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry",
+      "private": false
+    },
+    {
+      "name": "gm-screen",
+      "label": "GM-Screen",
+      "system": "openlegend",
+      "path": "./packs/gm-screen.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry",
+      "private": false
+    }
+  ],
+  "system": [],
+  "dependencies": [
+    {
+      "name": "game-icons-net",
+      "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json",
+      "type": "module"
+    }
+  ],
+  "socket": false,
+  "manifest": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_9/system.json",
+  "download": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/archive/feature/fvtt_9/foundryvtt-openlegends-feature-fvtt_9.zip",
+  "protected": false,
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "url": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends",
-  "manifest": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_8.6/system.json",
-  "download": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/archive/feature/fvtt_8.6/foundryvtt-openlegends-feature-fvtt_8.6.zip",
-  "license": "LICENSE.txt"
+  "primaryTokenAttribute": "health"
 }

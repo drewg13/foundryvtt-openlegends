@@ -39,8 +39,8 @@ Hooks.once('init', async function() {
   Combatant.prototype._getInitiativeFormula = _getInitiativeFormula;
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = olActor;
-  CONFIG.Item.entityClass = olItem;
+  CONFIG.Actor.documentClass = olActor;
+  CONFIG.Item.documentClass = olItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
