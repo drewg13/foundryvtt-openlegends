@@ -1,4 +1,4 @@
-<li class="action-attack" data-item="{{item._id}}">
+<li class="action-attack" data-item="{{_id}}">
     <select class="attack-attribute">
         {{#each attributes as |val attr|}}
             <option value="{{attr}}" {{#ifeq attr ../attack.attribute}} selected{{/ifeq}}>{{attr}}</option>

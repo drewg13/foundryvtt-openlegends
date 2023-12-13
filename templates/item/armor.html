@@ -6,23 +6,23 @@
                 <h1 class="item-name">
                     <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
                 </h1>
-    
+
                 <div class="item-subtitle">
                     <h4 class="item-type">{{item.type}}</h4>
                     <span class="scale-tester" hidden></span>
                     <input class="item-status scale" name="data.type"
-                            type="text" value="{{data.data.type}}" placeholder="Type"/>
+                            type="text" value="{{system.type}}" placeholder="Type"/>
                 </div>
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">Defense:
-                    <input type="number" name="data.defense" value="{{data.data.defense}}" placeholder="?"/></li>
+                    <input type="number" name="system.defense" value="{{system.defense}}" placeholder="?"/></li>
                 <li class="flexrow">Req Fort:
-                    <input type="number" name="data.req_fort" value="{{data.data.req_fort}}" placeholder="?"/></li>
+                    <input type="number" name="system.req_fort" value="{{system.req_fort}}" placeholder="?"/></li>
                 <li class="flexrow">Speed Pen:
-                    <input type="text" name="data.speed_penalty" value="{{data.data.speed_penalty}}" placeholder="?"/></li>
+                    <input type="text" name="system.speed_penalty" value="{{system.speed_penalty}}" placeholder="?"/></li>
                 <li class="shrink">WL:
-                    <input class="wl" type="text" name="data.gear.wl" value="{{data.data.gear.wl}}" placeholder="?"/></li>
+                    <input class="wl" type="text" name="system.gear.wl" value="{{system.gear.wl}}" placeholder="?"/></li>
             </ul>
         </div>
     </header>
@@ -31,9 +31,9 @@
         <div class="description-editor">
             <div class="flexrow aligned">
                 <span class="forceful shrink">Equipped:</span>
-                <input type="checkbox" name="data.equipped" {{#if data.data.equipped}}checked{{/if}}/>
+                <input type="checkbox" name="system.equipped" {{#if system.equipped}}checked{{/if}}/>
             </div>
-            {{editor content=data.data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+            {{editor system.details.description target="system.details.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>

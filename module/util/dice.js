@@ -26,20 +26,20 @@ export async function rollAttr(actor, attr_name, skip_dialog=false) {
 
 export async function rollItem(actor, item, skip_dialog=false) {
     // If the item has a chosen action attribute...
-    const attr_name = item.data.action.attribute;
+    const attr_name = item.system.action.attribute;
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv, item.data.action.explosion_mod, skip_dialog);
+        let olroll = await OLRoll(attr_name, attr, item.system.action.default_adv, item.system.action.explosion_mod, skip_dialog);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend/templates/dialog/roll-chat.html";
             const data = {
-                "name": item.data.action.name,
+                "name": item.system.action.name,
                 "type": item.type,
-                "notes": item.data.details.notes,
+                "notes": item.system.details.notes,
                 "attr": olroll.attr,
-                "target": item.data.action.target,
+                "target": item.system.action.target,
                 "adv": olroll.adv
             }
             const html = await renderTemplate(template, data);
@@ -95,12 +95,12 @@ export async function OLRoll(attr_name, attr, default_adv=0, explosion_modifier=
         const die_num = parseInt(dice.die.substring(1));
         const attr_explos = explosion_modifier > 0 ? `X>=${Math.max(2, die_num-explosion_modifier)}` : 'X';
         // Normal roll
-        if (adv == 0) {
+        if (adv === 0) {
             to_return.adv = null;
             to_return.roll = new Roll(`1d20${d20_explos} + ${dice.num + dice.die}${attr_explos}`);
         } else {
             to_return.adv.value = Math.abs(adv);
-            var advstr = ""
+            let advstr = ""
             if (adv < 0) {
                 to_return.adv.type = "Disadvantage";
                 advstr = 'kl' + dice.num;
@@ -120,7 +120,7 @@ export async function OLRoll(attr_name, attr, default_adv=0, explosion_modifier=
 
 function _modifyD20Explosion(roll, dice) {
     // Check if there is a D20 in the roll
-    if (roll.terms.length > 0 && roll.terms[0].faces == 20) {
+    if (roll.terms.length > 0 && roll.terms[0].faces === 20) {
         // Evaluate the roll
         roll.evaluate()
 
@@ -154,7 +154,7 @@ function _modifyD20Explosion(roll, dice) {
             let term = roll.terms[t];
             let new_term = new_roll.terms[t]
             // Skip if not a resultable die
-            if(term.results == undefined)
+            if(term.results === undefined)
                 continue;
             for(let r=0; r<term.results.length; r++) {
                 // Set all terms equal to what was rolled before
@@ -214,7 +214,7 @@ async function _OLRollDialog(attr_name, attr, default_adv=0) {
 
 export function _getAttr(actor, attr_name) {
     // Find the attribute data object using its name
-    for (const [_, attr_group] of Object.entries(actor.data.data.attributes)) {
+    for (const [_, attr_group] of Object.entries(actor.system.attributes)) {
         if (attr_group[attr_name])
             return attr_group[attr_name]
     }
@@ -224,9 +224,9 @@ export function _getAttr(actor, attr_name) {
 function _upgradeDie(die) {
     let d = Object();
     d.num = 1;
-    if (die.num == 0)
+    if (die.num === 0)
         d.faces = 4;
-    else if (die.num == 1)
+    else if (die.num === 1)
         d.faces = Math.max(4, parseInt(die.die.substring(1)));
     else
         d.faces = 10;

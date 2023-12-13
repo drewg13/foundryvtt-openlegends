@@ -9,7 +9,7 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
       // template: "systems/openlegend/templates/actor/actor-sheet.html",
       width: 600,
@@ -20,7 +20,7 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    if (this.actor.data.type == 'character')
+    if (this.actor.type === 'character')
       return "systems/openlegend/templates/actor/actor-sheet.html";
     else return "systems/openlegend/templates/actor/npc-sheet.html";
   }
@@ -28,13 +28,15 @@ export class olActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData(options) {
     const actorData = super.getData();
     const sheetData = actorData.data;
-    const data = sheetData.data;
+    const data = sheetData;
+    data.owner = actorData.owner;
+    data.editable = actorData.editable;
     // console.log(actorData);
 
-    if (data.actions == undefined) {
+    if (data.actions === undefined) {
       data.actions = [];
       data.gear    = [];
       data.feats   = [];
@@ -42,37 +44,37 @@ export class olActorSheet extends ActorSheet {
       data.flaws   = [];
     }
     actorData.items.forEach(item => {
-      if (item.data.action)
+      if (item.system.action)
         data.actions.push(item);
-      if (item.data.gear)
+      if (item.system.gear)
         data.gear.push(item);
-      if (item.type == 'feat')
+      if (item.type === 'feat')
         data.feats.push(item);
-      else if (item.type == 'perk')
+      else if (item.type === 'perk')
         data.perks.push(item);
-      else if (item.type == 'flaw')
+      else if (item.type === 'flaw')
         data.flaws.push(item);
     });
-    data.actions.sort((a, b) => a.data.action.index - b.data.action.index);
-    data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
-    data.feats.sort((a, b) => a.data.index - b.data.index);
+    data.actions.sort((a, b) => a.system.action.index - b.system.action.index);
+    data.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
+    data.feats.sort((a, b) => a.system.index - b.system.index);
 
-    return actorData;
+    return data;
   }
 
   /** @override */
   async _onDropItemCreate(itemData) {
-    const data = this.getData().data.data;
-    if (itemData.data.action) {
-      itemData.data.action.index = data.actions.length;
-      itemData.data.action.name = itemData.name;
+    const data = await this.getData();
+    if (itemData.system.action) {
+      itemData.system.action.index = data.actions.length;
+      itemData.system.action.name = itemData.name;
     }
 
-    if (itemData.data.gear)
-      itemData.data.gear.index = data.gear.length;
+    if (itemData.system.gear)
+      itemData.system.gear.index = data.gear.length;
 
-    if (itemData.type == 'feat')
-      itemData.data.index = data.feats.length;
+    if (itemData.type === 'feat')
+      itemData.system.index = data.feats.length;
 
     // Create the owned item as normal
     return super._onDropItemCreate(itemData);
@@ -87,7 +89,7 @@ export class olActorSheet extends ActorSheet {
 
     html.find('.macro').on('dragstart', ev => {
       const dataset = ev.currentTarget.dataset;
-      dataset.actor = this.actor._id;
+      dataset.actor = this.actor.id;
       ev.originalEvent.dataTransfer.setData("text/plain", JSON.stringify(dataset));
     });
 
@@ -117,18 +119,18 @@ export class olActorSheet extends ActorSheet {
       const field = tag.dataset.field;
       const value = tag.value;
 
-      var data = item.data.toJSON();
-      if( field == 'name') data.name = value;
-      else if( field == 'action_attr') data.data.action.attribute = value;
-      else if( field == 'action_name') data.data.action.name = value;
-      else if (field == 'action_adv') data.data.action.default_adv = value;
-      else if( field == 'notes') data.data.details.notes = value;
-      else if( field == 'attack') {
+      let data = item.system.toObject();
+      if( field === 'name') item.name = value;
+      else if( field === 'action_attr') data.action.attribute = value;
+      else if( field === 'action_name') data.action.name = value;
+      else if (field === 'action_adv') data.action.default_adv = value;
+      else if( field === 'notes') data.details.notes = value;
+      else if( field === 'attack') {
         // Set both attack attribute and find its target
-        data.data.action.attribute = value;
-        data.data.attacks.forEach(attack => {
-          if (attack.attribute == value)
-            data.data.action.target = attack.target;
+        data.action.attribute = value;
+        data.attacks.forEach(attack => {
+          if (attack.attribute === value)
+            data.action.target = attack.target;
         });
       }
       item.update(data);
@@ -137,8 +139,8 @@ export class olActorSheet extends ActorSheet {
     // Update curr hp of npcs if max hp changes
     html.find('.npc_hp_edit').change(ev => {
       const hp_val = $(ev.currentTarget).val()
-      const data = this.actor.data.toJSON();
-      const hp = data.data.defense.hp;
+      const data = this.actor.system.toObject();
+      const hp = data.defense.hp;
       hp.max = hp_val;
       hp.value = hp_val;
       this.actor.update(data);
@@ -146,12 +148,12 @@ export class olActorSheet extends ActorSheet {
 
     html.find(".update-npc-attributes").click(ev => {
       const btn = $(ev.currentTarget);
-      if (btn.html() == "Edit")
+      if (btn.html() === "Edit")
         btn.html("Save");
       else {
-        var data = {}
+        let data = {}
         html.find(".npc-attr-setter").each((i, obj) => {
-          data[`data.attributes.${obj.dataset.group}.${obj.dataset.attr}.score`] = parseInt(obj.value);
+          data[`attributes.${obj.dataset.group}.${obj.dataset.attr}.score`] = parseInt(obj.value);
         });
         this.actor.update(data);
         btn.html("Edit");
@@ -186,7 +188,7 @@ export class olActorSheet extends ActorSheet {
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
-      rollItem(this.actor, this.actor.items.get(dataset.item).data, ctrl_held);
+      rollItem(this.actor, this.actor.items.get(dataset.item), ctrl_held);
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr, ctrl_held);
   }
@@ -200,10 +202,10 @@ export class olActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const data = this.actor.data.toJSON();
-    const defense = data.data.defense[dataset.defense];    
+    const data = this.actor.system.toObject();
+    const defense = data.defense[dataset.defense];
 
-    var result = await this._SettingsDialog(dataset.name, defense);
+    let result = await this._SettingsDialog(dataset.name, defense);
     if( result ) {
       result.forEach((item, index) => {
         defense.formula[index].active = item.value;
@@ -215,7 +217,7 @@ export class olActorSheet extends ActorSheet {
 
   async _SettingsDialog(name, defense) {
     const template = "systems/openlegend/templates/dialog/defense-settings.html";
-    const attrs = this.actor.data.toJSON().data.attributes;
+    const attrs = this.actor.system.attributes.toObject();
     const data = { 'name': name, 'formula': defense.formula, 'attrs': attrs }
 
     const html = await renderTemplate(template, data);
@@ -238,14 +240,14 @@ export class olActorSheet extends ActorSheet {
 
   async _onAttrConfigure(event) {
     event.preventDefault();
-    const data = this.actor.data.toJSON();
-    const attrs = data.data.attributes
+    const data = this.actor.system.toObject();
+    const attrs = data.attributes;
 
-    var result = await this._AttrSettingsDialog();
+    let result = await this._AttrSettingsDialog();
     if( result ) {
       result.forEach((item, index) => {
         const dataset = item.dataset
-        if (item.value != '')
+        if (item.value !== '')
           attrs[dataset.group][dataset.attr]['bonus'] = parseInt(item.value);
       });
 
@@ -255,7 +257,7 @@ export class olActorSheet extends ActorSheet {
 
   async _AttrSettingsDialog() {
     const template = "systems/openlegend/templates/dialog/attr-settings.html";
-    const attrs = this.actor.data.toJSON().data.attributes;
+    const attrs = this.actor.system.attributes.toObject();
     const data = { 'attributes': attrs }
 
     const html = await renderTemplate(template, data);

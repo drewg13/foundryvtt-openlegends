@@ -10,33 +10,33 @@
                 </div>
                 <div class="flex-shrink text-input">
                     <label>Level:</label>
-                    <input class="single_digit" name="data.level" type="number" value="{{data.data.level}}" />
+                    <input class="single_digit" name="data.level" type="number" value="{{system.level}}" />
                 </div>
                 <div class="flex-shrink text-input">
                     <label>BossEdge:</label>
-                    <input class="single_digit" name="data.boss_edge" type="number" value="{{data.data.boss_edge}}" />
+                    <input class="single_digit" name="data.boss_edge" type="number" value="{{system.boss_edge}}" />
                 </div>
             </div>
             <div class="npc-row text-input">
                 <label>Description:</label>
-                <input name="data.description" type="text" value="{{data.data.description}}" placeholder="" />
+                <input name="data.description" type="text" value="{{system.description}}" placeholder="" />
             </div>
             <div class="npc-row flexrow">
                 <div class="text-input npc-hp">
                     <label>MaxHP:</label>
-                    <input class="double_digit npc_hp_edit" type="number" value="{{data.data.defense.hp.max}}" />
+                    <input class="double_digit npc_hp_edit" type="number" value="{{system.defense.hp.max}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Guard:</label>
-                    <input class="double_digit" name="data.defense.guard.guard" type="number" value="{{data.data.defense.guard.guard}}" />
+                    <input class="double_digit" name="data.defense.guard.guard" type="number" value="{{system.defense.guard.guard}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Tough:</label>
-                    <input class="double_digit" name="data.defense.toughness.toughness" type="number" value="{{data.data.defense.toughness.toughness}}" />
+                    <input class="double_digit" name="data.defense.toughness.toughness" type="number" value="{{system.defense.toughness.toughness}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Resolve:</label>
-                    <input class="double_digit" name="data.defense.resolve.resolve" type="number" value="{{data.data.defense.resolve.resolve}}" />
+                    <input class="double_digit" name="data.defense.resolve.resolve" type="number" value="{{system.defense.resolve.resolve}}" />
                 </div>
             </div>
             <div class="npc-row flexrow">
@@ -46,19 +46,19 @@
                             <i class="fas fa-dice-d20"></i>
                         </a>InitMod:
                     </label>
-                    <input class="single_digit" name="data.initiative_mod" type="number" value="{{data.data.initiative_mod}}" />
+                    <input class="single_digit" name="data.initiative_mod" type="number" value="{{system.initiative_mod}}" />
                 </div>
                 <div class="details-speed text-input">
                     <label>Speed:</label>
-                    <input class="double_digit" name="data.speed" type="number" value="{{data.data.speed}}" placeholder="30" />
+                    <input class="double_digit" name="data.speed" type="number" value="{{system.speed}}" placeholder="30" />
                 </div>
                 <div class="text-input">
                     <label>Attr:</label>
-                    <label>{{data.data.trackers.attr.spent}}/{{data.data.trackers.attr.points}}</label>
+                    <label>{{system.trackers.attr.spent}}/{{system.trackers.attr.points}}</label>
                 </div>
                 <div class="text-input">
                     <label>Feats:</label>
-                    <label>{{data.data.trackers.feats.spent}}/{{data.data.trackers.feats.points}}</label>
+                    <label>{{system.trackers.feats.spent}}/{{system.trackers.feats.points}}</label>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
     <div class="npc-body">
         <div class="npc-attributes">
             <div class="npc-attributes-display">
-                {{#each data.data.attributes as |group|}}
+                {{#each system.attributes as |group|}}
                     {{#each group as |attr attr_name|}}
                         {{#if (gtz attr.score)}}
                         <div>
@@ -79,7 +79,7 @@
                 {{/each}}
             </div>
             <div class="npc-attributes-edit" hidden>
-                {{#each data.data.attributes as |group group_name|}}
+                {{#each system.attributes as |group group_name|}}
                     {{#each group as |attr attr_name|}}
                         <div>
                             <span class="forceful">{{attr_name}}:</span>
@@ -100,7 +100,7 @@
             </div>
             <div class="npc-feats">
                 <div class="title">Feats</div>
-                {{#each data.data.feats as |item|}}
+                {{#each system.feats as |item|}}
                     {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
                 {{/each}}
             </div>

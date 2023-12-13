@@ -1,28 +1,28 @@
 <div class="details">
-    <img class="avatar" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <img class="avatar" src="{{img}}" data-edit="img" title="{{name}}"/>
     <div class="details-name text-input">
         <label>Name:</label>
-        <input name="name" type="text" value="{{actor.name}}" placeholder="" />
+        <input name="name" type="text" value="{{name}}" placeholder="" />
     </div>
     <div class="details-player text-input">
         <label>Player:</label>
-        <input name="data.player" type="text" value="{{data.data.player}}" placeholder="" />
+        <input name="system.player" type="text" value="{{system.player}}" placeholder="" />
     </div>
     <div class="details-description text-input">
         <label>Description:</label>
-        <input name="data.description" type="text" value="{{data.data.description}}" placeholder="" />
+        <input name="system.description" type="text" value="{{system.description}}" placeholder="" />
     </div>
     <div class="details-level text-input">
         <label>Level:</label>
-        <label>{{data.data.level}}</label>
+        <label>{{system.level}}</label>
     </div>
     <div class="details-xp text-input">
         <label>XP:</label>
-        <input name="data.xp" type="number" value="{{data.data.xp}}" placeholder="0" />
+        <input name="system.xp" type="number" value="{{system.xp}}" placeholder="0" />
     </div>
     <div class="details-wealth text-input">
         <label>WL:</label>
-        <input name="data.wl" type="number" value="{{data.data.wl}}" placeholder="2" />
+        <input name="system.wl" type="number" value="{{system.wl}}" placeholder="2" />
     </div>
     <div class="details-roll-initiative text-input">
         <label class="forceful">
@@ -30,22 +30,22 @@
                 <i class="fas fa-dice-d20"></i>
             </a>InitMod:
         </label>
-        <input name="data.initiative_mod" type="number" value="{{data.data.initiative_mod}}" placeholder="0" />
+        <input name="system.initiative_mod" type="number" value="{{system.initiative_mod}}" placeholder="0" />
     </div>
     <div class="details-attr-points text-input">
         <label>Attr:</label>
-        <label>{{data.data.trackers.attr.spent}}/{{data.data.trackers.attr.points}}</label>
+        <label>{{system.trackers.attr.spent}}/{{system.trackers.attr.points}}</label>
     </div>
     <div class="details-feat-points text-input">
         <label>Feats:</label>
-        <label>{{data.data.trackers.feats.spent}}/{{data.data.trackers.feats.points}}</label>
+        <label>{{system.trackers.feats.spent}}/{{system.trackers.feats.points}}</label>
     </div>
     <div class="details-legend-points text-input">
         <label>LP:</label>
-        <input name="data.lp" type="number" value="{{data.data.lp}}" placeholder="1" />
+        <input name="system.lp" type="number" value="{{system.lp}}" placeholder="1" />
     </div>
     <div class="details-speed text-input">
         <label>Speed:</label>
-        <input name="data.speed" type="number" value="{{data.data.speed}}" placeholder="30" />
+        <input name="system.speed" type="number" value="{{system.speed}}" placeholder="30" />
     </div>
 </div>

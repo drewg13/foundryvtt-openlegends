@@ -6,7 +6,7 @@ export class olItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "item"],
       width: 520,
       height: 480,
@@ -17,15 +17,18 @@ export class olItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/openlegend/templates/item";
-    return `${path}/${this.item.data.type}.html`;
+    return `${path}/${this.item.type}.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData(options) {
     const data = super.getData();
-    return data;
+    const sheetData = data.data;
+    sheetData.owner = data.owner;
+    sheetData.editable = data.editable;
+    return sheetData;
   }
 
   /* -------------------------------------------- */
@@ -46,7 +49,7 @@ export class olItemSheet extends ItemSheet {
     super.activateListeners(html);
     html.find(".add-attack").click(async () => {
       const template = "systems/openlegend/templates/item/parts/attack-target.html";
-      const data = { 'attack': {}, 'attributes': this.object.data.data.attributes };
+      const data = { 'attack': {}, 'attributes': this.object.system.attributes };
       const new_attack = await renderTemplate(template, data);
       html.find(".attack-list").append(new_attack);
     });
@@ -54,22 +57,22 @@ export class olItemSheet extends ItemSheet {
     html.find(".attack-delete").click(ev => $(ev.currentTarget).closest('li').remove());
     html.find(".update-action").click(ev => {
       const btn = $(ev.currentTarget);
-      if (btn.html() == "Edit")
+      if (btn.html() === "Edit")
         btn.html("Save");
       else {
-        var data = {}
+        let data = {}
         html.find(".attr-checkbox").each((i, obj) => {
-          data['data.attributes.' + obj.dataset.attr] = obj.checked;
+          data['system.attributes.' + obj.dataset.attr] = obj.checked;
         });
 
-        if (this.object.data.data.attacks) {
+        if (this.object.system.attacks) {
           const attacks = []
           html.find(".action-attack").each((i, attack) => {
             const attr = $(attack).find('.attack-attribute').val();
             const target = $(attack).find('.attack-target').val();
             attacks.push({ "attribute": attr, "target": target });
           });
-          data['data.attacks'] = attacks;
+          data['system.attacks'] = attacks;
         }
         this.object.update(data);
         btn.html("Edit");

@@ -1,3 +1,4 @@
+{{log this}}
 <form class="{{cssClass}} flexcol" autocomplete="off">
   <div class="main-grid">
     {{> "systems/openlegend/templates/actor/parts/actor-details.html"}}
@@ -7,7 +8,7 @@
     <div class="character">
       <div class="gear">
         <div class="title">Gear</div>
-        {{#each data.data.gear as |item|}}
+        {{#each system.gear as |item|}}
           {{#ifeq item.type 'weapon'}}
             {{> "systems/openlegend/templates/actor/parts/gear-weapon.html" weapon=item}}
           {{/ifeq}}
@@ -21,19 +22,19 @@
       </div>
       <div class="feats">
         <div class="title">Feats</div>
-        {{#each data.data.feats as |item|}}
+        {{#each system.feats as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
         {{/each}}
       </div>
       <div class="perks">
         <div class="title">Perks</div>
-        {{#each data.data.perks as |item|}}
+        {{#each system.perks as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
       <div class="flaws">
         <div class="title">Flaws</div>
-        {{#each data.data.flaws as |item|}}
+        {{#each system.flaws as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>

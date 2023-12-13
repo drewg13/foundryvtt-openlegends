@@ -50,8 +50,8 @@ Hooks.once('init', async function() {
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
-    var outStr = '';
-    for (var arg in arguments) {
+    let outStr = '';
+    for (let arg in arguments) {
       if (typeof arguments[arg] != 'object') {
         outStr += arguments[arg];
       }
@@ -64,7 +64,7 @@ Hooks.once('init', async function() {
   });
 
   Handlebars.registerHelper('ifeq', function(arg1, arg2, options) {
-    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+    return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
   });
 
   Handlebars.registerHelper('gtz', function (value) {
@@ -84,16 +84,16 @@ Hooks.once("ready", function() {
 export const _getInitiativeFormula = function() {
   const actor = this.actor;
   if ( !actor ) return "1d20";
-  const agi = actor.data.data.attributes.physical.agility.dice;
-  
-  const init_mod = actor.data.data.initiative_mod;
+  const agi = actor.system.attributes.physical.agility.dice;
+
+  const init_mod = actor.system.initiative_mod;
   // If this actor doesn't have an init mod, or the init_mod is 0, default d10
-  if ( init_mod == undefined || init_mod == 0) {
-    if (agi.num == 0)
+  if ( init_mod === undefined || init_mod === 0) {
+    if (agi.num === 0)
       return "1d20X";
     else return `1d20X + ${agi.str}X`;
   // If it has an init mod, and that mod is not 0, and its agi score is 0
-  } else if (agi.num == 0) {
+  } else if (agi.num === 0) {
     if (init_mod < 0)
       return "2d20kl1X";
     else

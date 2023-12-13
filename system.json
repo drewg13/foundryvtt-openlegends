@@ -2,14 +2,23 @@
   "name": "openlegend",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
-  "author": "Beenrak",
-  "authors": [],
-  "url": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends",
+  "authors": [
+    {
+      "name": "Andrew Garinger",
+      "discord": "agaringer#6498"
+    },
+    {
+      "name": "Beenrak"
+    }
+  ],
+  "url": "#{URL}#",
   "license": "LICENSE.txt",
   "flags": {},
-  "version": "2.0.4",
-  "minimumCoreVersion": "0.9.0",
-  "compatibleCoreVersion": "9.242",
+  "version": "#{VERSION}#",
+  "compatibility": {
+    "minimum": 11,
+    "verified": 11
+  },
   "scripts": [],
   "esmodules": [
     "module/openlegend.js"
@@ -30,7 +39,6 @@
       "label": "Banes",
       "system": "openlegend",
       "path": "./packs/banes.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -39,7 +47,6 @@
       "label": "Basic",
       "system": "openlegend",
       "path": "./packs/basic.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -48,7 +55,6 @@
       "label": "Boons",
       "system": "openlegend",
       "path": "./packs/boons.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -57,7 +63,6 @@
       "label": "Feats",
       "system": "openlegend",
       "path": "./packs/feats.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -66,7 +71,6 @@
       "label": "Flaws",
       "system": "openlegend",
       "path": "./packs/flaws.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -75,7 +79,6 @@
       "label": "GM-Feats",
       "system": "openlegend",
       "path": "./packs/gm-feats.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -84,7 +87,6 @@
       "label": "Perks",
       "system": "openlegend",
       "path": "./packs/perks.db",
-      "entity": "Item",
       "type": "Item",
       "private": false
     },
@@ -93,7 +95,6 @@
       "label": "Rules",
       "system": "openlegend",
       "path": "./packs/rules.db",
-      "entity": "JournalEntry",
       "type": "JournalEntry",
       "private": false
     },
@@ -102,7 +103,6 @@
       "label": "GM-Screen",
       "system": "openlegend",
       "path": "./packs/gm-screen.db",
-      "entity": "JournalEntry",
       "type": "JournalEntry",
       "private": false
     }
@@ -116,8 +116,8 @@
     }
   ],
   "socket": false,
-  "manifest": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_9/system.json",
-  "download": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/archive/feature/fvtt_9/foundryvtt-openlegends-feature-fvtt_9.zip",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
   "protected": false,
   "gridDistance": 5,
   "gridUnits": "ft",

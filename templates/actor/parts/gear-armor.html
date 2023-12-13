@@ -1,17 +1,17 @@
 <div class="aligned gear-row armor-row">
-    <div class="armor-name clickable item-edit {{#if armor.data.equipped}}equipped{{/if}}" data-item="{{armor._id}}">{{armor.name}}</div>
+    <div class="armor-name clickable item-edit {{#if armor.system.equipped}}equipped{{/if}}" data-item="{{armor._id}}">{{armor.name}}</div>
     <div class="gear-summary">
         <div class="gear-title">{{armor.type}}</div>
-        <div class="gear-type">{{armor.data.type}}</div>
+        <div class="gear-type">{{armor.system.type}}</div>
     </div>
     <div class="armor-properties">
-        <span class="forceful">Defense: </span>{{armor.data.defense}}</div>
+        <span class="forceful">Defense: </span>{{armor.system.defense}}</div>
     <div class="armor-properties">
-        <span class="forceful">Req Fort: </span>{{armor.data.req_fort}}</div>
+        <span class="forceful">Req Fort: </span>{{armor.system.req_fort}}</div>
     <div class="armor-properties">
-        <span class="forceful">Speed Pen: </span>{{armor.data.speed_penalty}}</div>
+        <span class="forceful">Speed Pen: </span>{{armor.system.speed_penalty}}</div>
     <div class="gear-wl">
-        <span class="forceful">WL: </span>{{armor.data.gear.wl}}</div>
+        <span class="forceful">WL: </span>{{armor.system.gear.wl}}</div>
     <div class="gear-buttons">
         <a class="gear-control gear-move-up" title="Move" data-item="{{armor._id}}"><i class="fas fa-arrow-up"></i></a>
         <a class="gear-control item-delete" title="Delete" data-item="{{armor._id}}"><i class="fas fa-trash"></i></a>

@@ -3,20 +3,20 @@
     <div class="health-type">Curr</div>
     <div class="health-type">Max</div>
     <div class="health-type">Lethal</div>
-    <input name="data.defense.hp.value" type="number" value="{{data.data.defense.hp.value}}" placeholder="0" />
+    <input name="system.defense.hp.value" type="number" value="{{system.defense.hp.value}}" placeholder="0" />
     <div class="ht">
-        <input name="data.defense.hp.max" type="number" value="{{data.data.defense.hp.max}}" placeholder="0" disabled>
-        <span class="tooltip capitalize">{{data.data.defense.hp.hint_str}}</span>
+        <input name="system.defense.hp.max" type="number" value="{{system.defense.hp.max}}" placeholder="0" disabled>
+        <span class="tooltip capitalize">{{system.defense.hp.hint_str}}</span>
     </div>
-    <input name="data.defense.hp.lethal" type="number" value="{{data.data.defense.hp.lethal}}" placeholder="0" />
+    <input name="system.defense.hp.lethal" type="number" value="{{system.defense.hp.lethal}}" placeholder="0" />
     <div class="health-bonuses">
         <div class="text-input">
             <label>Feat Bonus: </label>
-            <input name="data.defense.hp.feat" type="number" value="{{data.data.defense.hp.feat}}" placeholder="0" />
+            <input name="system.defense.hp.feat" type="number" value="{{system.defense.hp.feat}}" placeholder="0" />
         </div>
         <div class="text-input">
             <label>Other Bonus: </label>
-            <input name="data.defense.hp.other" type="number" value="{{data.data.defense.hp.other}}" placeholder="0" />
+            <input name="system.defense.hp.other" type="number" value="{{system.defense.hp.other}}" placeholder="0" />
         </div>
     </div>
     <i class="fas fa-cog settings clickable" data-name="Health Configuration" data-defense="hp"></i>
@@ -24,47 +24,47 @@
 <div class="guard defense-grid">
     <div>
         <div class="defense-title">Guard</div>
-        <div class="defense-value">{{data.data.defense.guard.guard}}</div>
+        <div class="defense-value">{{system.defense.guard.guard}}</div>
     </div>
     <div class="attribute-grid">
-        {{#each data.data.defense.guard.formula as |formula|}}
+        {{#each system.defense.guard.formula as |formula|}}
             <div class="capitalize">{{formula.active}}</div>
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Armor</div>
-        <div>{{data.data.defense.guard.armor}}</div>
+        <div>{{system.defense.guard.armor}}</div>
         <div>Other</div>
-        <input name="data.defense.guard.other" type="number" value="{{data.data.defense.guard.other}}" placeholder="0" />
+        <input name="system.defense.guard.other" type="number" value="{{system.defense.guard.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Guard Configuration" data-defense="guard"></i>
 </div>
 <div class="toughness defense-grid">
     <div>
         <div class="defense-title">Tough</div>
-        <div class="defense-value">{{data.data.defense.toughness.toughness}}</div>
+        <div class="defense-value">{{system.defense.toughness.toughness}}</div>
     </div>
     <div class="attribute-grid">
-        {{#each data.data.defense.toughness.formula as |formula|}}
+        {{#each system.defense.toughness.formula as |formula|}}
             <div class="capitalize">{{formula.active}}</div>
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Other</div>
-        <input name="data.defense.toughness.other" type="number" value="{{data.data.defense.toughness.other}}" placeholder="0" />
+        <input name="system.defense.toughness.other" type="number" value="{{system.defense.toughness.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Toughness Configuration" data-defense="toughness"></i>
 </div>
 <div class="resolve defense-grid">
     <div>
         <div class="defense-title">Resolve</div>
-        <div class="defense-value">{{data.data.defense.resolve.resolve}}</div>
+        <div class="defense-value">{{system.defense.resolve.resolve}}</div>
     </div>
     <div class="attribute-grid">
-        {{#each data.data.defense.resolve.formula as |formula|}}
+        {{#each system.defense.resolve.formula as |formula|}}
             <div class="capitalize">{{formula.active}}</div>
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Other</div>
-        <input name="data.defense.resolve.other" type="number" value="{{data.data.defense.resolve.other}}" placeholder="0" />
+        <input name="system.defense.resolve.other" type="number" value="{{system.defense.resolve.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Resolve Configuration" data-defense="resolve"></i>
 </div>

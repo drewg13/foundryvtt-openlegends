@@ -10,8 +10,7 @@ export class olActor extends Actor {
   prepareData() {
     super.prepareData();
 
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
     const flags = actorData.flags;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -24,7 +23,7 @@ export class olActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
 
     // Calculate level
     data.level = Math.floor(data.xp/3) + 1;
@@ -36,9 +35,9 @@ export class olActor extends Actor {
     // Loop through attribute scores, and add their dice to our sheet output.
     for (let [attr_group_name, attr_group] of Object.entries(attributes)) {
       for (let [attr_name, attr] of Object.entries(attr_group)) {
-        attr.modified_score = attr.score + (attr.bonus ? attr.bonus : 0) 
+        attr.modified_score = attr.score + (attr.bonus ? attr.bonus : 0)
         attr.bonus_class = (attr.bonus ? (attr.bonus > 0 ? 'upgraded' : 'downgraded') : '');
-        attr.bonus_str = (attr.bonus && attr.bonus != 0 ? (attr.bonus > 0 ? '+'+attr.bonus : attr.bonus) : '');
+        attr.bonus_str = (attr.bonus && attr.bonus !== 0 ? (attr.bonus > 0 ? '+'+attr.bonus : attr.bonus) : '');
         attr.dice = this.getDieForAttrScore(attr.modified_score);
         trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
       }
@@ -63,11 +62,11 @@ export class olActor extends Actor {
     const guard_form2 = this.getAttrForName(data.attributes, guard.formula[1].active).modified_score;
     guard.formula[0].score = guard_form1;
     guard.formula[1].score = guard_form2;
-    var armor = 0
+    let armor = 0
     actorData.items.forEach(item => {
-      if (item.type == 'armor') {
-        if (item.data.data.equipped && fort >= item.data.data.req_fort)
-          armor += item.data.data.defense;
+      if (item.type === 'armor') {
+        if (item.system.equipped && fort >= item.system.req_fort)
+          armor += item.system.defense;
       }
     });
     guard.armor = armor;
@@ -90,10 +89,10 @@ export class olActor extends Actor {
     resolve.resolve = Math.max(0, 10 + resolve_form1 + resolve_form2 + resolve.other);
 
     // Calculate feat costs
-    var total_feat_cost = 0;
+    let total_feat_cost = 0;
     actorData.items.forEach(item => {
-      if (item.type == 'feat')
-        total_feat_cost += item.data.data.cost;
+      if (item.type === 'feat')
+        total_feat_cost += item.system.cost;
     });
     trackers.feats.spent = total_feat_cost;
     trackers.feats.points = 6 + data.xp;
@@ -107,7 +106,7 @@ export class olActor extends Actor {
   }
 
   _prepareNPCData(actorData) {
-    const data = actorData.data;
+    const data = actorData.system;
     data.xp = (data.level-1) * 3;
 
     let trackers = data.trackers;
@@ -122,15 +121,15 @@ export class olActor extends Actor {
         attr.bonus_str = '';
         attr.dice = this.getDieForAttrScore(attr.score);
         trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
-        console.log(attr_name, attr.score, trackers.attr.spent);
+        //console.log(attr_name, attr.score, trackers.attr.spent);
       }
     }
 
     // Calculate feat costs
-    var total_feat_cost = 0;
+    let total_feat_cost = 0;
     actorData.items.forEach(item => {
-      if (item.type == 'feat')
-        total_feat_cost += item.data.data.cost;
+      if (item.type === 'feat')
+        total_feat_cost += item.system.cost;
     });
     trackers.feats.spent = total_feat_cost;
     trackers.feats.points = 6 + data.xp;
@@ -166,7 +165,7 @@ export class olActor extends Actor {
   }
 
   getAttrForName(attributes, name) {
-    var attr = attributes.physical[name]
+    let attr = attributes.physical[name]
     if( attr ) return attr;
 
     attr = attributes.mental[name]

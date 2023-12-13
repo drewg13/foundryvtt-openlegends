@@ -6,19 +6,19 @@
                 <h1 class="item-name">
                     <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
                 </h1>
-    
+
                 <div class="item-subtitle">
                     <h4 class="item-type">{{item.type}}</h4>
                     <span class="scale-tester" hidden></span>
-                    <input class="item-status scale" name="data.categories"
-                            type="text" value="{{data.data.categories}}" placeholder="Categories"/>
+                    <input class="item-status scale" name="system.categories"
+                            type="text" value="{{system.categories}}" placeholder="Categories"/>
                 </div>
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
-                    <input type="text" name="data.properties" value="{{data.data.properties}}" placeholder="Properties"/></li>
-                <li class="shrink">WL: 
-                    <input class="wl" type="text" name="data.gear.wl" value="{{data.data.gear.wl}}" placeholder="?"/></li>
+                    <input type="text" name="system.properties" value="{{system.properties}}" placeholder="Properties"/></li>
+                <li class="shrink">WL:
+                    <input class="wl" type="text" name="system.gear.wl" value="{{system.gear.wl}}" placeholder="?"/></li>
             </ul>
         </div>
     </header>
@@ -27,14 +27,14 @@
         <div>
             <span class="action-header">Attacks</span>
             <ul class="action-list">
-                {{#each data.data.attacks as |attack|}}
+                {{#each system.attacks as |attack|}}
                     <li><span class="forceful">{{attack.attribute}}</span> vs <span class="forceful">{{attack.target}}</span></li>
                 {{/each}}
             </ul>
             <div class="action-edit" hidden>
                 <ul class="attack-list">
-                    {{#each data.data.attacks as |attack|}}
-                        {{> "systems/openlegend/templates/item/parts/attack-target.html" attack=attack attributes=../data.data.attributes}}
+                    {{#each system.attacks as |attack|}}
+                        {{> "systems/openlegend/templates/item/parts/attack-target.html" attack=attack attributes=../system.attributes}}
                     {{/each}}
                 </ul>
                 <button class="add-attack">Add</button>
@@ -42,23 +42,23 @@
             <button class="update-action">Edit</button>
             <div class="flexrow aligned">
                 <span class="forceful shrink">Show action:</span>
-                <input type="checkbox" name="data.action.show_as_action" {{#if data.data.action.show_as_action}}checked{{/if}}/>
+                <input type="checkbox" name="system.action.show_as_action" {{#if system.action.show_as_action}}checked{{/if}}/>
             </div>
         </div>
         <div class="description-editor">
             <div class="flexrow aligned">
                 <span class="forceful shrink">Quantity:&nbsp</span>
-                <input type="number" name="data.quantity" value="{{data.data.quantity}}"/>
+                <input type="number" name="system.quantity" value="{{system.quantity}}"/>
             </div>
             <div class="flexrow aligned">
                 <span class="forceful shrink">Banes:&nbsp</span>
-                <input type="text" name="data.banes" value="{{data.data.banes}}" placeholder="-"/>
+                <input type="text" name="system.banes" value="{{system.banes}}" placeholder="-"/>
             </div>
             <div class="flexrow aligned">
                 <span class="forceful shrink">Boons:&nbsp</span>
-                <input type="text" name="data.boons" value="{{data.data.boons}}" placeholder="-"/>
+                <input type="text" name="system.boons" value="{{system.boons}}" placeholder="-"/>
             </div>
-            {{editor content=data.data.details.description target="data.details.description" button=true owner=owner editable=editable}}
+            {{editor system.details.description target="system.details.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>
