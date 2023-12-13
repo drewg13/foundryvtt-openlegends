@@ -26,3 +26,4 @@ https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_
 * Open Legend RPG: https://openlegendrpg.com/
 * Foundry VTT: https://foundryvtt.com/
 * Game-Icons.net: https://game-icons.net/
+* Original system by Justin Karneeb at https://gitlab.com/tabletop-creations/foundryvtt-openlegends/
