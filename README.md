@@ -4,8 +4,7 @@ An implementation of the Open Legend RPG system for Foundry Virtual Tabletop (ht
 
 ## Installation
 
-To install, copy the following URL and paste it into the Install System dialog in Foundry VTT:
-https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_8.6/system.json
+TBD
 
 ## Features
 
@@ -26,3 +25,4 @@ https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_
 * Open Legend RPG: https://openlegendrpg.com/
 * Foundry VTT: https://foundryvtt.com/
 * Game-Icons.net: https://game-icons.net/
+* Original system by Justin Karneeb at https://gitlab.com/tabletop-creations/foundryvtt-openlegends/
