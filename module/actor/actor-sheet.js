@@ -119,7 +119,7 @@ export class olActorSheet extends ActorSheet {
       const field = tag.dataset.field;
       const value = tag.value;
 
-      let data = item.system.toObject();
+      let data = item.system;
       if( field === 'name') item.name = value;
       else if( field === 'action_attr') data.action.attribute = value;
       else if( field === 'action_name') data.action.name = value;
@@ -139,7 +139,7 @@ export class olActorSheet extends ActorSheet {
     // Update curr hp of npcs if max hp changes
     html.find('.npc_hp_edit').change(ev => {
       const hp_val = $(ev.currentTarget).val()
-      const data = this.actor.system.toObject();
+      const data = this.actor.system;
       const hp = data.defense.hp;
       hp.max = hp_val;
       hp.value = hp_val;
@@ -202,7 +202,7 @@ export class olActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const data = this.actor.system.toObject();
+    const data = this.actor.system;
     const defense = data.defense[dataset.defense];
 
     let result = await this._SettingsDialog(dataset.name, defense);
@@ -217,7 +217,7 @@ export class olActorSheet extends ActorSheet {
 
   async _SettingsDialog(name, defense) {
     const template = "systems/openlegend/templates/dialog/defense-settings.html";
-    const attrs = this.actor.system.attributes.toObject();
+    const attrs = this.actor.system.attributes;
     const data = { 'name': name, 'formula': defense.formula, 'attrs': attrs }
 
     const html = await renderTemplate(template, data);
@@ -240,7 +240,7 @@ export class olActorSheet extends ActorSheet {
 
   async _onAttrConfigure(event) {
     event.preventDefault();
-    const data = this.actor.system.toObject();
+    const data = this.actor.system;
     const attrs = data.attributes;
 
     let result = await this._AttrSettingsDialog();
@@ -257,7 +257,7 @@ export class olActorSheet extends ActorSheet {
 
   async _AttrSettingsDialog() {
     const template = "systems/openlegend/templates/dialog/attr-settings.html";
-    const attrs = this.actor.system.attributes.toObject();
+    const attrs = this.actor.system.attributes;
     const data = { 'attributes': attrs }
 
     const html = await renderTemplate(template, data);

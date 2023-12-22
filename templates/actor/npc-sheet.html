@@ -1,25 +1,25 @@
 <form class="{{cssClass}} npc" autocomplete="off">
     <input type="submit" hidden/>
     <div class="npc-header-grid">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <img src="{{img}}" data-edit="img" title="{{name}}" />
         <div class="npc-details">
             <div class="npc-row flexrow">
                 <div class="text-input npc-name">
                     <label>Name:</label>
-                    <input name="name" type="text" value="{{actor.name}}" placeholder="" />
+                    <input name="name" type="text" value="{{name}}" placeholder="" />
                 </div>
                 <div class="flex-shrink text-input">
                     <label>Level:</label>
-                    <input class="single_digit" name="data.level" type="number" value="{{system.level}}" />
+                    <input class="single_digit" name="system.level" type="number" value="{{system.level}}" />
                 </div>
                 <div class="flex-shrink text-input">
                     <label>BossEdge:</label>
-                    <input class="single_digit" name="data.boss_edge" type="number" value="{{system.boss_edge}}" />
+                    <input class="single_digit" name="system.boss_edge" type="number" value="{{system.boss_edge}}" />
                 </div>
             </div>
             <div class="npc-row text-input">
                 <label>Description:</label>
-                <input name="data.description" type="text" value="{{system.description}}" placeholder="" />
+                <input name="system.description" type="text" value="{{system.description}}" placeholder="" />
             </div>
             <div class="npc-row flexrow">
                 <div class="text-input npc-hp">
@@ -28,15 +28,15 @@
                 </div>
                 <div class="text-input npc-defense">
                     <label>Guard:</label>
-                    <input class="double_digit" name="data.defense.guard.guard" type="number" value="{{system.defense.guard.guard}}" />
+                    <input class="double_digit" name="system.defense.guard.guard" type="number" value="{{system.defense.guard.guard}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Tough:</label>
-                    <input class="double_digit" name="data.defense.toughness.toughness" type="number" value="{{system.defense.toughness.toughness}}" />
+                    <input class="double_digit" name="system.defense.toughness.toughness" type="number" value="{{system.defense.toughness.toughness}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Resolve:</label>
-                    <input class="double_digit" name="data.defense.resolve.resolve" type="number" value="{{system.defense.resolve.resolve}}" />
+                    <input class="double_digit" name="system.defense.resolve.resolve" type="number" value="{{system.defense.resolve.resolve}}" />
                 </div>
             </div>
             <div class="npc-row flexrow">
@@ -46,11 +46,11 @@
                             <i class="fas fa-dice-d20"></i>
                         </a>InitMod:
                     </label>
-                    <input class="single_digit" name="data.initiative_mod" type="number" value="{{system.initiative_mod}}" />
+                    <input class="single_digit" name="system.initiative_mod" type="number" value="{{system.initiative_mod}}" />
                 </div>
                 <div class="details-speed text-input">
                     <label>Speed:</label>
-                    <input class="double_digit" name="data.speed" type="number" value="{{system.speed}}" placeholder="30" />
+                    <input class="double_digit" name="system.speed" type="number" value="{{system.speed}}" placeholder="30" />
                 </div>
                 <div class="text-input">
                     <label>Attr:</label>
