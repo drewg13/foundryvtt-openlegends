@@ -115,15 +115,14 @@ export class olActorSheet extends ActorSheet {
     });
 
     // Update action 'items' directly
-    html.find('.action-edit').change(ev => {
+    html.find('.action-edit').change( ev => {
       const tag = ev.currentTarget;
       const item = this.actor.items.get(tag.dataset.item);
       const field = tag.dataset.field;
       const value = tag.value;
 
-      let data = item.system;
-      if( field === 'name') item.name = value;
-      else if( field === 'action_attr') data.action.attribute = value;
+      let data = foundry.utils.deepClone(item.system);
+      if( field === 'action_attr') data.action.attribute = value;
       else if( field === 'action_name') data.action.name = value;
       else if (field === 'action_adv') data.action.default_adv = value;
       else if( field === 'notes') data.details.notes = value;
@@ -135,7 +134,7 @@ export class olActorSheet extends ActorSheet {
             data.action.target = attack.target;
         });
       }
-      item.update(data);
+      item.update({"system": data});
     });
 
     // Update curr hp of npcs if max hp changes
