@@ -91,7 +91,7 @@ export class olActorSheet extends ActorSheet {
 
     html.find('.macro').on('dragstart', ev => {
       const dataset = ev.currentTarget.dataset;
-      dataset.actor = this.actor.id;
+      dataset.actor = this.actor.uuid;
       ev.originalEvent.dataTransfer.setData("text/plain", JSON.stringify(dataset));
     });
 

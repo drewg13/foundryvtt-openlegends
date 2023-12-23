@@ -45,7 +45,7 @@ export async function createOLMacro(data, slot) {
         const command = `game.openlegend.macros.rollItemMacro("${data.actor}", "${data.item}")`;
         let macro = game.macros.contents.find(m => m.command === command);
         if (!macro) {
-            const actor = game.actors.get(data.actor);
+            const actor = await fromUuid(data.actor);
             const item = actor.items.get(data.item);
             macro = await Macro.create({
                 name: data.name,
@@ -61,12 +61,12 @@ export async function createOLMacro(data, slot) {
 
 /* -------------------------------------------- */
 export async function rollAttrMacro(actor_id, attr_name) {
-    const actor = game.actors.get(actor_id);
+    const actor = await fromUuid(actor_id);
     rollAttr(actor, attr_name);
 }
 
-export function rollItemMacro(actor_id, item_id) {
-    const actor = game.actors.get(actor_id);
+export async function rollItemMacro(actor_id, item_id) {
+    const actor = await fromUuid(actor_id);
     const item = actor.items.get(item_id);
     rollItem(actor, item);
 }
