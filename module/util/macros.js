@@ -2,27 +2,27 @@ import { rollAttr, rollItem } from "../util/dice.js";
 
 const attr_imgs = {
     //Physical
-    "agility": "Modules/Game-Icons-Net/Blackbackground/Body-Balance.Svg",
-    "fortitude": "Modules/Game-Icons-Net/Blackbackground/Health-Normal.Svg",
-    "might": "Modules/Game-Icons-Net/Blackbackground/Mighty-Force.Svg",
+    "agility": "modules/game-icons-net/blackbackground/body-balance.svg",
+    "fortitude": "modules/game-icons-net/blackbackground/health-normal.svg",
+    "might": "modules/game-icons-net/blackbackground/mighty-force.svg",
     //Mental
-    "learning": "Modules/Game-Icons-Net/Blackbackground/Archive-Research.Svg",
-    "logic": "Modules/Game-Icons-Net/Blackbackground/Logic-Gate-Xor.Svg",
-    "perception": "Modules/Game-Icons-Net/Blackbackground/Semi-Closed-Eye.Svg",
-    "will": "Modules/Game-Icons-Net/Blackbackground/Brain.Svg",
+    "learning": "modules/game-icons-net/blackbackground/archive-research.svg",
+    "logic": "modules/game-icons-net/blackbackground/logic-gate-xor.svg",
+    "perception": "modules/game-icons-net/blackbackground/semi-closed-eye.svg",
+    "will": "modules/game-icons-net/blackbackground/brain.svg",
     //Social
-    "deception": "Modules/Game-Icons-Net/Blackbackground/Diamonds-Smile.Svg",
-    "persuasion": "Modules/Game-Icons-Net/Blackbackground/Convince.Svg",
-    "presence": "Modules/Game-Icons-Net/Blackbackground/Public-Speaker.Svg",
+    "deception": "modules/game-icons-net/blackbackground/diamonds-smile.svg",
+    "persuasion": "modules/game-icons-net/blackbackground/convince.svg",
+    "presence": "modules/game-icons-net/blackbackground/public-speaker.svg",
     //Extraordinary
-    "alteration": "Modules/Game-Icons-Net/Blackbackground/Card-Exchange.Svg",
-    "creation": "Modules/Game-Icons-Net/Blackbackground/Anvil-Impact.Svg",
-    "energy": "Modules/Game-Icons-Net/Blackbackground/Rolling-Energy.Svg",
-    "entropy": "Modules/Game-Icons-Net/Blackbackground/Poison.Svg",
-    "influence": "Modules/Game-Icons-Net/Blackbackground/Retro-Controller.Svg",
-    "movement": "Modules/Game-Icons-Net/Blackbackground/Move.Svg",
-    "prescience": "Modules/Game-Icons-Net/Blackbackground/Crystal-Ball.Svg",
-    "protection": "Modules/Game-Icons-Net/Blackbackground/Protection-Glasses.Svg"
+    "alteration": "modules/game-icons-net/blackbackground/card-exchange.svg",
+    "creation": "modules/game-icons-net/blackbackground/anvil-impact.svg",
+    "energy": "modules/game-icons-net/blackbackground/rolling-energy.svg",
+    "entropy": "modules/game-icons-net/blackbackground/poison.svg",
+    "influence": "modules/game-icons-net/blackbackground/retro-controller.svg",
+    "movement": "modules/game-icons-net/blackbackground/move.svg",
+    "prescience": "modules/game-icons-net/blackbackground/crystal-ball.svg",
+    "protection": "modules/game-icons-net/blackbackground/protection-glasses.svg"
 };
 
 /* -------------------------------------------- */
