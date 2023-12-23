@@ -100,10 +100,14 @@
             </div>
             <div class="npc-feats">
                 <div class="title">Feats</div>
-                {{#each system.feats as |item|}}
+                {{#each feats as |item|}}
                     {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
                 {{/each}}
             </div>
         </div>
+    </div>
+    <div class="npc-notes">
+        <div class="title">Notes</div>
+        {{{editor system.notes target="system.notes" button=true owner=owner editable=editable}}}
     </div>
 </form>

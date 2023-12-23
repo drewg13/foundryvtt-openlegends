@@ -31,35 +31,36 @@ export class olActorSheet extends ActorSheet {
   async getData(options) {
     const actorData = super.getData();
     const sheetData = actorData.data;
-    const data = sheetData;
-    data.owner = actorData.owner;
-    data.editable = actorData.editable;
+    sheetData.owner = actorData.owner;
+    sheetData.editable = actorData.editable;
     // console.log(actorData);
 
-    if (data.actions === undefined) {
-      data.actions = [];
-      data.gear    = [];
-      data.feats   = [];
-      data.perks   = [];
-      data.flaws   = [];
+    if (sheetData.actions === undefined) {
+      sheetData.actions = [];
+      sheetData.gear    = [];
+      sheetData.feats   = [];
+      sheetData.perks   = [];
+      sheetData.flaws   = [];
     }
     actorData.items.forEach(item => {
       if (item.system.action)
-        data.actions.push(item);
+        sheetData.actions.push(item);
       if (item.system.gear)
-        data.gear.push(item);
+        sheetData.gear.push(item);
       if (item.type === 'feat')
-        data.feats.push(item);
+        sheetData.feats.push(item);
       else if (item.type === 'perk')
-        data.perks.push(item);
+        sheetData.perks.push(item);
       else if (item.type === 'flaw')
-        data.flaws.push(item);
+        sheetData.flaws.push(item);
     });
-    data.actions.sort((a, b) => a.system.action.index - b.system.action.index);
-    data.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
-    data.feats.sort((a, b) => a.system.index - b.system.index);
+    sheetData.actions.sort((a, b) => a.system.action.index - b.system.action.index);
+    sheetData.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
+    sheetData.feats.sort((a, b) => a.system.index - b.system.index);
 
-    return data;
+    sheetData.system.notes = await TextEditor.enrichHTML(sheetData.system.notes, {secrets: actorData.isOwner});
+
+    return sheetData;
   }
 
   /** @override */

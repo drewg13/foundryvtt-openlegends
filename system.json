@@ -17,7 +17,7 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 11,
-    "verified": 11
+    "verified": 11.315
   },
   "scripts": [],
   "esmodules": [
@@ -38,7 +38,7 @@
       "name": "banes",
       "label": "Banes",
       "system": "openlegend",
-      "path": "./packs/banes.db",
+      "path": "./packs/banes",
       "type": "Item",
       "private": false
     },
@@ -46,7 +46,7 @@
       "name": "basic",
       "label": "Basic",
       "system": "openlegend",
-      "path": "./packs/basic.db",
+      "path": "./packs/basic",
       "type": "Item",
       "private": false
     },
@@ -54,7 +54,7 @@
       "name": "boons",
       "label": "Boons",
       "system": "openlegend",
-      "path": "./packs/boons.db",
+      "path": "./packs/boons",
       "type": "Item",
       "private": false
     },
@@ -62,7 +62,7 @@
       "name": "feats",
       "label": "Feats",
       "system": "openlegend",
-      "path": "./packs/feats.db",
+      "path": "./packs/feats",
       "type": "Item",
       "private": false
     },
@@ -70,7 +70,7 @@
       "name": "flaws",
       "label": "Flaws",
       "system": "openlegend",
-      "path": "./packs/flaws.db",
+      "path": "./packs/flaws",
       "type": "Item",
       "private": false
     },
@@ -78,7 +78,7 @@
       "name": "gm-feats",
       "label": "GM-Feats",
       "system": "openlegend",
-      "path": "./packs/gm-feats.db",
+      "path": "./packs/gm-feats",
       "type": "Item",
       "private": false
     },
@@ -86,7 +86,7 @@
       "name": "perks",
       "label": "Perks",
       "system": "openlegend",
-      "path": "./packs/perks.db",
+      "path": "./packs/perks",
       "type": "Item",
       "private": false
     },
@@ -94,7 +94,7 @@
       "name": "rules",
       "label": "Rules",
       "system": "openlegend",
-      "path": "./packs/rules.db",
+      "path": "./packs/rules",
       "type": "JournalEntry",
       "private": false
     },
@@ -102,7 +102,7 @@
       "name": "gm-screen",
       "label": "GM-Screen",
       "system": "openlegend",
-      "path": "./packs/gm-screen.db",
+      "path": "./packs/gm-screen",
       "type": "JournalEntry",
       "private": false
     }

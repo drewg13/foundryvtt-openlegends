@@ -4,6 +4,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+* .editor,
+* .editor-content {
+  min-height: 120px;
+}
+
 .rollable:hover, .rollable:focus, .init-rollable:hover, .init-rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
@@ -233,6 +238,26 @@
 
 .openlegend .actions .action-adv {
   width: 25px;
+}
+
+.openlegend .pc-notes {
+  grid-column: 2 / 4;
+  grid-row: 10 / 13;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.25em;
+  border: 4px groove #eeede0;
+}
+
+.openlegend .pc-notes .div {
+  padding-bottom: 0.25em;
+}
+
+.openlegend .pc-notes .notes-title {
+  grid-column: span 11;
+  font-size: large;
+  font-weight: bold;
 }
 
 .openlegend .attr-group {
@@ -681,6 +706,16 @@
   grid-gap: 0.5rem;
   border: 4px groove #eeede0;
   margin-top: 0.25em;
+}
+
+.openlegend .npc .npc-notes {
+  border: 4px groove #eeede0;
+  margin-top: 0.25em;
+}
+
+.openlegend .npc .npc-notes .title {
+  font-size: large;
+  font-weight: bold;
 }
 
 .openlegend .npc .npc-body .npc-attributes .npc-attributes-display {

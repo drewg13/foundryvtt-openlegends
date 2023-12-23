@@ -9,7 +9,8 @@
         "xp": 0,
         "wl": 2,
         "lp": 1,
-        "speed": 30
+        "speed": 30,
+        "notes": ""
       },
       "base": {
         "trackers": {
