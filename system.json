@@ -1,5 +1,5 @@
 {
-  "name": "openlegend",
+  "id": "openlegend",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
   "authors": [
@@ -107,14 +107,15 @@
       "private": false
     }
   ],
-  "system": [],
-  "dependencies": [
-    {
-      "name": "game-icons-net",
-      "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json",
-      "type": "module"
-    }
-  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "game-icons-net",
+        "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json",
+        "type": "module"
+      }
+    ]
+  },
   "socket": false,
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
