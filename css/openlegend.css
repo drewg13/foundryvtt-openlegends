@@ -331,6 +331,7 @@
   border: 4px groove #eeede0;
   background-color: rgba(255, 196, 0, 0.35);
   overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 .openlegend .character .gear .title {
@@ -344,6 +345,7 @@
   border: 4px groove #eeede0;
   background-color: rgba(133, 133, 133, 0.25);
   overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 .openlegend .character .feats .title {
