@@ -24,10 +24,13 @@ export class olItemSheet extends ItemSheet {
 
   /** @override */
   async getData(options) {
-    const data = super.getData();
-    const sheetData = data.data;
-    sheetData.owner = data.owner;
-    sheetData.editable = data.editable;
+    const itemData = super.getData();
+    const sheetData = itemData.data;
+    sheetData.owner = itemData.owner;
+    sheetData.editable = itemData.editable;
+
+    sheetData.system.details.description = await TextEditor.enrichHTML(sheetData.system.details.description, {secrets: itemData.isOwner});
+
     return sheetData;
   }
 

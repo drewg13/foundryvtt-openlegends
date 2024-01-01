@@ -154,7 +154,7 @@ export class olActorSheet extends ActorSheet {
       else {
         let data = {}
         html.find(".npc-attr-setter").each((i, obj) => {
-          data[`attributes.${obj.dataset.group}.${obj.dataset.attr}.score`] = parseInt(obj.value);
+          data[`system.attributes.${obj.dataset.group}.${obj.dataset.attr}.score`] = parseInt(obj.value);
         });
         this.actor.update(data);
         btn.html("Edit");
