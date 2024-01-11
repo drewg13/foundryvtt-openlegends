@@ -1,3 +1,8 @@
+<p>
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/drewg13/foundryvtt-openlegends">
+  <img alt="GitHub downloads (latest)" src="https://img.shields.io/github/downloads/drewg13/foundryvtt-openlegends/latest/system.zip">
+</p>
+
 # Open Legend RPG for Foundry VTT
 
 An implementation of the Open Legend RPG system for Foundry Virtual Tabletop (http://foundryvtt.com).
