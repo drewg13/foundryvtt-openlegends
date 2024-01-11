@@ -9,7 +9,9 @@ An implementation of the Open Legend RPG system for Foundry Virtual Tabletop (ht
 
 ## Installation
 
-TBD
+Open the latest release, copy the link to the associated `system.json` file, and paste it into the Manifest field in the System installation window in Foundry v11 or higher.  Updates should work normally from then on.
+
+The system will also be available via the Foundry package browser soon.
 
 ## Features
 
