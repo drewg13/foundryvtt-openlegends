@@ -7,7 +7,6 @@
 * .editor,
 * .editor-content {
   min-height: 120px;
-  min-width: 450px;
 }
 
 .rollable:hover, .rollable:focus, .init-rollable:hover, .init-rollable:focus {
@@ -878,6 +877,10 @@
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   grid-gap: 0.5rem;
+}
+
+.openlegend .item-sheet .sheet-body.armor {
+  display: block;
 }
 
 .openlegend .item-sheet .sheet-body .action-header {
