@@ -1,10 +1,17 @@
+<p>
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/drewg13/foundryvtt-openlegends">
+  <img alt="GitHub downloads (latest)" src="https://img.shields.io/github/downloads/drewg13/foundryvtt-openlegends/latest/system.zip">
+</p>
+
 # Open Legend RPG for Foundry VTT
 
 An implementation of the Open Legend RPG system for Foundry Virtual Tabletop (http://foundryvtt.com).
 
 ## Installation
 
-TBD
+Open the latest release, copy the link to the associated `system.json` file, and paste it into the Manifest field in the System installation window in Foundry v11 or higher.  Updates should work normally from then on.
+
+The system will also be available via the Foundry package browser soon.
 
 ## Features
 
