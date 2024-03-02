@@ -144,7 +144,7 @@ export class olActorSheet extends ActorSheet {
       const hp = data.defense.hp;
       hp.max = hp_val;
       hp.value = hp_val;
-      this.actor.update(data);
+      this.actor.update({ "system.defense": { hp } } );
     });
 
     html.find(".update-npc-attributes").click(ev => {
