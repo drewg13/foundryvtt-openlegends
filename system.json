@@ -99,6 +99,22 @@
       "private": false
     },
     {
+      "name": "weapons",
+      "label": "Weapons",
+      "system": "openlegend",
+      "path": "./packs/weapons",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "armor",
+      "label": "Armor",
+      "system": "openlegend",
+      "path": "./packs/armor",
+      "type": "Item",
+      "private": false
+    },
+    {
       "name": "gm-screen",
       "label": "GM-Screen",
       "system": "openlegend",

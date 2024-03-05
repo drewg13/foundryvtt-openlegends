@@ -10,11 +10,11 @@
                 </div>
                 <div class="flex-shrink text-input">
                     <label>Level:</label>
-                    <input class="single_digit" name="system.level" type="number" value="{{system.level}}" />
+                    <input class="single_digit" name="system.level" type="number" data-dtype="Number" value="{{system.level}}" />
                 </div>
                 <div class="flex-shrink text-input">
                     <label>BossEdge:</label>
-                    <input class="single_digit" name="system.boss_edge" type="number" value="{{system.boss_edge}}" />
+                    <input class="single_digit" name="system.boss_edge" type="number" data-dtype="Number" value="{{system.boss_edge}}" />
                 </div>
             </div>
             <div class="npc-row text-input">
@@ -24,19 +24,19 @@
             <div class="npc-row flexrow">
                 <div class="text-input npc-hp">
                     <label>MaxHP:</label>
-                    <input class="double_digit npc_hp_edit" type="number" value="{{system.defense.hp.max}}" />
+                    <input class="double_digit npc_hp_edit" type="number" data-dtype="Number" value="{{system.defense.hp.max}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Guard:</label>
-                    <input class="double_digit" name="system.defense.guard.guard" type="number" value="{{system.defense.guard.guard}}" />
+                    <input class="double_digit" name="system.defense.guard.guard" type="number" data-dtype="Number" value="{{system.defense.guard.guard}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Tough:</label>
-                    <input class="double_digit" name="system.defense.toughness.toughness" type="number" value="{{system.defense.toughness.toughness}}" />
+                    <input class="double_digit" name="system.defense.toughness.toughness" type="number" data-dtype="Number" value="{{system.defense.toughness.toughness}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Resolve:</label>
-                    <input class="double_digit" name="system.defense.resolve.resolve" type="number" value="{{system.defense.resolve.resolve}}" />
+                    <input class="double_digit" name="system.defense.resolve.resolve" type="number" data-dtype="Number" value="{{system.defense.resolve.resolve}}" />
                 </div>
             </div>
             <div class="npc-row flexrow">
@@ -46,11 +46,11 @@
                             <i class="fas fa-dice-d20"></i>
                         </a>InitMod:
                     </label>
-                    <input class="single_digit" name="system.initiative_mod" type="number" value="{{system.initiative_mod}}" />
+                    <input class="single_digit" name="system.initiative_mod" type="number" data-dtype="Number" value="{{system.initiative_mod}}" />
                 </div>
                 <div class="details-speed text-input">
                     <label>Speed:</label>
-                    <input class="double_digit" name="system.speed" type="number" value="{{system.speed}}" placeholder="30" />
+                    <input class="double_digit" name="system.speed" type="number" data-dtype="Number" value="{{system.speed}}" placeholder="30" />
                 </div>
                 <div class="text-input">
                     <label>Attr:</label>

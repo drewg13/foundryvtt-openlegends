@@ -24,7 +24,6 @@ export class olActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.system;
-
     // Calculate level
     data.level = Math.floor(data.xp/3) + 1;
 
@@ -50,10 +49,10 @@ export class olActor extends Actor {
     const hp_form2 = this.getAttrForName(data.attributes, hp.formula[1].active).modified_score;
     const hp_form3 = this.getAttrForName(data.attributes, hp.formula[2].active).modified_score;
     const fort = data.attributes.physical.fortitude.modified_score;
-    hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.hint = 2 * (hp_form1 + hp_form2 + hp_form3) + 10;
     hp.hint_str = `2*(${hp.formula[0].active} + ${hp.formula[1].active} + ${hp.formula[2].active})+10 = ${hp.hint}`
     hp.max = hp.hint + hp.other + hp.feat;
+    hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
 
     // Set guard to 10 + Agility + Might + Armor + Other (handle attr substitution)
@@ -99,6 +98,7 @@ export class olActor extends Actor {
 
     data.trackers = trackers;
     data.attributes = attributes;
+    //console.log(hp)
     data.defense.hp = hp;
     data.defense.guard = guard;
     data.defense.toughness = tough;

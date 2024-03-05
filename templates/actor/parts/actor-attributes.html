@@ -10,7 +10,7 @@
                 <div class="attribute-name rollable macro {{attr.bonus_class}}" draggable="true"
                         data-macro="attr" data-attr="{{attr_name}}">{{attr_name}} {{attr.bonus_str}}</div>
                 <input class="centered" name="system.attributes.{{group_name}}.{{attr_name}}.score"
-                        type="number" value="{{attr.score}}" placeholder="0" />
+                        type="number" data-dtype="Number" value="{{attr.score}}" placeholder="0" />
                 <div class="attribute-value">{{attr.dice.str}}</div>
             {{/each}}
         {{/each}}

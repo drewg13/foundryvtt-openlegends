@@ -139,7 +139,7 @@ export class olActorSheet extends ActorSheet {
 
     // Update curr hp of npcs if max hp changes
     html.find('.npc_hp_edit').change(ev => {
-      const hp_val = $(ev.currentTarget).val()
+      const hp_val = Number( $(ev.currentTarget).val() );
       const data = this.actor.system;
       const hp = data.defense.hp;
       hp.max = hp_val;
@@ -203,16 +203,17 @@ export class olActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    const subCat = dataset.defense;
     const data = this.actor.system;
-    const defense = data.defense[dataset.defense];
+    const defense = data.defense;
 
-    let result = await this._SettingsDialog(dataset.name, defense);
+    let result = await this._SettingsDialog(dataset.name, defense[subCat]);
     if( result ) {
       result.forEach((item, index) => {
-        defense.formula[index].active = item.value;
+        defense[subCat].formula[index].active = item.value;
       });
-
-      this.actor.update(data);
+      let update = { system: {defense} }
+      await this.actor.update( update );
     }
   }
 
@@ -251,8 +252,8 @@ export class olActorSheet extends ActorSheet {
         if (item.value !== '')
           attrs[dataset.group][dataset.attr]['bonus'] = parseInt(item.value);
       });
-
-      this.actor.update(data);
+      let update = { system: { attributes: attrs } };
+      await this.actor.update(update);
     }
   }
 

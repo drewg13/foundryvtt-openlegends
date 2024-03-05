@@ -3,20 +3,20 @@
     <div class="health-type">Curr</div>
     <div class="health-type">Max</div>
     <div class="health-type">Lethal</div>
-    <input name="system.defense.hp.value" type="number" value="{{system.defense.hp.value}}" placeholder="0" />
+    <input name="system.defense.hp.value" type="number" data-dtype="Number" value="{{system.defense.hp.value}}" placeholder="0" />
     <div class="ht">
-        <input name="system.defense.hp.max" type="number" value="{{system.defense.hp.max}}" placeholder="0" disabled>
+        <input name="system.defense.hp.max" type="number" data-dtype="Number" value="{{system.defense.hp.max}}" placeholder="0" disabled>
         <span class="tooltip capitalize">{{system.defense.hp.hint_str}}</span>
     </div>
-    <input name="system.defense.hp.lethal" type="number" value="{{system.defense.hp.lethal}}" placeholder="0" />
+    <input name="system.defense.hp.lethal" type="number" data-dtype="Number" value="{{system.defense.hp.lethal}}" placeholder="0" />
     <div class="health-bonuses">
         <div class="text-input">
             <label>Feat Bonus: </label>
-            <input name="system.defense.hp.feat" type="number" value="{{system.defense.hp.feat}}" placeholder="0" />
+            <input name="system.defense.hp.feat" type="number" data-dtype="Number" value="{{system.defense.hp.feat}}" placeholder="0" />
         </div>
         <div class="text-input">
             <label>Other Bonus: </label>
-            <input name="system.defense.hp.other" type="number" value="{{system.defense.hp.other}}" placeholder="0" />
+            <input name="system.defense.hp.other" type="number" data-dtype="Number" value="{{system.defense.hp.other}}" placeholder="0" />
         </div>
     </div>
     <i class="fas fa-cog settings clickable" data-name="Health Configuration" data-defense="hp"></i>
@@ -34,7 +34,7 @@
         <div>Armor</div>
         <div>{{system.defense.guard.armor}}</div>
         <div>Other</div>
-        <input name="system.defense.guard.other" type="number" value="{{system.defense.guard.other}}" placeholder="0" />
+        <input name="system.defense.guard.other" type="number" data-dtype="Number" value="{{system.defense.guard.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Guard Configuration" data-defense="guard"></i>
 </div>
@@ -49,7 +49,7 @@
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Other</div>
-        <input name="system.defense.toughness.other" type="number" value="{{system.defense.toughness.other}}" placeholder="0" />
+        <input name="system.defense.toughness.other" type="number" data-dtype="Number" value="{{system.defense.toughness.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Toughness Configuration" data-defense="toughness"></i>
 </div>
@@ -64,7 +64,7 @@
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Other</div>
-        <input name="system.defense.resolve.other" type="number" value="{{system.defense.resolve.other}}" placeholder="0" />
+        <input name="system.defense.resolve.other" type="number" data-dtype="Number" value="{{system.defense.resolve.other}}" placeholder="0" />
     </div>
     <i class="fas fa-cog settings clickable" data-name="Resolve Configuration" data-defense="resolve"></i>
 </div>
