@@ -73,12 +73,34 @@ Hooks.once('init', async function() {
 
   // Preload template partials.
   preloadHandlebarsTemplates();
+
 });
 
-Hooks.once("ready", function() {
+Hooks.once("ready", async function() {
 
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => macros.createOLMacro(data, slot));
+
+  //Set up token status effects from Boons/Banes to replace defaults
+  let statusEffects = [];
+  const packBanes = await game.packs.get("openlegend.banes").getDocuments();
+  packBanes.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) });
+  const packBoons = await game.packs.get("openlegend.boons").getDocuments();
+  packBoons.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) });
+  // add all Banes and Boons in world items to accommodate homebrew
+  game.items.contents.forEach( i => { if( (i.type === "boon") || (i.type === "bane") ){ statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) } });
+  //add 'dead' effect
+  statusEffects.push( {id: 'dead', name: 'EFFECT.StatusDead', icon: 'icons/svg/skull.svg'} );
+  // alpha sort effects by name
+  CONFIG.statusEffects = statusEffects.sort(function(a,b){
+    let x = a.name.toLowerCase();
+    let y = b.name.toLowerCase();
+    if(x>y){return 1;}
+    if(x<y){return -1;}
+    return 0;
+  });
+
+  CONFIG.specialStatusEffects = {DEFEATED: 'dead', INVISIBLE: 'concealment', BLIND: 'blinded'};
 });
 
 export const _getInitiativeFormula = function() {

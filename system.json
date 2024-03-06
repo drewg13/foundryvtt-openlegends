@@ -13,7 +13,6 @@
   ],
   "url": "#{URL}#",
   "license": "LICENSE.txt",
-  "flags": {},
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 11,
@@ -138,5 +137,10 @@
   "protected": false,
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health"
+  "primaryTokenAttribute": "health",
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "html", "json", "js"]
+    }
+  }
 }
