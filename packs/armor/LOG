@@ -1,3 +1,8 @@
 2024/03/07-22:16:33.294 38c0 Recovering log #46
 2024/03/07-22:16:33.297 38c0 Delete type=0 #46
 2024/03/07-22:16:33.297 38c0 Delete type=3 #44
+2024/03/07-22:22:48.872 17cc Level-0 table #51: started
+2024/03/07-22:22:48.872 17cc Level-0 table #51: 0 bytes OK
+2024/03/07-22:22:48.873 17cc Delete type=0 #49
+2024/03/07-22:22:48.874 17cc Manual compaction at level-0 from '!items!Ef3qgCE0PT65rJYt' @ 72057594037927935 : 1 .. '!items!xKIajIoJDpwHSEg3' @ 0 : 0; will stop at (end)
+2024/03/07-22:22:48.875 17cc Manual compaction at level-1 from '!items!Ef3qgCE0PT65rJYt' @ 72057594037927935 : 1 .. '!items!xKIajIoJDpwHSEg3' @ 0 : 0; will stop at (end)
