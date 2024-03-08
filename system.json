@@ -137,7 +137,7 @@
   "protected": false,
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
+  "primaryTokenAttribute": "defense.hp",
   "flags": {
     "hotReload": {
       "extensions": ["css", "html", "json", "js"]

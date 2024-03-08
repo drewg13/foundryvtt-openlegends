@@ -1,4 +1,10 @@
-<div class="aligned gear-row feat-row">
+<div class="aligned gear-row feat-row {{#if feat.system.activation}}checkbox{{/if}}">
+    {{#if feat.system.activation}}
+        <div class="activation">
+            <input class="update-box" data-utype="activation" data-item="{{feat._id}}" id="trance-{{feat._id}}" type="checkbox" data-dtype="Boolean" {{checked feat.system.activated}}>
+            <label for="trance-{{feat._id}}" data-tooltip="Activate"></label>
+        </div>
+    {{/if}}
     <div class="gear-name clickable item-edit" data-item="{{feat._id}}">{{feat.name}}</div>
     <div class="feat-tier">
         {{feat.system.tier}}

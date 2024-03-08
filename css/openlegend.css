@@ -617,9 +617,15 @@
 
 .openlegend .feat-row {
   display: grid;
-  grid-template-columns: minmax(-webkit-max-content, auto) minmax(-webkit-max-content, auto) minmax(-webkit-max-content, 10fr) 20px;
-  grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
   grid-gap: 0.25rem;
+}
+
+.openlegend .feat-row.checkbox {
+  grid-template-columns: 20px minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
+}
+
+.openlegend .feat-row:not(.checkbox) {
+  grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
 }
 
 .openlegend .feat-row .feat-tier {
@@ -1061,4 +1067,35 @@
 
 .openlegend .capitalize {
   text-transform: capitalize;
+}
+
+.openlegend .activation input[type=checkbox]{
+  display: none;
+}
+
+.openlegend .activation label {
+  display: flex;
+  height: 15px;
+  width: 15px;
+  border: 2px solid;
+  background-color: #EEEFFF;
+  vertical-align: middle;
+  transition: filter 0.1s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.openlegend .activation label:hover {
+  filter: brightness(0.7);
+  opacity: 0.7;
+}
+
+.openlegend .activation input:checked + label {
+  background-color: red;
+}
+
+.openlegend .main-grid .bonus {
+  font-size: 40%;
+  color: green;
+  vertical-align: middle;
 }

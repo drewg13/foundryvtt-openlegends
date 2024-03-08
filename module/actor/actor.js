@@ -50,7 +50,7 @@ export class olActor extends Actor {
     const hp_form3 = this.getAttrForName(data.attributes, hp.formula[2].active).modified_score;
     const fort = data.attributes.physical.fortitude.modified_score;
     hp.hint = 2 * (hp_form1 + hp_form2 + hp_form3) + 10;
-    hp.hint_str = `2*(${hp.formula[0].active} + ${hp.formula[1].active} + ${hp.formula[2].active})+10 = ${hp.hint}`
+    hp.hint_str = `2 * (${hp.formula[0].active} + ${hp.formula[1].active} + ${hp.formula[2].active}) + 10 + feats= ${hp.hint}`
     hp.max = hp.hint + hp.other + hp.feat;
     hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
@@ -61,15 +61,16 @@ export class olActor extends Actor {
     const guard_form2 = this.getAttrForName(data.attributes, guard.formula[1].active).modified_score;
     guard.formula[0].score = guard_form1;
     guard.formula[1].score = guard_form2;
-    let armor = 0
+    let armor= 0;
     actorData.items.forEach(item => {
       if (item.type === 'armor') {
         if (item.system.equipped && fort >= item.system.req_fort)
           armor += item.system.defense;
       }
     });
-    guard.armor = armor;
+    guard.armor = Math.max( armor,  (guard.armorBonus ? guard.armorBonus : 0) );
     guard.guard = Math.max(0, 10 + guard_form1 + guard_form2 + guard.armor + guard.other);
+    guard.hint_str = `10 + ${guard.formula[0].active} + ${guard.formula[1].active} + armor + other + feats = ${guard.guard}`;
 
     // Set toughness to 10 + Fortitude + Will + Other (handle attr substitution)
     const tough = data.defense.toughness;
@@ -77,7 +78,8 @@ export class olActor extends Actor {
     const tough_form2 = this.getAttrForName(data.attributes, tough.formula[1].active).modified_score;
     tough.formula[0].score = tough_form1;
     tough.formula[1].score = tough_form2;
-    tough.toughness = Math.max(0, 10 + tough_form1 + tough_form2 + tough.other);
+    tough.toughness = Math.max(0, 10 + tough_form1 + tough_form2 + tough.other + (tough.bonus ? tough.bonus : 0) );
+    tough.hint_str = `10 + ${tough.formula[0].active} + ${tough.formula[1].active} + other + feats = ${tough.toughness}`;
 
     // Set resolve to 10 + Presence + Will + Other (handle attr substitution)
     const resolve = data.defense.resolve;
@@ -85,7 +87,8 @@ export class olActor extends Actor {
     const resolve_form2 = this.getAttrForName(data.attributes, resolve.formula[1].active).modified_score;
     resolve.formula[0].score = resolve_form1;
     resolve.formula[1].score = resolve_form2;
-    resolve.resolve = Math.max(0, 10 + resolve_form1 + resolve_form2 + resolve.other);
+    resolve.resolve = Math.max(0, 10 + resolve_form1 + resolve_form2 + resolve.other + (resolve.bonus ? resolve.bonus : 0) );
+    resolve.hint_str = `10 + ${resolve.formula[0].active} + ${resolve.formula[1].active} + other + feats = ${resolve.resolve}`;
 
     // Calculate feat costs
     let total_feat_cost = 0;

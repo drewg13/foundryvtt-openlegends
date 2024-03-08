@@ -5,8 +5,7 @@
     <div class="health-type">Lethal</div>
     <input name="system.defense.hp.value" type="number" data-dtype="Number" value="{{system.defense.hp.value}}" placeholder="0" />
     <div class="ht">
-        <input name="system.defense.hp.max" type="number" data-dtype="Number" value="{{system.defense.hp.max}}" placeholder="0" disabled>
-        <span class="tooltip capitalize">{{system.defense.hp.hint_str}}</span>
+        <input name="system.defense.hp.max" type="number" data-dtype="Number" data-tooltip="{{system.defense.hp.hint_str}}" value="{{system.defense.hp.max}}" placeholder="0" disabled>
     </div>
     <input name="system.defense.hp.lethal" type="number" data-dtype="Number" value="{{system.defense.hp.lethal}}" placeholder="0" />
     <div class="health-bonuses">
@@ -24,7 +23,7 @@
 <div class="guard defense-grid">
     <div>
         <div class="defense-title">Guard</div>
-        <div class="defense-value">{{system.defense.guard.guard}}</div>
+        <div class="defense-value" data-tooltip="{{system.defense.guard.hint_str}}">{{system.defense.guard.guard}}</div>
     </div>
     <div class="attribute-grid">
         {{#each system.defense.guard.formula as |formula|}}
@@ -32,7 +31,7 @@
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Armor</div>
-        <div>{{system.defense.guard.armor}}</div>
+        <div{{#if system.defense.guard.armorBonus}} class="upgraded" data-tooltip="Feats"{{/if}}>{{system.defense.guard.armor}}</div>
         <div>Other</div>
         <input name="system.defense.guard.other" type="number" data-dtype="Number" value="{{system.defense.guard.other}}" placeholder="0" />
     </div>
@@ -41,7 +40,7 @@
 <div class="toughness defense-grid">
     <div>
         <div class="defense-title">Tough</div>
-        <div class="defense-value">{{system.defense.toughness.toughness}}</div>
+        <div class="defense-value" data-tooltip="{{system.defense.toughness.hint_str}}">{{system.defense.toughness.toughness}} {{#if system.defense.toughness.bonus}}<span class="bonus" data-tooltip="Feats">(+{{system.defense.toughness.bonus}})</span>{{/if}}</div>
     </div>
     <div class="attribute-grid">
         {{#each system.defense.toughness.formula as |formula|}}
@@ -56,7 +55,7 @@
 <div class="resolve defense-grid">
     <div>
         <div class="defense-title">Resolve</div>
-        <div class="defense-value">{{system.defense.resolve.resolve}}</div>
+        <div class="defense-value" data-tooltip="{{system.defense.resolve.hint_str}}">{{system.defense.resolve.resolve}} {{#if system.defense.resolve.bonus}}<span class="bonus" data-tooltip="Feats">(+{{system.defense.resolve.bonus}})</span>{{/if}}</div>
     </div>
     <div class="attribute-grid">
         {{#each system.defense.resolve.formula as |formula|}}

@@ -89,6 +89,8 @@ export class olActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
+
     html.find('.macro').on('dragstart', ev => {
       const dataset = ev.currentTarget.dataset;
       dataset.actor = this.actor.uuid;
@@ -278,5 +280,20 @@ export class olActorSheet extends ActorSheet {
             close: html => resolve(null)
         }).render(true);
     });
+  }
+
+  async _onUpdateBoxClick(event) {
+    event.preventDefault();
+    const item_id = $(event.currentTarget).data("item");
+    const update_type = $(event.currentTarget).data("utype");
+    let update = [];
+    if(update_type === "activation"){
+      let value = !this.actor.items.get(item_id).system.activated
+      update.push( {_id: item_id, system:{activated: value}} );
+      let effectUpdates = [];
+      this.actor.effects.forEach( e => { effectUpdates.push( {"_id": e.id, "disabled":!value} ) } )
+      await this.actor.updateEmbeddedDocuments( "ActiveEffect", effectUpdates );
+    }
+    await this.actor.updateEmbeddedDocuments("Item",update);
   }
 }
