@@ -1096,6 +1096,10 @@
 
 .openlegend .main-grid .bonus {
   font-size: 40%;
-  color: green;
   vertical-align: middle;
+}
+
+.openlegend.sheet .button.clickable {
+  margin-left: 0.5em;
+  font-size: 75%;
 }

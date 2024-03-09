@@ -6,7 +6,12 @@
     {{> "systems/openlegend/templates/actor/parts/actor-actions.html"}}
     <div class="character">
       <div class="gear">
-        <div class="title">Gear</div>
+        <div class="title">
+          Gear
+          <span class="button add-asset clickable" data-type="generic"><i class="fas fa-plus"></i> Generic</span>
+          <span class="button add-asset clickable" data-type="armor"><i class="fas fa-plus"></i> Armor</span>
+          <span class="button add-asset clickable" data-type="weapon"><i class="fas fa-plus"></i> Weapon</span>
+        </div>
         {{#each gear as |item|}}
           {{#ifeq item.type 'weapon'}}
             {{> "systems/openlegend/templates/actor/parts/gear-weapon.html" weapon=item}}
@@ -20,19 +25,28 @@
         {{/each}}
       </div>
       <div class="feats">
-        <div class="title">Feats</div>
+        <div class="title">
+          Feats
+          <span class="button add-asset clickable" data-type="feat"><i class="fas fa-plus"></i> Feat</span>
+        </div>
         {{#each feats as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
         {{/each}}
       </div>
       <div class="perks">
-        <div class="title">Perks</div>
+        <div class="title">
+          Perks
+          <span class="button add-asset clickable" data-type="perk"><i class="fas fa-plus"></i> Perk</span>
+        </div>
         {{#each perks as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}
       </div>
       <div class="flaws">
-        <div class="title">Flaws</div>
+        <div class="title">
+          Flaws
+          <span class="button add-asset clickable" data-type="flaw"><i class="fas fa-plus"></i> Flaw</span>
+        </div>
         {{#each flaws as |item|}}
           {{> "systems/openlegend/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
         {{/each}}

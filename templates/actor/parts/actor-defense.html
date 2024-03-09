@@ -31,7 +31,7 @@
             <div class="capitalize">{{formula.score}}</div>
         {{/each}}
         <div>Armor</div>
-        <div{{#if system.defense.guard.armorBonus}} class="upgraded" data-tooltip="Feats"{{/if}}>{{system.defense.guard.armor}}</div>
+        <div{{#if system.defense.guard.armorBonus}} class="upgraded" data-tooltip="From Activated Feats"{{/if}}>{{system.defense.guard.armor}}</div>
         <div>Other</div>
         <input name="system.defense.guard.other" type="number" data-dtype="Number" value="{{system.defense.guard.other}}" placeholder="0" />
     </div>
@@ -40,7 +40,7 @@
 <div class="toughness defense-grid">
     <div>
         <div class="defense-title">Tough</div>
-        <div class="defense-value" data-tooltip="{{system.defense.toughness.hint_str}}">{{system.defense.toughness.toughness}} {{#if system.defense.toughness.bonus}}<span class="bonus" data-tooltip="Feats">(+{{system.defense.toughness.bonus}})</span>{{/if}}</div>
+        <div class="defense-value" data-tooltip="{{system.defense.toughness.hint_str}}">{{system.defense.toughness.toughness}} {{#if system.defense.toughness.bonus}}<span class="upgraded bonus" data-tooltip="From Activated Feats">(+{{system.defense.toughness.bonus}})</span>{{/if}}</div>
     </div>
     <div class="attribute-grid">
         {{#each system.defense.toughness.formula as |formula|}}
@@ -55,7 +55,7 @@
 <div class="resolve defense-grid">
     <div>
         <div class="defense-title">Resolve</div>
-        <div class="defense-value" data-tooltip="{{system.defense.resolve.hint_str}}">{{system.defense.resolve.resolve}} {{#if system.defense.resolve.bonus}}<span class="bonus" data-tooltip="Feats">(+{{system.defense.resolve.bonus}})</span>{{/if}}</div>
+        <div class="defense-value" data-tooltip="{{system.defense.resolve.hint_str}}">{{system.defense.resolve.resolve}} {{#if system.defense.resolve.bonus}}<span class="upgraded bonus" data-tooltip="From Activated Feats">(+{{system.defense.resolve.bonus}})</span>{{/if}}</div>
     </div>
     <div class="attribute-grid">
         {{#each system.defense.resolve.formula as |formula|}}

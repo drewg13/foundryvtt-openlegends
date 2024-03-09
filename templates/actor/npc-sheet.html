@@ -99,7 +99,10 @@
                 {{> "systems/openlegend/templates/actor/parts/actor-actions.html"}}
             </div>
             <div class="npc-feats">
-                <div class="title">Feats</div>
+                <div class="title">
+                    Feats
+                    <span class="button add-asset clickable" data-type="feat"><i class="fas fa-plus"></i> Feat</span>
+                </div>
                 {{#each feats as |item|}}
                     {{> "systems/openlegend/templates/actor/parts/gear-feat.html" feat=item}}
                 {{/each}}

@@ -91,6 +91,12 @@ export class olActorSheet extends ActorSheet {
 
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
 
+    html.find(".add-asset").click( ev => {
+      const dataset = ev.currentTarget.dataset;
+      let type = dataset.type;
+      this.actor.createEmbeddedDocuments("Item",[{ type: type, name: "New " + type }], {renderSheet: false });
+    });
+
     html.find('.macro').on('dragstart', ev => {
       const dataset = ev.currentTarget.dataset;
       dataset.actor = this.actor.uuid;
@@ -296,4 +302,5 @@ export class olActorSheet extends ActorSheet {
     }
     await this.actor.updateEmbeddedDocuments("Item",update);
   }
+
 }
