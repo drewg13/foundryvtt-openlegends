@@ -30,7 +30,13 @@ export async function rollItem(actor, item, skip_dialog=false) {
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr, item.system.action.default_adv, item.system.action.explosion_mod, skip_dialog);
+        let advantage = Number(item.system.action.default_adv);
+        let advBonus = 0;
+        if( actor.system.advantageBonus && ( item.type === "attack" || item.type === "weapon" ) ){
+            advantage += actor.system.advantageBonus;
+            advBonus = actor.system.advantageBonus;
+        }
+        let olroll = await OLRoll(attr_name, attr, advantage, advBonus, item.system.action.explosion_mod, skip_dialog);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend/templates/dialog/roll-chat.html";
@@ -53,7 +59,7 @@ export async function rollItem(actor, item, skip_dialog=false) {
 }
 
 
-export async function OLRoll(attr_name, attr, default_adv=0, explosion_modifier=0, skip_window=false) {
+export async function OLRoll(attr_name, attr, default_adv=0, advBonus=0, explosion_modifier=0, skip_window=false) {
     const to_return = {
         "roll": null,
         "attr": {
@@ -70,7 +76,7 @@ export async function OLRoll(attr_name, attr, default_adv=0, explosion_modifier=
     // Create the Dialog window
     let adv = default_adv
     if (!skip_window)
-        adv = await _OLRollDialog(attr_name, attr, default_adv);
+        adv = await _OLRollDialog(attr_name, attr, default_adv, advBonus);
     if (adv == null)
         return to_return;
 
@@ -179,9 +185,9 @@ function _modifyD20Explosion(roll, dice) {
     return roll;
 }
 
-async function _OLRollDialog(attr_name, attr, default_adv=0) {
+async function _OLRollDialog(attr_name, attr, default_adv=0, advBonus=0) {
     const template = "systems/openlegend/templates/dialog/roll-dialog.html";
-    const data = { 'attr': attr_name, 'score': attr.modified_score, 'formula': '1d20', 'default_adv': default_adv }
+    const data = { 'attr': attr_name, 'score': attr.modified_score, 'formula': '1d20', 'default_adv': default_adv, 'advBonus': advBonus }
     if (attr.modified_score > 0)
         data.formula += ' + ' + attr.dice.num + attr.dice.die;
 

@@ -1,4 +1,4 @@
-<form>
+<form class="openlegend">
     <div class="form-group">
         <label>Attribute</label>
         <input type="text" name="formula" value="{{attr}}: {{score}} " disabled/>
@@ -8,7 +8,7 @@
         <input type="text" name="formula" value="{{formula}}" disabled/>
     </div>
     <div class="form-group">
-        <label>Level of Adv/Dis</label>
+        <label>Level of Adv/Dis{{#if advBonus}}<span class="upgraded" data-tooltip="From Activated Feats"> (+{{advBonus}})</span>{{/if}}</label>
         <input type="number" name="advlevel" value="{{default_adv}}"/>
     </div>
 </form>
