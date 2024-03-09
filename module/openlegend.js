@@ -1,6 +1,7 @@
 // Import Modules
 import { olActor } from "./actor/actor.js";
 import { olActorSheet } from "./actor/actor-sheet.js";
+import { olNPCActorSheet } from "./actor/npc-sheet.js";
 import { olItem } from "./item/item.js";
 import { olItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
@@ -44,7 +45,8 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("openlegend", olActorSheet, { makeDefault: true });
+  Actors.registerSheet("openlegend", olActorSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("openlegend", olNPCActorSheet, { types: ["npc"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("openlegend", olItemSheet, { makeDefault: true });
 

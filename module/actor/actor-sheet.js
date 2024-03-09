@@ -9,21 +9,19 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["openlegend", "sheet", "actor"],
-      // template: "systems/openlegend/templates/actor/actor-sheet.html",
-      width: 600,
+    const options = foundry.utils.mergeObject(super.defaultOptions, {
+      classes: ["openlegend", "sheet", "actor", "character"],
+      width: 1200,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
       dragDrop: [{dragSelector: ".macro", dropSelector: null}]
     });
+    return options;
   }
 
   /** @override */
   get template() {
-    if (this.actor.type === 'character')
-      return "systems/openlegend/templates/actor/actor-sheet.html";
-    else return "systems/openlegend/templates/actor/npc-sheet.html";
+    return "systems/openlegend/templates/actor/actor-sheet.html";
   }
 
   /* -------------------------------------------- */
