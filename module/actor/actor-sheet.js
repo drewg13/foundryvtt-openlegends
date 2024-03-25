@@ -56,7 +56,7 @@ export class olActorSheet extends ActorSheet {
     sheetData.actions.sort((a, b) => a.system.action.index - b.system.action.index);
     sheetData.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
     sheetData.feats.sort((a, b) => a.system.index - b.system.index);
-
+    sheetData.inCombat = this.actor.inCombat;
     sheetData.system.notes = await TextEditor.enrichHTML(sheetData.system.notes, {secrets: actorData.isOwner});
 
     return sheetData;

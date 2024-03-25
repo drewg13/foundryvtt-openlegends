@@ -1103,3 +1103,64 @@
   margin-left: 0.5em;
   font-size: 75%;
 }
+
+.openlegend .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.openlegend .toggle-switch input {
+  display: none;
+}
+
+/* The slider */
+.openlegend .toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 4px;
+  left: 4px;
+  right: -4px;
+  bottom: -4px;
+  background-color: #ccc;
+  transition: .3s;
+}
+
+.openlegend .toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  transition: .3s;
+}
+
+.openlegend input:checked + .toggle-slider {
+  background-color: red;
+}
+
+.openlegend input:focus + .toggle-slider {
+  box-shadow: 0 0 1px red;
+}
+
+.openlegend input:checked + .toggle-slider:before {
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.openlegend .toggle-slider.round {
+  border-radius: 20px;
+}
+
+.openlegend .toggle-slider.round:before {
+  border-radius: 50%;
+}
+
+.openlegend .action-warning {
+  padding-left: 10px;
+  color: red;
+}

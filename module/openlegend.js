@@ -91,7 +91,7 @@ Hooks.once("ready", async function() {
   packBoons.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) });
   // add all Banes and Boons in world items to accommodate homebrew
   game.items.contents.forEach( i => { if( (i.type === "boon") || (i.type === "bane") ){ statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) } });
-  //add 'dead' effect
+  // add 'dead' effect
   statusEffects.push( {id: 'dead', name: 'EFFECT.StatusDead', icon: 'icons/svg/skull.svg'} );
   // alpha sort effects by name
   CONFIG.statusEffects = statusEffects.sort(function(a,b){
@@ -103,6 +103,48 @@ Hooks.once("ready", async function() {
   });
 
   CONFIG.specialStatusEffects = {DEFEATED: 'dead', INVISIBLE: 'concealment', BLIND: 'blinded'};
+
+  Hooks.on("combatStart", (combat, updateData) => {
+    combat.combatants.forEach( c => {
+      let tokenActor = combat.scene.tokens.get( c.tokenId )?.actor;
+      let linkedActor = game.actors.get( c.actorId );
+      let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
+      actor.update( { "system": { "defendUsed": false, "majorUnavailable": false } } )
+    } )
+  });
+
+  Hooks.on("preDeleteCombat", (combat, options, userId) => {
+    combat.combatants.forEach( c => {
+      let tokenActor = combat.scene.tokens.get( c.tokenId )?.actor;
+      let linkedActor = game.actors.get( c.actorId );
+      let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
+      actor.update( { "system": { "defendUsed": false, "majorUnavailable": false } } )
+    } )
+  });
+
+  Hooks.on("updateCombat", async (combat, updateData, updateOptions) => {
+    // get actor for current combatant, check for defendUsed, reset to false for start of turn
+    let tokenActor = combat.scene.tokens.get( combat.combatant?.tokenId )?.actor;
+    let linkedActor = game.actors.get( combat.combatant?.actorId );
+    let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
+
+    if( actor?.system.defendUsed ) {
+      await actor.update( { "system.defendUsed": false } )
+    }
+
+    // get actor for previous combatant, check for majorUnavailable, reset to false for end of turn
+    let prevTokenActor = combat.scene.tokens.get( combat.previous?.tokenId )?.actor;
+    let prevLinkedActor = combat.combatants.get( combat.previous?.combatantId )?.actor;
+    let prevActor = prevTokenActor?.actorLink ? prevLinkedActor : prevTokenActor;
+
+    if( prevActor?.system.majorUnavailable ) {
+      await prevActor.update( { "system.majorUnavailable": false } )
+    }
+
+    // set majorUnavailable at end of turn for next turn, if defendUsed was set this turn
+    if ( prevActor?.system.defendUsed ){ await prevActor.update( { "system.majorUnavailable": true } ) }
+
+  });
 });
 
 export const _getInitiativeFormula = function() {
