@@ -109,6 +109,7 @@ Hooks.once("ready", async function() {
       let tokenActor = combat.scene.tokens.get( c.tokenId )?.actor;
       let linkedActor = game.actors.get( c.actorId );
       let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
+      // reset flags to default for beginning of combat
       actor.update( { "system": { "defendUsed": false, "majorUnavailable": false } } )
     } )
   });
@@ -118,7 +119,18 @@ Hooks.once("ready", async function() {
       let tokenActor = combat.scene.tokens.get( c.tokenId )?.actor;
       let linkedActor = game.actors.get( c.actorId );
       let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
-      actor.update( { "system": { "defendUsed": false, "majorUnavailable": false } } )
+      // reset flags to default at end of combat
+      actor.update( { "system": { "defendUsed": false, "majorUnavailable": false } } );
+    } )
+  });
+
+  Hooks.on("deleteCombat", (combat, options, userId) => {
+    combat.combatants.forEach( c => {
+      let tokenActor = combat.scene.tokens.get( c.tokenId )?.actor;
+      let linkedActor = game.actors.get( c.actorId );
+      let actor = tokenActor?.actorLink ? linkedActor : tokenActor;
+      // ensure that combatant sheets re-render, if open, to ensure controls removed
+      actor.sheet.render(false);
     } )
   });
 
