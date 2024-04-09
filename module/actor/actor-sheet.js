@@ -189,7 +189,7 @@ export class olActorSheet extends ActorSheet {
    */
   async _onRoll(event) {
     event.preventDefault();
-    const ctrl_held = event.ctrlKey
+    const ctrl_held = event.ctrlKey || event.metaKey;
     const element = event.currentTarget;
     const dataset = element.dataset;
 

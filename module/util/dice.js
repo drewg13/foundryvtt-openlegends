@@ -4,7 +4,7 @@ export async function rollAttr(actor, attr_name, skip_dialog=false) {
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr, 0, 0, skip_dialog);
+        let olroll = await OLRoll(attr_name, attr, 0, 0, 0, skip_dialog);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend/templates/dialog/roll-chat.html";
