@@ -18,7 +18,7 @@ Hooks.once('init', async function() {
   // Register settings
   game.settings.register("openlegend", "alt_d20_explosion", {
     name: "Alternate D20 Explosions",
-    hint: "D20's explode as scaling attribute dice rahter than d20s",
+    hint: "D20's explode as scaling attribute dice rather than d20s",
     scope: "world",
     config: true,
     type: Boolean,
