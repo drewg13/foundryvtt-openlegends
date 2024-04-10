@@ -13,6 +13,8 @@ Open the latest release, copy the link to the associated `system.json` file, and
 
 The system is also available via the official Foundry package browser.
 
+The game-icons-net module is no longer needed or required.  You can disable or delete it with no effect on this system.
+
 ## Features
 
 * Automated, item-oriented character sheet
