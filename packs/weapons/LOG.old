@@ -1,21 +1,8 @@
-2024/04/09-18:47:01.803 3d58 Recovering log #72
-2024/04/09-18:47:01.806 3d58 Delete type=0 #72
-2024/04/09-18:47:01.806 3d58 Delete type=3 #71
-2024/04/09-20:28:43.675 4dd0 Level-0 table #76: started
-2024/04/09-20:28:43.675 4dd0 Level-0 table #76: 0 bytes OK
-2024/04/09-20:28:43.676 4dd0 Delete type=0 #74
-2024/04/09-20:28:43.683 4dd0 Manual compaction at level-0 from '!items!1lDX0XAjwEab3Fyo' @ 72057594037927935 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at '!items!tgV2QbrHN916EEqj' @ 54 : 1
-2024/04/09-20:28:43.683 4dd0 Compacting 1@0 + 0@1 files
-2024/04/09-20:28:43.684 4dd0 Generated table #77@0: 27 keys, 9232 bytes
-2024/04/09-20:28:43.684 4dd0 Compacted 1@0 + 0@1 files => 9232 bytes
-2024/04/09-20:28:43.685 4dd0 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/04/09-20:28:43.685 4dd0 Delete type=2 #67
-2024/04/09-20:28:43.688 4dd0 Manual compaction at level-0 from '!items!tgV2QbrHN916EEqj' @ 54 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at (end)
-2024/04/09-20:28:43.689 4dd0 Manual compaction at level-1 from '!items!1lDX0XAjwEab3Fyo' @ 72057594037927935 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at '!items!tgV2QbrHN916EEqj' @ 54 : 1
-2024/04/09-20:28:43.689 4dd0 Compacting 1@1 + 1@2 files
-2024/04/09-20:28:43.691 4dd0 Generated table #78@1: 27 keys, 9232 bytes
-2024/04/09-20:28:43.691 4dd0 Compacted 1@1 + 1@2 files => 9232 bytes
-2024/04/09-20:28:43.692 4dd0 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/04/09-20:28:43.692 4dd0 Delete type=2 #5
-2024/04/09-20:28:43.692 4dd0 Delete type=2 #77
-2024/04/09-20:28:43.700 4dd0 Manual compaction at level-1 from '!items!tgV2QbrHN916EEqj' @ 54 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at (end)
+2024/04/09-20:29:53.697 3d58 Recovering log #75
+2024/04/09-20:29:53.699 3d58 Delete type=0 #75
+2024/04/09-20:29:53.700 3d58 Delete type=3 #73
+2024/04/09-20:47:09.559 4dd0 Level-0 table #82: started
+2024/04/09-20:47:09.559 4dd0 Level-0 table #82: 0 bytes OK
+2024/04/09-20:47:09.560 4dd0 Delete type=0 #80
+2024/04/09-20:47:09.564 4dd0 Manual compaction at level-0 from '!items!1lDX0XAjwEab3Fyo' @ 72057594037927935 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at (end)
+2024/04/09-20:47:09.564 4dd0 Manual compaction at level-1 from '!items!1lDX0XAjwEab3Fyo' @ 72057594037927935 : 1 .. '!items!tgV2QbrHN916EEqj' @ 0 : 0; will stop at (end)
