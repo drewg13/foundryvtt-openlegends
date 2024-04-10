@@ -122,15 +122,6 @@
       "private": false
     }
   ],
-  "relationships": {
-    "requires": [
-      {
-        "id": "game-icons-net",
-        "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json",
-        "type": "module"
-      }
-    ]
-  },
   "socket": false,
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",

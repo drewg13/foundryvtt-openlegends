@@ -86,11 +86,11 @@ Hooks.once("ready", async function() {
   //Set up token status effects from Boons/Banes to replace defaults
   let statusEffects = [];
   const packBanes = await game.packs.get("openlegend.banes").getDocuments();
-  packBanes.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) });
+  packBanes.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) });
   const packBoons = await game.packs.get("openlegend.boons").getDocuments();
-  packBoons.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) });
+  packBoons.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) });
   // add all Banes and Boons in world items to accommodate homebrew
-  game.items.contents.forEach( i => { if( (i.type === "boon") || (i.type === "bane") ){ statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground|Blackbackground/g, 'whitetransparent')}) } });
+  game.items.contents.forEach( i => { if( (i.type === "boon") || (i.type === "bane") ){ statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) } });
   // add 'dead' effect
   statusEffects.push( {id: 'dead', name: 'EFFECT.StatusDead', icon: 'icons/svg/skull.svg'} );
   // alpha sort effects by name
