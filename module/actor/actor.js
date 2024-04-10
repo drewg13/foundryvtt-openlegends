@@ -7,6 +7,19 @@ export class olActor extends Actor {
   /**
    * Augment the basic actor data with additional dynamic data.
    */
+  /** @override */
+  async _preCreate( createData, options, userId ) {
+    await super._preCreate( createData, options, userId );
+
+    if( createData.type === "character" ) {
+      createData.prototypeToken = {};
+      createData.prototypeToken.actorLink = true;
+      console.log( createData );
+    }
+
+    await this.updateSource( createData );
+  }
+
   prepareData() {
     super.prepareData();
 
