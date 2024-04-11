@@ -120,6 +120,20 @@ export class olActorSheet extends ActorSheet {
       item.delete();
     });
 
+    // HeroMuster Lookup
+    html.find('.lookup').click(ev => {
+      const tag = ev.currentTarget;
+      const type = tag.dataset.type;
+      const code = tag.dataset.code;
+      const heroURL = "https://openlegend.heromuster.com/"
+      const options = {};
+      options.height = 650;
+      options.width = 550;
+      options.resizable = true;
+      options.title = "HeroMuster " + type.charAt(0).toUpperCase() + type.substr(1).toLowerCase();
+      new FrameViewer(heroURL + type + "-" + code, options).render(true);
+    });
+
     // Update action 'items' directly
     html.find('.action-edit').change( ev => {
       const tag = ev.currentTarget;

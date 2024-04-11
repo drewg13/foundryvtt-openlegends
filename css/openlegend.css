@@ -286,6 +286,24 @@
   grid-template-rows: repeat(26, 26px);
 }
 
+.openlegend .heromuster {
+  background-color: #d9edf7;
+  border: 4px groove #eeede0;
+  font-weight: bolder;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.openlegend .heromuster button {
+  background-color: #d9edf7;
+  border: 4px groove #eeede0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 3em;
+}
+
 .openlegend .attribute-header {
   grid-column: span 3;
   background-color: rgba(0, 0, 0, 0.15);

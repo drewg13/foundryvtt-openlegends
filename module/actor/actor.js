@@ -44,10 +44,12 @@ export class olActor extends Actor {
     let attributes = data.attributes;
     trackers.attr.spent = 0;
     trackers.attr.points = 40 + data.xp*3;
+    data.heroMusterCode = "";
     // Loop through attribute scores, and add their dice to our sheet output.
     for (let [attr_group_name, attr_group] of Object.entries(attributes)) {
       for (let [attr_name, attr] of Object.entries(attr_group)) {
         attr.modified_score = attr.score + (attr.bonus ? attr.bonus : 0)
+        data.heroMusterCode = data.heroMusterCode + String( attr.modified_score );
         attr.bonus_class = (attr.bonus ? (attr.bonus > 0 ? 'upgraded' : 'downgraded') : '');
         attr.bonus_str = (attr.bonus && attr.bonus !== 0 ? (attr.bonus > 0 ? '+'+attr.bonus : attr.bonus) : '');
         attr.dice = this.getDieForAttrScore(attr.modified_score);
