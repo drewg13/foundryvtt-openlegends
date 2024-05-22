@@ -16,7 +16,7 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 11,
-    "verified": 11.315
+    "verified": 12.324
   },
   "scripts": [],
   "esmodules": [
@@ -131,7 +131,8 @@
   "primaryTokenAttribute": "defense.hp",
   "flags": {
     "hotReload": {
-      "extensions": ["css", "html", "json", "js"]
+      "extensions": ["css", "html", "json", "js"],
+      "paths": ["css", "lang", "module", "templates"]
     }
   }
 }

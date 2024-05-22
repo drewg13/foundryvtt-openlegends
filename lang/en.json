@@ -1,3 +1,19 @@
 {
-    
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "armor": "Armor",
+      "attack": "Attack",
+      "bane": "Bane",
+      "boon": "Boon",
+      "feat": "Feat",
+      "flaw": "Flaw",
+      "generic": "Generic",
+      "perk": "Perk",
+      "weapon": "Weapon"
+    }
+  }
 }
