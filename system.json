@@ -126,8 +126,10 @@
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
   "protected": false,
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "defense.hp",
   "flags": {
     "hotReload": {

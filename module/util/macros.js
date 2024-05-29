@@ -2,27 +2,27 @@ import { rollAttr, rollItem } from "../util/dice.js";
 
 const attr_imgs = {
     //Physical
-    "agility": "modules/game-icons-net/blackbackground/body-balance.svg",
-    "fortitude": "modules/game-icons-net/blackbackground/health-normal.svg",
-    "might": "modules/game-icons-net/blackbackground/mighty-force.svg",
+    "agility": "systems/openlegend/icons/blackbackground/body-balance.svg",
+    "fortitude": "systems/openlegend/icons/blackbackground/health-normal.svg",
+    "might": "systems/openlegend/icons/blackbackground/mighty-force.svg",
     //Mental
-    "learning": "modules/game-icons-net/blackbackground/archive-research.svg",
-    "logic": "modules/game-icons-net/blackbackground/logic-gate-xor.svg",
-    "perception": "modules/game-icons-net/blackbackground/semi-closed-eye.svg",
-    "will": "modules/game-icons-net/blackbackground/brain.svg",
+    "learning": "systems/openlegend/icons/blackbackground/archive-research.svg",
+    "logic": "systems/openlegend/icons/blackbackground/logic-gate-xor.svg",
+    "perception": "systems/openlegend/icons/blackbackground/semi-closed-eye.svg",
+    "will": "systems/openlegend/icons/blackbackground/brain.svg",
     //Social
-    "deception": "modules/game-icons-net/blackbackground/diamonds-smile.svg",
-    "persuasion": "modules/game-icons-net/blackbackground/convince.svg",
-    "presence": "modules/game-icons-net/blackbackground/public-speaker.svg",
+    "deception": "systems/openlegend/icons/blackbackground/diamonds-smile.svg",
+    "persuasion": "systems/openlegend/icons/blackbackground/convince.svg",
+    "presence": "systems/openlegend/icons/blackbackground/public-speaker.svg",
     //Extraordinary
-    "alteration": "modules/game-icons-net/blackbackground/card-exchange.svg",
-    "creation": "modules/game-icons-net/blackbackground/anvil-impact.svg",
-    "energy": "modules/game-icons-net/blackbackground/rolling-energy.svg",
-    "entropy": "modules/game-icons-net/blackbackground/poison.svg",
-    "influence": "modules/game-icons-net/blackbackground/retro-controller.svg",
-    "movement": "modules/game-icons-net/blackbackground/move.svg",
-    "prescience": "modules/game-icons-net/blackbackground/crystal-ball.svg",
-    "protection": "modules/game-icons-net/blackbackground/protection-glasses.svg"
+    "alteration": "systems/openlegend/icons/blackbackground/card-exchange.svg",
+    "creation": "systems/openlegend/icons/blackbackground/anvil-impact.svg",
+    "energy": "systems/openlegend/icons/blackbackground/rolling-energy.svg",
+    "entropy": "systems/openlegend/icons/blackbackground/poison.svg",
+    "influence": "systems/openlegend/icons/blackbackground/retro-controller.svg",
+    "movement": "systems/openlegend/icons/blackbackground/move.svg",
+    "prescience": "systems/openlegend/icons/blackbackground/crystal-ball.svg",
+    "protection": "systems/openlegend/icons/blackbackground/protection-glasses.svg"
 };
 
 /* -------------------------------------------- */
