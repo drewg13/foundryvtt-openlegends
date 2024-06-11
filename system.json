@@ -16,7 +16,7 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 11,
-    "verified": 12.324
+    "verified": 12.327
   },
   "scripts": [],
   "esmodules": [

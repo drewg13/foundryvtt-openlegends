@@ -85,9 +85,9 @@ Hooks.once("ready", async function() {
 
   //Set up token status effects from Boons/Banes to replace defaults
   let statusEffects = [];
-  const packBanes = await game.packs.get("openlegend.banes").getDocuments();
+  const packBanes = await game.packs.get("openlegend.banes").getIndex();
   packBanes.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) });
-  const packBoons = await game.packs.get("openlegend.boons").getDocuments();
+  const packBoons = await game.packs.get("openlegend.boons").getIndex();
   packBoons.forEach( i => { statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) });
   // add all Banes and Boons in world items to accommodate homebrew
   game.items.contents.forEach( i => { if( (i.type === "boon") || (i.type === "bane") ){ statusEffects.push ({"id": i.name.slugify(), "name": i.name, "icon": i.img.replace(/blackbackground/g, 'whitetransparent')}) } });
